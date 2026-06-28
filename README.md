@@ -17,7 +17,7 @@ It provides:
 - **Pre-trade gates** (`kggraph pre-trade-check`) for deterministic `allow / observe_only / reject / invalidated` execution checks
 - **Decision status scans** (`kggraph decision-status`) for listing all recorded theses as `usable / watch / blocked / invalidated`
 
-You can start with plain language input. KGgraph will extract nodes/edges and write them for you.
+For judgment-critical workflows, start with `record-decision`. Use `ingest-statement` only for low-risk graph extraction.
 
 ## Install
 
@@ -28,22 +28,145 @@ brew tap 0xfakeSpike/tap
 brew install kggraph
 ```
 
-## Quick start (30 seconds)
+## Quick start: deterministic decision workflow
 
 ```bash
-# 1) Ingest one statement (recommended)
+# 1) Freeze a decision. Evidence, counter-evidence, and failure conditions are required.
+kggraph record-decision \
+  --workspace ./workspace \
+  --market "Oil escalation market" \
+  --thesis "Escalation risk is underpriced" \
+  --action buy \
+  --confidence 0.72 \
+  --evidence-json '["shipping insurance rising", "market not pricing weekend headline risk"]' \
+  --counter-evidence-json '["front-month oil already bid"]' \
+  --failure-conditions-json '["confirmed ceasefire", "contract rules exclude proxy damage"]' \
+  --position-rule "max 1u until settlement clarity"
+
+# 2) Scan all recorded theses before acting.
+kggraph decision-status \
+  --workspace ./workspace
+
+# 3) Ask for a fixed answer. The question wording does not change the verdict.
+kggraph strict-ask \
+  --workspace ./workspace \
+  --market "Oil escalation market" \
+  --thesis "Escalation risk is underpriced" \
+  --question "现在是不是应该买？" \
+  --language zh
+
+# 4) Run the execution gate before placing risk.
+kggraph pre-trade-check \
+  --workspace ./workspace \
+  --market "Oil escalation market" \
+  --thesis "Escalation risk is underpriced" \
+  --intended-action buy \
+  --requested-size "0.5u"
+
+# 5) If a listed failure condition becomes true, it overrides the old thesis.
+kggraph pre-trade-check \
+  --workspace ./workspace \
+  --market "Oil escalation market" \
+  --thesis "Escalation risk is underpriced" \
+  --intended-action buy \
+  --triggered-failures-json '["confirmed ceasefire"]'
+```
+
+## How to use it
+
+### Trading or decision discipline
+
+Use this flow when the goal is stable judgment rather than open-ended brainstorming:
+
+```text
+record-decision -> decision-status -> strict-ask -> pre-trade-check -> review-decision
+```
+
+- `record-decision`: freezes the thesis, action, evidence, counter-evidence, failure conditions, and risk rule
+- `decision-status`: lists every active thesis as `usable`, `watch`, `blocked`, or `invalidated`
+- `strict-ask`: renders a human-readable answer from deterministic evaluation
+- `pre-trade-check`: returns the execution gate: `allow`, `observe_only`, `reject`, or `invalidated`
+- `review-decision`: writes the realized outcome and lessons back into the graph
+
+### Agent or MCP usage
+
+For an AI agent, do not ask the model to re-decide freely. Route judgment-heavy questions through the deterministic tools first:
+
+```text
+kg_decision_status
+kg_evaluate_decision
+kg_strict_ask
+kg_pre_trade_check
+kg_review_decision
+```
+
+The agent can use the returned JSON to explain the result, but it should not override `verdict`, `gate`, `blocking_reasons`, or `failure_conditions`.
+
+### Exploratory graph usage
+
+Use graph expansion when you want context, not execution permission:
+
+```bash
 kggraph ingest-statement \
   --workspace ./workspace \
   --statement "战争升级通常会推高原油价格，并在市场未提前消化时压制美股大盘"
 
-# 2) Expand reasoning from one node
 kggraph expand-reasoning \
   --workspace ./workspace \
   --start-id "战争升级" \
   --max-depth 3
 ```
 
-## Manual mode (optional)
+`ingest-statement` uses the LLM only as a constrained extractor. It is not the right entrypoint for trades or other high-stakes decisions.
+
+## CLI command reference
+
+| Command | Purpose | Calls LLM |
+|---|---|---:|
+| `record-decision` | Freeze a decision with evidence, counter-evidence, failure conditions, and optional risk rule | No |
+| `evaluate-decision` | Recompute the deterministic verdict for one recorded thesis | No |
+| `strict-ask` | Render a fixed human-readable answer from deterministic evaluation | No |
+| `pre-trade-check` | Run the execution gate for an intended action | No |
+| `decision-status` | List status for all recorded theses | No |
+| `review-decision` | Record realized outcome, lessons, and rule updates | No |
+| `ingest-statement` | Extract low-risk graph nodes/edges from natural language | Yes |
+| `expand-reasoning` | Expand weighted graph paths from a start node | No |
+| `add-fact-edge` | Manually add a knowledge edge | No |
+| `add-skill-edge` | Manually add an executable skill/procedure edge | No |
+| `upsert-node` | Manually add or update a node | No |
+| `attach-edge-evidence` | Attach evidence to an existing edge | No |
+| `verify-edge` | Mark an edge verified or failed | No |
+| `lookup-node-exact` | Resolve an exact node id | No |
+| `lookup-node-semantic` | Resolve a node by embedding similarity | Uses embeddings |
+| `list-nodes` | List nodes | No |
+| `list-edges` | List edges | No |
+| `serve-mcp` | Start MCP stdio server | No |
+| `graph-view` | Start local graph viewer | No |
+
+## Common CLI flags
+
+Most commands accept the same storage flags:
+
+- `--workspace ./workspace`: stores data at `./workspace/data/knowledgegraph.sqlite`
+- `--db /path/to/knowledgegraph.sqlite`: uses an explicit SQLite file
+- `KG_DB_PATH=/path/to/knowledgegraph.sqlite`: environment override when `--db` is not passed
+
+LLM and embedding flags are only needed for `ingest-statement` and semantic lookup:
+
+- `--api-key`: OpenAI API key, or `OPENAI_API_KEY`
+- `--base-url`: OpenAI-compatible API base URL, or `OPENAI_BASE_URL`
+- `--embedding-model`: embedding model, or `OPENAI_EMBEDDING_MODEL`
+- `--model`: ingest extraction model, or `OPENAI_MODEL`
+
+Current facts are passed at query time and do not rewrite the graph:
+
+- `--triggered-failures-json '["confirmed ceasefire"]'`
+- `--active-counter-evidence-json '["front-month oil already bid"]'`
+- `--as-of 2026-06-28T12:00:00Z`
+
+Use these flags with `evaluate-decision`, `strict-ask`, `pre-trade-check`, and `decision-status` when market conditions change.
+
+## Manual graph mode (optional)
 
 If you want explicit control, add nodes/edges directly:
 
