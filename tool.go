@@ -14,6 +14,10 @@ const (
 	ToolIngestStatement    = "kg_ingest_statement"
 	ToolRecordDecision     = "kg_record_decision"
 	ToolReviewDecision     = "kg_review_decision"
+	ToolEvaluateDecision   = "kg_evaluate_decision"
+	ToolStrictAsk          = "kg_strict_ask"
+	ToolPreTradeCheck      = "kg_pre_trade_check"
+	ToolDecisionStatus     = "kg_decision_status"
 	ToolAttachEdgeEvidence = "kg_attach_edge_evidence"
 	ToolVerifyEdge         = "kg_verify_edge"
 	ToolLookupNodeExact    = "kg_lookup_node_exact"
@@ -53,6 +57,10 @@ func (s *Service) ToolNames() []string {
 		ToolIngestStatement,
 		ToolRecordDecision,
 		ToolReviewDecision,
+		ToolEvaluateDecision,
+		ToolStrictAsk,
+		ToolPreTradeCheck,
+		ToolDecisionStatus,
 		ToolAttachEdgeEvidence,
 		ToolVerifyEdge,
 		ToolLookupNodeExact,
@@ -194,6 +202,133 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 			Lessons:        lessons,
 			RuleUpdates:    ruleUpdates,
 			SourceRef:      sourceRef,
+		})
+	case ToolEvaluateDecision:
+		market, err := parseRequiredString(arguments, tool, "market")
+		if err != nil {
+			return nil, err
+		}
+		thesis, err := parseRequiredString(arguments, tool, "thesis")
+		if err != nil {
+			return nil, err
+		}
+		triggeredFailures, err := parseOptionalStringList(arguments, "triggered_failures")
+		if err != nil {
+			return nil, fmt.Errorf("%s: %w", tool, err)
+		}
+		activeCounterEvidence, err := parseOptionalStringList(arguments, "active_counter_evidence")
+		if err != nil {
+			return nil, fmt.Errorf("%s: %w", tool, err)
+		}
+		var asOf time.Time
+		if at, ok, err := parseOptionalTime(arguments, "as_of"); err != nil {
+			return nil, err
+		} else if ok {
+			asOf = at
+		}
+		return s.EvaluateDecision(ctx, DecisionEvaluateInput{
+			Market:                market,
+			Thesis:                thesis,
+			AsOf:                  asOf,
+			TriggeredFailures:     triggeredFailures,
+			ActiveCounterEvidence: activeCounterEvidence,
+		})
+	case ToolStrictAsk:
+		market, err := parseRequiredString(arguments, tool, "market")
+		if err != nil {
+			return nil, err
+		}
+		thesis, err := parseRequiredString(arguments, tool, "thesis")
+		if err != nil {
+			return nil, err
+		}
+		question, _ := parseOptionalString(arguments, "question", "")
+		language, _ := parseOptionalString(arguments, "language", "en")
+		triggeredFailures, err := parseOptionalStringList(arguments, "triggered_failures")
+		if err != nil {
+			return nil, fmt.Errorf("%s: %w", tool, err)
+		}
+		activeCounterEvidence, err := parseOptionalStringList(arguments, "active_counter_evidence")
+		if err != nil {
+			return nil, fmt.Errorf("%s: %w", tool, err)
+		}
+		var asOf time.Time
+		if at, ok, err := parseOptionalTime(arguments, "as_of"); err != nil {
+			return nil, err
+		} else if ok {
+			asOf = at
+		}
+		return s.StrictAsk(ctx, StrictAskInput{
+			Market:                market,
+			Thesis:                thesis,
+			Question:              question,
+			Language:              language,
+			AsOf:                  asOf,
+			TriggeredFailures:     triggeredFailures,
+			ActiveCounterEvidence: activeCounterEvidence,
+		})
+	case ToolPreTradeCheck:
+		market, err := parseRequiredString(arguments, tool, "market")
+		if err != nil {
+			return nil, err
+		}
+		thesis, err := parseRequiredString(arguments, tool, "thesis")
+		if err != nil {
+			return nil, err
+		}
+		intendedAction, err := parseRequiredString(arguments, tool, "intended_action")
+		if err != nil {
+			return nil, err
+		}
+		requestedSize, _ := parseOptionalString(arguments, "requested_size", "")
+		riskPlan, _ := parseOptionalString(arguments, "risk_plan", "")
+		triggeredFailures, err := parseOptionalStringList(arguments, "triggered_failures")
+		if err != nil {
+			return nil, fmt.Errorf("%s: %w", tool, err)
+		}
+		activeCounterEvidence, err := parseOptionalStringList(arguments, "active_counter_evidence")
+		if err != nil {
+			return nil, fmt.Errorf("%s: %w", tool, err)
+		}
+		var asOf time.Time
+		if at, ok, err := parseOptionalTime(arguments, "as_of"); err != nil {
+			return nil, err
+		} else if ok {
+			asOf = at
+		}
+		return s.PreTradeCheck(ctx, PreTradeCheckInput{
+			Market:                market,
+			Thesis:                thesis,
+			IntendedAction:        intendedAction,
+			RequestedSize:         requestedSize,
+			RiskPlan:              riskPlan,
+			AsOf:                  asOf,
+			TriggeredFailures:     triggeredFailures,
+			ActiveCounterEvidence: activeCounterEvidence,
+		})
+	case ToolDecisionStatus:
+		market, _ := parseOptionalString(arguments, "market", "")
+		includeEvaluation, _ := parseOptionalBool(arguments, "include_evaluation", false)
+		triggeredFailures, err := parseOptionalStringList(arguments, "triggered_failures")
+		if err != nil {
+			return nil, fmt.Errorf("%s: %w", tool, err)
+		}
+		activeCounterEvidence, err := parseOptionalStringList(arguments, "active_counter_evidence")
+		if err != nil {
+			return nil, fmt.Errorf("%s: %w", tool, err)
+		}
+		var asOf time.Time
+		if at, ok, err := parseOptionalTime(arguments, "as_of"); err != nil {
+			return nil, err
+		} else if ok {
+			asOf = at
+		}
+		return s.DecisionStatus(ctx, DecisionStatusInput{
+			Market:                market,
+			AsOf:                  asOf,
+			TriggeredFailures:     triggeredFailures,
+			ActiveCounterEvidence: activeCounterEvidence,
+			IncludeEvaluation:     includeEvaluation,
 		})
 	case ToolExpandReasoning:
 		startID, err := parseRequiredString(arguments, tool, "start_id")
@@ -456,6 +591,62 @@ func ToolSchema(tool string) map[string]any {
 			"required":             []string{"market", "thesis", "outcome", "realized_result"},
 			"additionalProperties": false,
 		}
+	case ToolEvaluateDecision:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"market":                  map[string]any{"type": "string", "description": "Market or decision object"},
+				"thesis":                  map[string]any{"type": "string", "description": "Recorded thesis to evaluate"},
+				"as_of":                   map[string]any{"type": "string", "description": "RFC3339"},
+				"triggered_failures":      map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "Failure conditions currently triggered"},
+				"active_counter_evidence": map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "Counter-evidence currently active"},
+			},
+			"required":             []string{"market", "thesis"},
+			"additionalProperties": false,
+		}
+	case ToolStrictAsk:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"market":                  map[string]any{"type": "string", "description": "Market or decision object"},
+				"thesis":                  map[string]any{"type": "string", "description": "Recorded thesis to evaluate"},
+				"question":                map[string]any{"type": "string", "description": "User-facing question; does not change the deterministic verdict"},
+				"language":                map[string]any{"type": "string", "description": "en or zh"},
+				"as_of":                   map[string]any{"type": "string", "description": "RFC3339"},
+				"triggered_failures":      map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "Failure conditions currently triggered"},
+				"active_counter_evidence": map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "Counter-evidence currently active"},
+			},
+			"required":             []string{"market", "thesis"},
+			"additionalProperties": false,
+		}
+	case ToolPreTradeCheck:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"market":                  map[string]any{"type": "string", "description": "Market or decision object"},
+				"thesis":                  map[string]any{"type": "string", "description": "Recorded thesis to check"},
+				"intended_action":         map[string]any{"type": "string", "description": "buy|no-buy|hold|reduce|sell|wait|watch"},
+				"requested_size":          map[string]any{"type": "string", "description": "Proposed size, unit, or exposure"},
+				"risk_plan":               map[string]any{"type": "string", "description": "Explicit risk limit or execution plan"},
+				"as_of":                   map[string]any{"type": "string", "description": "RFC3339"},
+				"triggered_failures":      map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "Failure conditions currently triggered"},
+				"active_counter_evidence": map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "Counter-evidence currently active"},
+			},
+			"required":             []string{"market", "thesis", "intended_action"},
+			"additionalProperties": false,
+		}
+	case ToolDecisionStatus:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"market":                  map[string]any{"type": "string", "description": "Optional market filter"},
+				"as_of":                   map[string]any{"type": "string", "description": "RFC3339"},
+				"triggered_failures":      map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "Failure conditions currently triggered"},
+				"active_counter_evidence": map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "Counter-evidence currently active"},
+				"include_evaluation":      map[string]any{"type": "boolean", "description": "Include full deterministic evaluation payload for each thesis"},
+			},
+			"additionalProperties": false,
+		}
 	case ToolAttachEdgeEvidence:
 		return map[string]any{
 			"type": "object",
@@ -533,6 +724,14 @@ func ToolDescription(tool string) string {
 		return "Record a disciplined trading decision with thesis, action, evidence, counter-evidence, failure conditions, triggers, and position rule."
 	case ToolReviewDecision:
 		return "Review a recorded decision, store the realized result and lessons, and mark thesis/action edges as verified or failed."
+	case ToolEvaluateDecision:
+		return "Evaluate a recorded decision with deterministic rules, without calling an LLM."
+	case ToolStrictAsk:
+		return "Render a deterministic answer from a recorded decision evaluation; question text does not change the verdict."
+	case ToolPreTradeCheck:
+		return "Run a deterministic pre-trade gate for a recorded decision and intended action."
+	case ToolDecisionStatus:
+		return "List deterministic status for recorded decision theses, optionally filtered by market."
 	case ToolAttachEdgeEvidence:
 		return "Attach an evidence item to an edge and update success/failure counters."
 	case ToolVerifyEdge:

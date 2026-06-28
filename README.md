@@ -1,17 +1,21 @@
 # KGgraph
 
-`KGgraph` is a **lightweight graph memory and reasoning expansion tool** for AI agents and humans.
+`KGgraph` is a **deterministic judgment memory and reasoning discipline tool** for AI agents and humans.
 
 Use it to:
-- store relationships as a graph
-- expand weighted multi-hop paths (`A -> B -> C`)
-- limit noisy expansion with depth, branch, score, and time filters
+- freeze decisions as thesis, evidence, counter-evidence, failure conditions, and reviews
+- evaluate recorded decisions with deterministic rules, without calling an LLM
+- expand weighted multi-hop graph paths (`A -> B -> C`) when exploratory graph context is useful
 
 It provides:
 - **CLI** (`kggraph ...`)
 - **MCP stdio server** (`kggraph serve-mcp`)
 - **Local graph viewer** (`kggraph graph-view`)
 - **Decision records** (`kggraph record-decision`) for freezing thesis, evidence, counter-evidence, failure conditions, and review triggers
+- **Deterministic decision evaluation** (`kggraph evaluate-decision`) for repeatable `follow / watch / blocked / invalidated` verdicts
+- **Strict answers** (`kggraph strict-ask`) rendered from deterministic evaluation, not from a fresh LLM judgment
+- **Pre-trade gates** (`kggraph pre-trade-check`) for deterministic `allow / observe_only / reject / invalidated` execution checks
+- **Decision status scans** (`kggraph decision-status`) for listing all recorded theses as `usable / watch / blocked / invalidated`
 
 You can start with plain language input. KGgraph will extract nodes/edges and write them for you.
 
@@ -91,6 +95,78 @@ kggraph review-decision \
   --rule-updates-json '["reduce size when a listed failure condition is imminent"]'
 ```
 
+To force a repeatable judgment, evaluate the recorded decision without an LLM:
+
+```bash
+kggraph evaluate-decision \
+  --workspace ./workspace \
+  --market "Oil escalation market" \
+  --thesis "Escalation risk is underpriced"
+```
+
+If a listed failure condition is now true, pass it explicitly. The verdict becomes `invalidated` regardless of how persuasive the original thesis sounded.
+
+```bash
+kggraph evaluate-decision \
+  --workspace ./workspace \
+  --market "Oil escalation market" \
+  --thesis "Escalation risk is underpriced" \
+  --triggered-failures-json '["confirmed ceasefire"]'
+```
+
+`evaluate-decision` returns structured JSON:
+- `verdict`: `follow_recorded_action`, `watch`, `blocked`, or `invalidated`
+- `execution_allowed`: whether the recorded executable action may be followed
+- `blocking_reasons`: exact rule hits that stopped the action
+- `supporting_evidence`, `counter_evidence`, `failure_conditions`, `review_history`
+- deterministic scores computed from stored edge confidence, freshness, and verification history
+
+For a human-readable answer that still cannot be swayed by wording, use `strict-ask`. The `question` is recorded for context but does not change the verdict.
+
+```bash
+kggraph strict-ask \
+  --workspace ./workspace \
+  --market "Oil escalation market" \
+  --thesis "Escalation risk is underpriced" \
+  --question "现在是不是应该买？" \
+  --language zh
+```
+
+`strict-ask` does not call an LLM. It calls the deterministic evaluator and renders the result from a fixed template.
+
+Before placing a trade, use `pre-trade-check`. It is stricter than `strict-ask`: the intended action must match the recorded action, the thesis must not be blocked or invalidated, and an executable action must have a position rule or explicit risk plan.
+
+```bash
+kggraph pre-trade-check \
+  --workspace ./workspace \
+  --market "Oil escalation market" \
+  --thesis "Escalation risk is underpriced" \
+  --intended-action buy \
+  --requested-size "0.5u"
+```
+
+Possible gates:
+- `allow`: execution is allowed only within recorded position/risk constraints
+- `observe_only`: do not add risk; wait for new evidence or review trigger
+- `reject`: do not execute; the action, risk plan, or evaluation is not acceptable
+- `invalidated`: do not execute; the thesis must be reviewed before reuse
+
+For a daily or pre-open scan, use `decision-status`. It does not require an intended action; it lists every active recorded thesis and its current deterministic status.
+
+```bash
+kggraph decision-status \
+  --workspace ./workspace
+```
+
+You can filter to one market or pass currently triggered failure conditions:
+
+```bash
+kggraph decision-status \
+  --workspace ./workspace \
+  --market "Oil escalation market" \
+  --triggered-failures-json '["confirmed ceasefire"]'
+```
+
 ## Defaults (no extra setup needed)
 
 By default, KGgraph auto-fills edge time fields internally:
@@ -101,7 +177,12 @@ By default, KGgraph auto-fills edge time fields internally:
 
 You only need to provide extra time fields when you want strict time-window behavior.
 
-For `ingest-statement`, KGgraph asks the LLM to infer edge time fields from the statement first; internal defaults are used only when the model cannot infer them.
+For `ingest-statement`, KGgraph uses the LLM only as a constrained extractor:
+- it must return strict JSON
+- confidence means extraction certainty, not real-world truth probability
+- it must not judge whether a claim is true, tradable, important, or likely
+- unsupported node types, relations, polarity values, confidence values, and unknown JSON fields are rejected before write
+- edge time fields are accepted only when explicitly present in the statement; internal defaults are used only when the model cannot infer them
 
 ## MCP usage
 
@@ -116,6 +197,10 @@ Main tools:
 - `kg_ingest_statement`
 - `kg_record_decision`
 - `kg_review_decision`
+- `kg_evaluate_decision`
+- `kg_strict_ask`
+- `kg_pre_trade_check`
+- `kg_decision_status`
 - `kg_expand_reasoning`
 - `kg_lookup_node_exact`
 - `kg_lookup_node_semantic`
@@ -135,11 +220,12 @@ kggraph graph-view
 
 In the viewer, set `start-id` / `max-depth` / `graph-kind`, then click `Refresh` to reload from SQLite.
 
-## Limitations
+## Design boundaries
 
-- not a full logical reasoner
-- LLM ingestion can still create noisy nodes/edges
-- decision quality still depends on the user-supplied evidence and failure conditions
+- KGgraph is not a graph database replacement. SQLite is the local persistence layer.
+- KGgraph is not an unconstrained chatbot. Its decision mode is intentionally strict and rule-bound.
+- LLM ingestion can still create noisy nodes/edges; use `record-decision` for judgment-critical workflows.
+- Decision quality still depends on the user-supplied evidence and failure conditions.
 - semantic lookup requires embeddings
 - SQLite target is local/small-to-medium agent memory
 

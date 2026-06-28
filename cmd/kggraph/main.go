@@ -40,6 +40,14 @@ func main() {
 		runRecordDecision(ctx, args)
 	case "review-decision":
 		runReviewDecision(ctx, args)
+	case "evaluate-decision":
+		runEvaluateDecision(ctx, args)
+	case "strict-ask":
+		runStrictAsk(ctx, args)
+	case "pre-trade-check":
+		runPreTradeCheck(ctx, args)
+	case "decision-status":
+		runDecisionStatus(ctx, args)
 	case "attach-edge-evidence":
 		runAttachEdgeEvidence(ctx, args)
 	case "verify-edge":
@@ -68,7 +76,7 @@ func main() {
 }
 
 func usage() string {
-	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, record-decision, review-decision, attach-edge-evidence, verify-edge, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
+	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, attach-edge-evidence, verify-edge, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
 }
 
 func addCommonFlags(fs *flag.FlagSet, c *commonFlags) {
@@ -282,6 +290,137 @@ func runReviewDecision(ctx context.Context, argv []string) {
 	writeResult(err, out)
 }
 
+func runEvaluateDecision(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("evaluate-decision", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var market, thesis, asOf, triggeredFailuresJSON, activeCounterEvidenceJSON string
+	fs.StringVar(&market, "market", "", "market or decision object")
+	fs.StringVar(&thesis, "thesis", "", "recorded thesis to evaluate")
+	fs.StringVar(&asOf, "as-of", "", "optional RFC3339 query time")
+	fs.StringVar(&triggeredFailuresJSON, "triggered-failures-json", "[]", "JSON array of currently triggered failure conditions")
+	fs.StringVar(&activeCounterEvidenceJSON, "active-counter-evidence-json", "[]", "JSON array of currently active counter-evidence")
+	mustParse(fs, argv)
+	triggeredFailures := mustParseStringArrayFlag("triggered-failures-json", triggeredFailuresJSON)
+	activeCounterEvidence := mustParseStringArrayFlag("active-counter-evidence-json", activeCounterEvidenceJSON)
+	args := map[string]any{
+		"market":                  market,
+		"thesis":                  thesis,
+		"triggered_failures":      anySlice(triggeredFailures),
+		"active_counter_evidence": anySlice(activeCounterEvidence),
+	}
+	if strings.TrimSpace(asOf) != "" {
+		args["as_of"] = asOf
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolEvaluateDecision, args)
+	writeResult(err, out)
+}
+
+func runStrictAsk(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("strict-ask", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var market, thesis, question, language, asOf, triggeredFailuresJSON, activeCounterEvidenceJSON string
+	fs.StringVar(&market, "market", "", "market or decision object")
+	fs.StringVar(&thesis, "thesis", "", "recorded thesis to evaluate")
+	fs.StringVar(&question, "question", "", "user-facing question; does not affect verdict")
+	fs.StringVar(&language, "language", "en", "answer language: en or zh")
+	fs.StringVar(&asOf, "as-of", "", "optional RFC3339 query time")
+	fs.StringVar(&triggeredFailuresJSON, "triggered-failures-json", "[]", "JSON array of currently triggered failure conditions")
+	fs.StringVar(&activeCounterEvidenceJSON, "active-counter-evidence-json", "[]", "JSON array of currently active counter-evidence")
+	mustParse(fs, argv)
+	triggeredFailures := mustParseStringArrayFlag("triggered-failures-json", triggeredFailuresJSON)
+	activeCounterEvidence := mustParseStringArrayFlag("active-counter-evidence-json", activeCounterEvidenceJSON)
+	args := map[string]any{
+		"market":                  market,
+		"thesis":                  thesis,
+		"question":                question,
+		"language":                language,
+		"triggered_failures":      anySlice(triggeredFailures),
+		"active_counter_evidence": anySlice(activeCounterEvidence),
+	}
+	if strings.TrimSpace(asOf) != "" {
+		args["as_of"] = asOf
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolStrictAsk, args)
+	writeResult(err, out)
+}
+
+func runPreTradeCheck(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("pre-trade-check", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var market, thesis, intendedAction, requestedSize, riskPlan, asOf, triggeredFailuresJSON, activeCounterEvidenceJSON string
+	fs.StringVar(&market, "market", "", "market or decision object")
+	fs.StringVar(&thesis, "thesis", "", "recorded thesis to check")
+	fs.StringVar(&intendedAction, "intended-action", "", "buy, no-buy, hold, reduce, sell, wait, or watch")
+	fs.StringVar(&requestedSize, "requested-size", "", "proposed size, unit, or exposure")
+	fs.StringVar(&riskPlan, "risk-plan", "", "explicit risk limit or execution plan")
+	fs.StringVar(&asOf, "as-of", "", "optional RFC3339 query time")
+	fs.StringVar(&triggeredFailuresJSON, "triggered-failures-json", "[]", "JSON array of currently triggered failure conditions")
+	fs.StringVar(&activeCounterEvidenceJSON, "active-counter-evidence-json", "[]", "JSON array of currently active counter-evidence")
+	mustParse(fs, argv)
+	triggeredFailures := mustParseStringArrayFlag("triggered-failures-json", triggeredFailuresJSON)
+	activeCounterEvidence := mustParseStringArrayFlag("active-counter-evidence-json", activeCounterEvidenceJSON)
+	args := map[string]any{
+		"market":                  market,
+		"thesis":                  thesis,
+		"intended_action":         intendedAction,
+		"requested_size":          requestedSize,
+		"risk_plan":               riskPlan,
+		"triggered_failures":      anySlice(triggeredFailures),
+		"active_counter_evidence": anySlice(activeCounterEvidence),
+	}
+	if strings.TrimSpace(asOf) != "" {
+		args["as_of"] = asOf
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolPreTradeCheck, args)
+	writeResult(err, out)
+}
+
+func runDecisionStatus(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("decision-status", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var market, asOf, triggeredFailuresJSON, activeCounterEvidenceJSON string
+	var includeEvaluation bool
+	fs.StringVar(&market, "market", "", "optional market filter")
+	fs.StringVar(&asOf, "as-of", "", "optional RFC3339 query time")
+	fs.StringVar(&triggeredFailuresJSON, "triggered-failures-json", "[]", "JSON array of currently triggered failure conditions")
+	fs.StringVar(&activeCounterEvidenceJSON, "active-counter-evidence-json", "[]", "JSON array of currently active counter-evidence")
+	fs.BoolVar(&includeEvaluation, "include-evaluation", false, "include full deterministic evaluation payload")
+	mustParse(fs, argv)
+	triggeredFailures := mustParseStringArrayFlag("triggered-failures-json", triggeredFailuresJSON)
+	activeCounterEvidence := mustParseStringArrayFlag("active-counter-evidence-json", activeCounterEvidenceJSON)
+	args := map[string]any{
+		"market":                  market,
+		"triggered_failures":      anySlice(triggeredFailures),
+		"active_counter_evidence": anySlice(activeCounterEvidence),
+		"include_evaluation":      includeEvaluation,
+	}
+	if strings.TrimSpace(asOf) != "" {
+		args["as_of"] = asOf
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolDecisionStatus, args)
+	writeResult(err, out)
+}
+
 func runAttachEdgeEvidence(ctx context.Context, argv []string) {
 	fs := flag.NewFlagSet("attach-edge-evidence", flag.ContinueOnError)
 	fs.SetOutput(os.Stderr)
@@ -478,6 +617,7 @@ func writeResult(err error, out map[string]any) {
 func writeJSONAndExit(code int, payload map[string]any) {
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetIndent("", "  ")
+	enc.SetEscapeHTML(false)
 	_ = enc.Encode(payload)
 	os.Exit(code)
 }
