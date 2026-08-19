@@ -374,6 +374,19 @@ func (g *Graph) RetireEdge(edgeID int64, asOf time.Time) (EdgeRow, error) {
 	return row, nil
 }
 
+// ReopenEdge extends the edge's validity end to at least asOf, or clears it
+// entirely when openEnded is true. Edges already valid at asOf are unchanged.
+func (g *Graph) ReopenEdge(edgeID int64, asOf time.Time, openEnded bool) (EdgeRow, error) {
+	if g == nil || g.store == nil {
+		return EdgeRow{}, fmt.Errorf("knowledgegraph: reopen edge: store is nil")
+	}
+	row, err := g.store.EdgeReopen(edgeID, asOf, openEnded)
+	if err != nil {
+		return EdgeRow{}, fmt.Errorf("knowledgegraph: reopen edge: %w", err)
+	}
+	return row, nil
+}
+
 func (g *Graph) CanonicalFor(term string) (string, bool, error) {
 	term = canonicalizeNodeID(term)
 	if term == "" {

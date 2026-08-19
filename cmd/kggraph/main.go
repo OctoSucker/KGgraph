@@ -54,8 +54,12 @@ func main() {
 		runVerifyEdge(ctx, args)
 	case "retire-edge":
 		runRetireEdge(ctx, args)
+	case "reopen-edge":
+		runReopenEdge(ctx, args)
 	case "conflict-scan":
 		runConflictScan(ctx, args)
+	case "decision-audit":
+		runDecisionAudit(ctx, args)
 	case "expand-reasoning":
 		runExpandReasoning(ctx, args)
 	case "lookup-node-exact":
@@ -80,7 +84,7 @@ func main() {
 }
 
 func usage() string {
-	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, attach-edge-evidence, verify-edge, retire-edge, conflict-scan, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
+	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, attach-edge-evidence, verify-edge, retire-edge, reopen-edge, conflict-scan, decision-audit, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
 }
 
 func addCommonFlags(fs *flag.FlagSet, c *commonFlags) {
@@ -144,6 +148,7 @@ func runAddEdge(ctx context.Context, argv []string, tool string) {
 	var cfg commonFlags
 	addCommonFlags(fs, &cfg)
 	var fromID, toID, relationType, conditionText, sourceType, sourceRef, observedAt, validFrom, validUntil, expiresAt, activationRule string
+	var conflictPolicy string
 	var polarity, decayHalfLifeDays int
 	var confidence float64
 	fs.StringVar(&fromID, "from-id", "", "source node id")
@@ -160,6 +165,7 @@ func runAddEdge(ctx context.Context, argv []string, tool string) {
 	fs.IntVar(&decayHalfLifeDays, "decay-half-life-days", 30, "time decay half-life in days")
 	fs.StringVar(&expiresAt, "expires-at", "", "optional RFC3339 expiration")
 	fs.StringVar(&activationRule, "activation-rule", "", "skill activation rule (required for add-skill-edge)")
+	fs.StringVar(&conflictPolicy, "conflict-policy", "warn", "block, warn, or off")
 	mustParse(fs, argv)
 	args := map[string]any{
 		"from_id":              fromID,
@@ -171,6 +177,7 @@ func runAddEdge(ctx context.Context, argv []string, tool string) {
 		"source_type":          sourceType,
 		"source_ref":           sourceRef,
 		"decay_half_life_days": decayHalfLifeDays,
+		"conflict_policy":      conflictPolicy,
 	}
 	if strings.TrimSpace(expiresAt) != "" {
 		args["expires_at"] = expiresAt
@@ -200,6 +207,7 @@ func runIngestStatement(ctx context.Context, argv []string) {
 	var cfg commonFlags
 	addCommonFlags(fs, &cfg)
 	var statement, graphKind, sourceType, sourceRef, model string
+	var conflictPolicy string
 	var defaultConfidence float64
 	fs.StringVar(&statement, "statement", "", "natural-language statement to ingest")
 	fs.StringVar(&graphKind, "graph-kind", "knowledge", "graph kind filter")
@@ -207,6 +215,7 @@ func runIngestStatement(ctx context.Context, argv []string) {
 	fs.StringVar(&sourceRef, "source-ref", "", "source ref")
 	fs.StringVar(&model, "model", getenvDefault("OPENAI_MODEL", kggraph.DefaultIngestModel), "LLM model used for extraction")
 	fs.Float64Var(&defaultConfidence, "default-confidence", kggraph.DefaultIngestConfidence, "fallback confidence when LLM is uncertain")
+	fs.StringVar(&conflictPolicy, "conflict-policy", "warn", "block, warn, or off")
 	mustParse(fs, argv)
 	args := map[string]any{
 		"statement":          statement,
@@ -215,6 +224,7 @@ func runIngestStatement(ctx context.Context, argv []string) {
 		"source_ref":         sourceRef,
 		"model":              model,
 		"default_confidence": defaultConfidence,
+		"conflict_policy":    conflictPolicy,
 	}
 	svc, err := openService(cfg)
 	exitOnOpenError(err)
@@ -511,6 +521,29 @@ func runRetireEdge(ctx context.Context, argv []string) {
 	writeResult(err, out)
 }
 
+func runReopenEdge(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("reopen-edge", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var edgeID int64
+	var asOf string
+	var openEnded bool
+	fs.Int64Var(&edgeID, "edge-id", 0, "edge id to reopen")
+	fs.StringVar(&asOf, "as-of", "", "optional RFC3339 time the edge should be valid through; defaults to now")
+	fs.BoolVar(&openEnded, "open-ended", false, "clear the validity end entirely")
+	mustParse(fs, argv)
+	args := map[string]any{"edge_id": edgeID, "open_ended": openEnded}
+	if strings.TrimSpace(asOf) != "" {
+		args["as_of"] = asOf
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolReopenEdge, args)
+	writeResult(err, out)
+}
+
 func runConflictScan(ctx context.Context, argv []string) {
 	fs := flag.NewFlagSet("conflict-scan", flag.ContinueOnError)
 	fs.SetOutput(os.Stderr)
@@ -539,6 +572,27 @@ func runConflictScan(ctx context.Context, argv []string) {
 	exitOnOpenError(err)
 	defer svc.Close()
 	out, err := svc.Call(ctx, kggraph.ToolConflictScan, args)
+	writeResult(err, out)
+}
+
+func runDecisionAudit(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("decision-audit", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var market, thesis, asOf string
+	fs.StringVar(&market, "market", "", "market or decision object")
+	fs.StringVar(&thesis, "thesis", "", "recorded thesis to audit")
+	fs.StringVar(&asOf, "as-of", "", "optional RFC3339 query time")
+	mustParse(fs, argv)
+	args := map[string]any{"market": market, "thesis": thesis}
+	if strings.TrimSpace(asOf) != "" {
+		args["as_of"] = asOf
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolDecisionAudit, args)
 	writeResult(err, out)
 }
 

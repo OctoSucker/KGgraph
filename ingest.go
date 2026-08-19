@@ -33,7 +33,7 @@ type extractedEdge struct {
 	ValidUntil string  `json:"valid_until"`
 }
 
-func (s *Service) IngestStatement(ctx context.Context, statement, graphKind, sourceType, sourceRef, model string, defaultConfidence float64) (map[string]any, error) {
+func (s *Service) IngestStatement(ctx context.Context, statement, graphKind, sourceType, sourceRef, model string, defaultConfidence float64, conflictPolicy string) (map[string]any, error) {
 	statement = strings.TrimSpace(statement)
 	if statement == "" {
 		return nil, fmt.Errorf("knowledgegraph: ingest statement: empty statement")
@@ -49,6 +49,13 @@ func (s *Service) IngestStatement(ctx context.Context, statement, graphKind, sou
 	}
 	if defaultConfidence <= 0 || defaultConfidence > 1 {
 		defaultConfidence = DefaultIngestConfidence
+	}
+	policy := canonicalizeNodeID(conflictPolicy)
+	if policy == "" {
+		policy = ConflictPolicyWarn
+	}
+	if !validConflictPolicy(policy) {
+		return nil, fmt.Errorf("knowledgegraph: ingest statement: conflict_policy must be block, warn, or off")
 	}
 	nodes, edges, err := s.extractWithLLM(ctx, statement, model, defaultConfidence)
 	if err != nil {
@@ -77,26 +84,14 @@ func (s *Service) IngestStatement(ctx context.Context, statement, graphKind, sou
 		}
 		nodeSet[id] = struct{}{}
 	}
-	addedEdges := make([]map[string]any, 0, len(edges))
+	pending := make([]EdgeUpsert, 0, len(edges))
 	for _, e := range edges {
 		fromID := strings.TrimSpace(e.FromID)
 		toID := strings.TrimSpace(e.ToID)
 		if fromID == "" || toID == "" {
 			continue
 		}
-		if _, ok := nodeSet[fromID]; !ok {
-			if err := s.graph.UpsertNode(ctx, NodeUpsert{ID: fromID, NodeType: "entity", Status: "active"}); err != nil {
-				return nil, err
-			}
-			nodeSet[fromID] = struct{}{}
-		}
-		if _, ok := nodeSet[toID]; !ok {
-			if err := s.graph.UpsertNode(ctx, NodeUpsert{ID: toID, NodeType: "entity", Status: "active"}); err != nil {
-				return nil, err
-			}
-			nodeSet[toID] = struct{}{}
-		}
-		relation := strings.TrimSpace(e.RelationType)
+		relation := canonicalizeNodeID(e.RelationType)
 		if relation == "" {
 			return nil, fmt.Errorf("knowledgegraph: ingest statement: edge relation is required")
 		}
@@ -108,29 +103,72 @@ func (s *Service) IngestStatement(ctx context.Context, statement, graphKind, sou
 		if polarity < -1 || polarity > 1 {
 			return nil, fmt.Errorf("knowledgegraph: ingest statement: edge polarity must be -1, 0, or 1")
 		}
-		edgeID, err := s.graph.UpsertEdge(ctx, EdgeUpsert{
-			FromID:        fromID,
-			ToID:          toID,
-			GraphKind:     graphKind,
-			RelationType:  relation,
-			Polarity:      polarity,
-			Confidence:    conf,
-			ConditionText: strings.TrimSpace(e.ConditionText),
-			SourceType:    sourceType,
-			SourceRef:     sourceRef,
-			ObservedAt:    e.ObservedAt,
-			ValidFrom:     e.ValidFrom,
-			ValidUntil:    e.ValidUntil,
-		})
+		e.FromID = fromID
+		e.ToID = toID
+		e.RelationType = relation
+		e.GraphKind = graphKind
+		e.SourceType = sourceType
+		e.SourceRef = sourceRef
+		pending = append(pending, e)
+	}
+
+	conflictsByEdge := make([]map[string]any, 0, len(pending))
+	if policy != ConflictPolicyOff {
+		for _, e := range pending {
+			out, err := s.ConflictScan(ctx, ConflictScanInput{
+				FromID:       e.FromID,
+				ToID:         e.ToID,
+				RelationType: e.RelationType,
+				Polarity:     e.Polarity,
+				GraphKind:    graphKind,
+			})
+			if err != nil {
+				return nil, err
+			}
+			conflicts, _ := out["conflicts"].([]map[string]any)
+			if len(conflicts) == 0 {
+				continue
+			}
+			conflictsByEdge = append(conflictsByEdge, map[string]any{
+				"candidate": map[string]any{
+					"from_id":       e.FromID,
+					"to_id":         e.ToID,
+					"relation_type": e.RelationType,
+					"polarity":      e.Polarity,
+				},
+				"conflict_count": len(conflicts),
+				"conflicts":      conflicts,
+			})
+		}
+		if policy == ConflictPolicyBlock && len(conflictsByEdge) > 0 {
+			return nil, fmt.Errorf("knowledgegraph: ingest statement: conflict_policy=block rejected %d conflicting edge(s)", len(conflictsByEdge))
+		}
+	}
+
+	addedEdges := make([]map[string]any, 0, len(pending))
+	for _, e := range pending {
+		if _, ok := nodeSet[e.FromID]; !ok {
+			if err := s.graph.UpsertNode(ctx, NodeUpsert{ID: e.FromID, NodeType: "entity", Status: "active"}); err != nil {
+				return nil, err
+			}
+			nodeSet[e.FromID] = struct{}{}
+		}
+		if _, ok := nodeSet[e.ToID]; !ok {
+			if err := s.graph.UpsertNode(ctx, NodeUpsert{ID: e.ToID, NodeType: "entity", Status: "active"}); err != nil {
+				return nil, err
+			}
+			nodeSet[e.ToID] = struct{}{}
+		}
+		edgeID, err := s.graph.UpsertEdge(ctx, e)
 		if err != nil {
 			return nil, err
 		}
 		addedEdges = append(addedEdges, map[string]any{
 			"edge_id":       edgeID,
-			"from_id":       fromID,
-			"to_id":         toID,
-			"relation_type": relation,
-			"confidence":    conf,
+			"from_id":       e.FromID,
+			"to_id":         e.ToID,
+			"relation_type": e.RelationType,
+			"confidence":    e.Confidence,
 		})
 	}
 	nodeIDs := make([]string, 0, len(nodeSet))
@@ -138,14 +176,16 @@ func (s *Service) IngestStatement(ctx context.Context, statement, graphKind, sou
 		nodeIDs = append(nodeIDs, id)
 	}
 	return map[string]any{
-		"statement":    statement,
-		"graph_kind":   graphKind,
-		"source_type":  sourceType,
-		"node_count":   len(nodeIDs),
-		"edge_count":   len(addedEdges),
-		"node_ids":     nodeIDs,
-		"edges":        addedEdges,
-		"ingest_model": model,
+		"statement":         statement,
+		"graph_kind":        graphKind,
+		"source_type":       sourceType,
+		"node_count":        len(nodeIDs),
+		"edge_count":        len(addedEdges),
+		"node_ids":          nodeIDs,
+		"edges":             addedEdges,
+		"ingest_model":      model,
+		"conflict_policy":   policy,
+		"conflicts_by_edge": conflictsByEdge,
 	}, nil
 }
 

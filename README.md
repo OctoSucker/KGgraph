@@ -169,7 +169,9 @@ kggraph expand-reasoning \
 | `attach-edge-evidence` | Attach evidence to an existing edge | No |
 | `verify-edge` | Mark an edge verified or failed | No |
 | `retire-edge` | Close an edge's validity window; it stops contributing after the retirement time | No |
+| `reopen-edge` | Extend an edge's validity, or clear its validity end entirely | No |
 | `conflict-scan` | List active edges that deterministically contradict a candidate edge | No |
+| `decision-audit` | Show the full provenance timeline of a recorded decision, including attached evidence and reviews | No |
 | `lookup-node-exact` | Resolve an exact node id | No |
 | `lookup-node-semantic` | Resolve a node by embedding similarity | Uses embeddings |
 | `list-nodes` | List nodes | No |
@@ -209,6 +211,16 @@ kggraph upsert-node --workspace ./workspace --id "战争升级" --node-type even
 kggraph upsert-node --workspace ./workspace --id "原油上涨" --node-type event
 kggraph add-fact-edge --workspace ./workspace --from-id "战争升级" --to-id "原油上涨" --relation-type increases_probability_of --confidence 0.72
 ```
+
+### Write-path conflict protection
+
+`add-fact-edge`, `add-skill-edge`, and `ingest-statement` run a deterministic conflict scan before writing. The policy is set with `--conflict-policy` (or `conflict_policy` for MCP):
+
+- `warn` (default): conflicting edges are written and reported in the response
+- `block`: the write fails if any conflicting active edge exists
+- `off`: skip the scan
+
+For decision-critical knowledge, prefer `block` so a claim that contradicts a stored, still-valid fact cannot silently enter the graph.
 
 ## Decision discipline mode
 
@@ -366,7 +378,9 @@ Main tools:
 - `kg_attach_edge_evidence`
 - `kg_verify_edge`
 - `kg_retire_edge`
+- `kg_reopen_edge`
 - `kg_conflict_scan`
+- `kg_decision_audit`
 
 Example MCP client config: `examples/mcp-stdio.json`
 

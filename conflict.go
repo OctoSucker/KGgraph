@@ -8,7 +8,54 @@ import (
 	"time"
 )
 
-const ConflictScanMode = "conflict_scan"
+const (
+	ConflictScanMode    = "conflict_scan"
+	ConflictPolicyWarn  = "warn"
+	ConflictPolicyBlock = "block"
+	ConflictPolicyOff   = "off"
+)
+
+// checkEdgeConflictPolicy runs ConflictScan for a candidate edge before it is
+// written. Policies:
+//   - warn (default): conflicts are returned but the write proceeds;
+//   - block: the write fails when any conflicting active edge exists;
+//   - off: no scan is performed.
+func checkEdgeConflictPolicy(ctx context.Context, s *Service, in EdgeUpsert, policy string) ([]map[string]any, error) {
+	policy = canonicalizeNodeID(policy)
+	if policy == "" {
+		policy = ConflictPolicyWarn
+	}
+	if !validConflictPolicy(policy) {
+		return nil, fmt.Errorf("knowledgegraph: conflict_policy must be block, warn, or off")
+	}
+	if policy == ConflictPolicyOff {
+		return nil, nil
+	}
+	out, err := s.ConflictScan(ctx, ConflictScanInput{
+		FromID:       in.FromID,
+		ToID:         in.ToID,
+		RelationType: in.RelationType,
+		Polarity:     in.Polarity,
+		GraphKind:    in.GraphKind,
+	})
+	if err != nil {
+		return nil, err
+	}
+	conflicts, _ := out["conflicts"].([]map[string]any)
+	if policy == ConflictPolicyBlock && len(conflicts) > 0 {
+		return nil, fmt.Errorf("knowledgegraph: conflict_policy=block rejected %d conflicting edge(s)", len(conflicts))
+	}
+	return conflicts, nil
+}
+
+func validConflictPolicy(policy string) bool {
+	switch policy {
+	case ConflictPolicyWarn, ConflictPolicyBlock, ConflictPolicyOff:
+		return true
+	default:
+		return false
+	}
+}
 
 // ConflictScanInput describes a candidate edge. ConflictScan lists existing
 // active edges that contradict it, without calling an LLM.

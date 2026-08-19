@@ -472,6 +472,86 @@ func (s *Store) EdgeRetire(edgeID int64, asOf time.Time) (EdgeRow, error) {
 	return s.EdgeByID(edgeID)
 }
 
+// EdgeReopen extends the edge's validity end to at least asOf. When openEnded
+// is true the validity end is cleared entirely (edge remains valid until
+// retired again). A still-valid edge is left untouched.
+func (s *Store) EdgeReopen(edgeID int64, asOf time.Time, openEnded bool) (EdgeRow, error) {
+	if edgeID <= 0 {
+		return EdgeRow{}, fmt.Errorf("knowledgegraph: reopen edge: edge_id must be > 0")
+	}
+	if asOf.IsZero() {
+		asOf = time.Now().UTC()
+	}
+	asOf = asOf.UTC()
+	row, err := s.EdgeByID(edgeID)
+	if err != nil {
+		return EdgeRow{}, err
+	}
+	if openEnded {
+		if row.ValidUntil == nil {
+			return row, nil
+		}
+		if _, err := s.conn.Exec(fmt.Sprintf(`
+			UPDATE %s
+			SET valid_until = NULL, updated_at = CURRENT_TIMESTAMP
+			WHERE id = ?
+		`, tableEdges), edgeID); err != nil {
+			return EdgeRow{}, err
+		}
+		return s.EdgeByID(edgeID)
+	}
+	if row.ValidUntil == nil || !asOf.After(row.ValidUntil.UTC()) {
+		// Already valid at or beyond asOf; nothing to extend.
+		return row, nil
+	}
+	if _, err := s.conn.Exec(fmt.Sprintf(`
+		UPDATE %s
+		SET valid_until = ?, updated_at = CURRENT_TIMESTAMP
+		WHERE id = ?
+	`, tableEdges), asOf, edgeID); err != nil {
+		return EdgeRow{}, err
+	}
+	return s.EdgeByID(edgeID)
+}
+
+type EdgeEvidenceRow struct {
+	ID         int64
+	EdgeID     int64
+	SourceType string
+	SourceRef  string
+	Snippet    string
+	ObservedAt time.Time
+	Supports   bool
+	Weight     float64
+}
+
+func (s *Store) EdgeEvidenceList(edgeID int64) ([]EdgeEvidenceRow, error) {
+	if edgeID <= 0 {
+		return nil, fmt.Errorf("knowledgegraph: edge evidence list: edge_id must be > 0")
+	}
+	rows, err := s.conn.Query(`
+		SELECT id, edge_id, source_type, source_ref, snippet, observed_at, supports, weight
+		FROM kg_edge_evidence
+		WHERE edge_id = ?
+		ORDER BY id
+	`, edgeID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var out []EdgeEvidenceRow
+	for rows.Next() {
+		var r EdgeEvidenceRow
+		var supports int
+		if err := rows.Scan(&r.ID, &r.EdgeID, &r.SourceType, &r.SourceRef, &r.Snippet, &r.ObservedAt, &supports, &r.Weight); err != nil {
+			return nil, err
+		}
+		r.Supports = supports != 0
+		out = append(out, r)
+	}
+	return out, rows.Err()
+}
+
 type edgeScanner interface {
 	Scan(dest ...any) error
 }

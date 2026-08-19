@@ -21,7 +21,9 @@ const (
 	ToolAttachEdgeEvidence = "kg_attach_edge_evidence"
 	ToolVerifyEdge         = "kg_verify_edge"
 	ToolRetireEdge         = "kg_retire_edge"
+	ToolReopenEdge         = "kg_reopen_edge"
 	ToolConflictScan       = "kg_conflict_scan"
+	ToolDecisionAudit      = "kg_decision_audit"
 	ToolLookupNodeExact    = "kg_lookup_node_exact"
 	ToolLookupNodeSemantic = "kg_lookup_node_semantic"
 	ToolListNodes          = "kg_list_nodes"
@@ -66,7 +68,9 @@ func (s *Service) ToolNames() []string {
 		ToolAttachEdgeEvidence,
 		ToolVerifyEdge,
 		ToolRetireEdge,
+		ToolReopenEdge,
 		ToolConflictScan,
+		ToolDecisionAudit,
 		ToolLookupNodeExact,
 		ToolLookupNodeSemantic,
 		ToolListNodes,
@@ -99,11 +103,24 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 		}
 		in.IsExecutable = false
 		in.ActivationRule = ""
+		conflictPolicy, _ := parseOptionalString(arguments, "conflict_policy", ConflictPolicyWarn)
+		conflicts, err := checkEdgeConflictPolicy(ctx, s, in, conflictPolicy)
+		if err != nil {
+			return nil, err
+		}
 		edgeID, err := s.graph.UpsertEdge(ctx, in)
 		if err != nil {
 			return nil, err
 		}
-		return map[string]any{"edge_id": edgeID, "graph_kind": in.GraphKind}, nil
+		out := map[string]any{
+			"edge_id":         edgeID,
+			"graph_kind":      in.GraphKind,
+			"conflict_policy": canonicalizeNodeID(conflictPolicy),
+		}
+		if len(conflicts) > 0 {
+			out["conflicts"] = conflicts
+		}
+		return out, nil
 	case ToolAddSkillEdge:
 		in, err := parseEdgeInput(arguments, tool, "skill")
 		if err != nil {
@@ -112,11 +129,24 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 		in.IsExecutable = true
 		activationRule, _ := parseOptionalString(arguments, "activation_rule", "")
 		in.ActivationRule = activationRule
+		conflictPolicy, _ := parseOptionalString(arguments, "conflict_policy", ConflictPolicyWarn)
+		conflicts, err := checkEdgeConflictPolicy(ctx, s, in, conflictPolicy)
+		if err != nil {
+			return nil, err
+		}
 		edgeID, err := s.graph.UpsertEdge(ctx, in)
 		if err != nil {
 			return nil, err
 		}
-		return map[string]any{"edge_id": edgeID, "graph_kind": in.GraphKind}, nil
+		out := map[string]any{
+			"edge_id":         edgeID,
+			"graph_kind":      in.GraphKind,
+			"conflict_policy": canonicalizeNodeID(conflictPolicy),
+		}
+		if len(conflicts) > 0 {
+			out["conflicts"] = conflicts
+		}
+		return out, nil
 	case ToolIngestStatement:
 		statement, err := parseRequiredString(arguments, tool, "statement")
 		if err != nil {
@@ -127,7 +157,8 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 		sourceRef, _ := parseOptionalString(arguments, "source_ref", "")
 		model, _ := parseOptionalString(arguments, "model", "")
 		defaultConfidence, _ := parseOptionalFloat(arguments, "default_confidence", DefaultIngestConfidence)
-		return s.IngestStatement(ctx, statement, graphKind, sourceType, sourceRef, model, defaultConfidence)
+		conflictPolicy, _ := parseOptionalString(arguments, "conflict_policy", ConflictPolicyWarn)
+		return s.IngestStatement(ctx, statement, graphKind, sourceType, sourceRef, model, defaultConfidence, conflictPolicy)
 	case ToolRecordDecision:
 		market, err := parseRequiredString(arguments, tool, "market")
 		if err != nil {
@@ -458,6 +489,31 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 			"valid_until": row.ValidUntil.Format(time.RFC3339),
 			"edge":        edgeRowToMap(row),
 		}, nil
+	case ToolReopenEdge:
+		edgeID, err := parseRequiredInt64(arguments, tool, "edge_id")
+		if err != nil {
+			return nil, err
+		}
+		var asOf time.Time
+		if at, ok, err := parseOptionalTime(arguments, "as_of"); err != nil {
+			return nil, err
+		} else if ok {
+			asOf = at
+		}
+		openEnded, _ := parseOptionalBool(arguments, "open_ended", false)
+		row, err := s.graph.ReopenEdge(edgeID, asOf, openEnded)
+		if err != nil {
+			return nil, err
+		}
+		out := map[string]any{
+			"edge_id":    row.ID,
+			"open_ended": openEnded,
+			"edge":       edgeRowToMap(row),
+		}
+		if row.ValidUntil != nil {
+			out["valid_until"] = row.ValidUntil.Format(time.RFC3339)
+		}
+		return out, nil
 	case ToolConflictScan:
 		fromID, err := parseRequiredString(arguments, tool, "from_id")
 		if err != nil {
@@ -486,6 +542,26 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 			Polarity:     polarity,
 			GraphKind:    graphKind,
 			AsOf:         asOf,
+		})
+	case ToolDecisionAudit:
+		market, err := parseRequiredString(arguments, tool, "market")
+		if err != nil {
+			return nil, err
+		}
+		thesis, err := parseRequiredString(arguments, tool, "thesis")
+		if err != nil {
+			return nil, err
+		}
+		var asOf time.Time
+		if at, ok, err := parseOptionalTime(arguments, "as_of"); err != nil {
+			return nil, err
+		} else if ok {
+			asOf = at
+		}
+		return s.DecisionAudit(ctx, DecisionAuditInput{
+			Market: market,
+			Thesis: thesis,
+			AsOf:   asOf,
 		})
 	case ToolLookupNodeExact:
 		term, err := parseRequiredString(arguments, tool, "term")
@@ -612,6 +688,7 @@ func ToolSchema(tool string) map[string]any {
 				"source_ref":         map[string]any{"type": "string"},
 				"model":              map[string]any{"type": "string", "description": "LLM model for extraction"},
 				"default_confidence": map[string]any{"type": "number"},
+				"conflict_policy":    map[string]any{"type": "string", "description": "block|warn|off; default warn"},
 			},
 			"required":             []string{"statement"},
 			"additionalProperties": false,
@@ -742,6 +819,17 @@ func ToolSchema(tool string) map[string]any {
 			"required":             []string{"edge_id"},
 			"additionalProperties": false,
 		}
+	case ToolReopenEdge:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"edge_id":    map[string]any{"type": "integer", "description": "Edge to reopen"},
+				"as_of":      map[string]any{"type": "string", "description": "RFC3339 time the edge should be valid through; defaults to now"},
+				"open_ended": map[string]any{"type": "boolean", "description": "Clear the validity end entirely"},
+			},
+			"required":             []string{"edge_id"},
+			"additionalProperties": false,
+		}
 	case ToolConflictScan:
 		return map[string]any{
 			"type": "object",
@@ -754,6 +842,17 @@ func ToolSchema(tool string) map[string]any {
 				"as_of":         map[string]any{"type": "string", "description": "RFC3339"},
 			},
 			"required":             []string{"from_id", "to_id", "relation_type"},
+			"additionalProperties": false,
+		}
+	case ToolDecisionAudit:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"market": map[string]any{"type": "string", "description": "Market or decision object"},
+				"thesis": map[string]any{"type": "string", "description": "Recorded thesis to audit"},
+				"as_of":  map[string]any{"type": "string", "description": "RFC3339"},
+			},
+			"required":             []string{"market", "thesis"},
 			"additionalProperties": false,
 		}
 	case ToolLookupNodeExact, ToolLookupNodeSemantic:
@@ -820,8 +919,12 @@ func ToolDescription(tool string) string {
 		return "Record verification outcome for an edge and optionally update confidence."
 	case ToolRetireEdge:
 		return "Close the validity window of an edge; after the retirement time it no longer contributes to reasoning or decision evaluation."
+	case ToolReopenEdge:
+		return "Extend an edge's validity to at least the given time, or clear its validity end entirely."
 	case ToolConflictScan:
 		return "List active edges that deterministically contradict a candidate edge (opposite polarity, antonym relation, or reverse contradicts edge)."
+	case ToolDecisionAudit:
+		return "Show the full provenance timeline of a recorded decision, including edge history, attached evidence, and reviews."
 	case ToolLookupNodeExact:
 		return "Find a stored node id by exact string match."
 	case ToolLookupNodeSemantic:
@@ -852,6 +955,7 @@ func edgeToolSchema(withActivation bool) map[string]any {
 		"valid_until":          map[string]any{"type": "string", "description": "RFC3339"},
 		"decay_half_life_days": map[string]any{"type": "integer"},
 		"expires_at":           map[string]any{"type": "string", "description": "RFC3339"},
+		"conflict_policy":      map[string]any{"type": "string", "description": "block|warn|off; default warn"},
 	}
 	if withActivation {
 		props["activation_rule"] = map[string]any{"type": "string"}

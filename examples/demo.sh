@@ -66,6 +66,16 @@ kg conflict-scan \
   --relation-type "increases_probability_of" --polarity -1
 
 echo
+echo "==> Write-path protection: block policy rejects a contradicting claim"
+if kg add-fact-edge --conflict-policy block \
+  --from-id "knowledge graph" --to-id "multi-hop reasoning" \
+  --relation-type "decreases_probability_of" --confidence 0.8; then
+  echo "unexpected: block policy allowed a conflicting edge"
+else
+  echo "(block policy rejected the conflicting edge as expected)"
+fi
+
+echo
 echo "==> Provenance: attach evidence to an edge, then verify it"
 EDGE_ID="$(kg list-edges | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["edges"][0]["id"])')"
 kg attach-edge-evidence \
@@ -78,6 +88,12 @@ echo
 echo "==> Fact lifecycle: retire a stale edge and confirm it leaves reasoning"
 STALE_EDGE="$(kg list-edges | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["edges"][1]["id"])')"
 kg retire-edge --edge-id "$STALE_EDGE"
+kg expand-reasoning \
+  --start-id "knowledge graph" --max-depth 2 --max-results 6
+
+echo
+echo "==> Fact lifecycle: reopen the retired edge and confirm it returns"
+kg reopen-edge --edge-id "$STALE_EDGE" --open-ended
 kg expand-reasoning \
   --start-id "knowledge graph" --max-depth 2 --max-results 6
 
@@ -122,6 +138,12 @@ kg pre-trade-check \
   --thesis "Escalation risk is underpriced" \
   --intended-action buy --requested-size "0.5u" \
   --triggered-failures-json '["confirmed ceasefire"]'
+
+echo
+echo "==> Decision audit: full provenance timeline"
+kg decision-audit \
+  --market "Oil escalation market" \
+  --thesis "Escalation risk is underpriced"
 
 echo
 echo "Demo finished. Workspace: $WORKSPACE"
