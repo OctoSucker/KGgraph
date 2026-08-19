@@ -19,6 +19,38 @@ It provides:
 
 For judgment-critical workflows, start with `record-decision`. Use `ingest-statement` only for low-risk graph extraction.
 
+## What it solves
+
+KGgraph is built around three observable LLM failure modes:
+
+- **Hallucination**: facts and decisions are stored with sources (`source_ref`, `attach-edge-evidence`) and can be verified or failed (`verify-edge`). An edge only contributes to reasoning while valid, weighted by confidence, freshness, and verification history.
+- **Sycophancy (following the user's mood or opinion)**: `strict-ask` renders a fixed verdict from recorded rules and stored facts. Question wording, tone, and pressure never change the answer, because no LLM is consulted at decision time.
+- **Inconsistency across time and context**: decisions are frozen as records and re-evaluated deterministically; facts can expire (`retire-edge`), and conflicting claims are surfaced before they enter the graph (`conflict-scan`).
+
+## Real use cases
+
+**1. Judgment-critical decisions (trading, operations, research theses)**
+
+```text
+record-decision -> decision-status -> strict-ask -> pre-trade-check -> review-decision
+```
+
+Each decision is frozen with supporting evidence, counter-evidence, failure conditions, review triggers, and a position/risk rule. Execution gates are deterministic, so the same inputs always produce the same verdict, regardless of who asks or how the question is phrased.
+
+**2. Agent knowledge base / research memory**
+
+Use `ingest-statement` (LLM-assisted extraction only) for low-risk claims, run `conflict-scan` before adding a claim that may contradict existing knowledge, attach evidence and verify edges as sources are checked, and `retire-edge` stale facts so reasoning reflects what is true now. `expand-reasoning` provides multi-hop context without giving the agent execution permission.
+
+**Try it in one command** (no API keys, fully local):
+
+```bash
+make demo
+# or
+bash examples/demo.sh
+```
+
+The demo builds a small AI-agent-memory knowledge graph and a recorded oil-escalation decision, then walks through conflict scanning, evidence, retirement, wording-proof answers, and the pre-trade gate.
+
 ## Install
 
 Homebrew (recommended):
@@ -136,6 +168,8 @@ kggraph expand-reasoning \
 | `upsert-node` | Manually add or update a node | No |
 | `attach-edge-evidence` | Attach evidence to an existing edge | No |
 | `verify-edge` | Mark an edge verified or failed | No |
+| `retire-edge` | Close an edge's validity window; it stops contributing after the retirement time | No |
+| `conflict-scan` | List active edges that deterministically contradict a candidate edge | No |
 | `lookup-node-exact` | Resolve an exact node id | No |
 | `lookup-node-semantic` | Resolve a node by embedding similarity | Uses embeddings |
 | `list-nodes` | List nodes | No |
@@ -331,6 +365,8 @@ Main tools:
 - `kg_list_edges`
 - `kg_attach_edge_evidence`
 - `kg_verify_edge`
+- `kg_retire_edge`
+- `kg_conflict_scan`
 
 Example MCP client config: `examples/mcp-stdio.json`
 

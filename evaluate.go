@@ -29,6 +29,8 @@ type decisionEvalItem struct {
 	NodeID        string
 	Text          string
 	RelationType  string
+	SourceRef     string
+	ConditionText string
 	Score         float64
 	Confidence    float64
 	EvidenceCount int
@@ -259,6 +261,8 @@ func decisionItemFromEdge(e EdgeRow, score float64, triggered, active bool) deci
 		NodeID:        e.ToID,
 		Text:          decisionNodeText(e.ToID),
 		RelationType:  e.RelationType,
+		SourceRef:     e.SourceRef,
+		ConditionText: e.ConditionText,
 		Score:         score,
 		Confidence:    e.Confidence,
 		EvidenceCount: e.EvidenceCount,
@@ -280,6 +284,12 @@ func decisionItemsAsMaps(items []decisionEvalItem) []map[string]any {
 			"confidence":     item.Confidence,
 			"evidence_count": item.EvidenceCount,
 			"failed_count":   item.FailedCount,
+		}
+		if item.SourceRef != "" {
+			m["source_ref"] = item.SourceRef
+		}
+		if item.ConditionText != "" {
+			m["condition_text"] = item.ConditionText
 		}
 		if item.Triggered {
 			m["triggered"] = true

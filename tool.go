@@ -20,6 +20,8 @@ const (
 	ToolDecisionStatus     = "kg_decision_status"
 	ToolAttachEdgeEvidence = "kg_attach_edge_evidence"
 	ToolVerifyEdge         = "kg_verify_edge"
+	ToolRetireEdge         = "kg_retire_edge"
+	ToolConflictScan       = "kg_conflict_scan"
 	ToolLookupNodeExact    = "kg_lookup_node_exact"
 	ToolLookupNodeSemantic = "kg_lookup_node_semantic"
 	ToolListNodes          = "kg_list_nodes"
@@ -63,6 +65,8 @@ func (s *Service) ToolNames() []string {
 		ToolDecisionStatus,
 		ToolAttachEdgeEvidence,
 		ToolVerifyEdge,
+		ToolRetireEdge,
+		ToolConflictScan,
 		ToolLookupNodeExact,
 		ToolLookupNodeSemantic,
 		ToolListNodes,
@@ -433,6 +437,56 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 			out["confidence"] = *confidence
 		}
 		return out, nil
+	case ToolRetireEdge:
+		edgeID, err := parseRequiredInt64(arguments, tool, "edge_id")
+		if err != nil {
+			return nil, err
+		}
+		var asOf time.Time
+		if at, ok, err := parseOptionalTime(arguments, "as_of"); err != nil {
+			return nil, err
+		} else if ok {
+			asOf = at
+		}
+		row, err := s.graph.RetireEdge(edgeID, asOf)
+		if err != nil {
+			return nil, err
+		}
+		return map[string]any{
+			"edge_id":     row.ID,
+			"retired":     true,
+			"valid_until": row.ValidUntil.Format(time.RFC3339),
+			"edge":        edgeRowToMap(row),
+		}, nil
+	case ToolConflictScan:
+		fromID, err := parseRequiredString(arguments, tool, "from_id")
+		if err != nil {
+			return nil, err
+		}
+		toID, err := parseRequiredString(arguments, tool, "to_id")
+		if err != nil {
+			return nil, err
+		}
+		relationType, err := parseRequiredString(arguments, tool, "relation_type")
+		if err != nil {
+			return nil, err
+		}
+		polarity, _ := parseOptionalInt(arguments, "polarity", 1)
+		graphKind, _ := parseOptionalString(arguments, "graph_kind", "knowledge")
+		var asOf time.Time
+		if at, ok, err := parseOptionalTime(arguments, "as_of"); err != nil {
+			return nil, err
+		} else if ok {
+			asOf = at
+		}
+		return s.ConflictScan(ctx, ConflictScanInput{
+			FromID:       fromID,
+			ToID:         toID,
+			RelationType: relationType,
+			Polarity:     polarity,
+			GraphKind:    graphKind,
+			AsOf:         asOf,
+		})
 	case ToolLookupNodeExact:
 		term, err := parseRequiredString(arguments, tool, "term")
 		if err != nil {
@@ -482,46 +536,50 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 		}
 		edges := make([]map[string]any, len(rows))
 		for i, e := range rows {
-			item := map[string]any{
-				"id":                   e.ID,
-				"from_id":              e.FromID,
-				"to_id":                e.ToID,
-				"graph_kind":           e.GraphKind,
-				"relation_type":        e.RelationType,
-				"polarity":             e.Polarity,
-				"confidence":           e.Confidence,
-				"condition_text":       e.ConditionText,
-				"source_type":          e.SourceType,
-				"source_ref":           e.SourceRef,
-				"created_at":           e.CreatedAt.Format(time.RFC3339),
-				"evidence_count":       e.EvidenceCount,
-				"failed_count":         e.FailedCount,
-				"decay_half_life_days": e.DecayHalfLifeDays,
-				"is_executable":        e.IsExecutable,
-				"activation_rule":      e.ActivationRule,
-				"updated_at":           e.UpdatedAt.Format(time.RFC3339),
-			}
-			if e.LastVerifiedAt != nil {
-				item["last_verified_at"] = e.LastVerifiedAt.Format(time.RFC3339)
-			}
-			if e.ObservedAt != nil {
-				item["observed_at"] = e.ObservedAt.Format(time.RFC3339)
-			}
-			if e.ValidFrom != nil {
-				item["valid_from"] = e.ValidFrom.Format(time.RFC3339)
-			}
-			if e.ValidUntil != nil {
-				item["valid_until"] = e.ValidUntil.Format(time.RFC3339)
-			}
-			if e.ExpiresAt != nil {
-				item["expires_at"] = e.ExpiresAt.Format(time.RFC3339)
-			}
-			edges[i] = item
+			edges[i] = edgeRowToMap(e)
 		}
 		return map[string]any{"edges": edges}, nil
 	default:
 		return nil, fmt.Errorf("knowledgegraph: unknown tool %q", tool)
 	}
+}
+
+func edgeRowToMap(e EdgeRow) map[string]any {
+	item := map[string]any{
+		"id":                   e.ID,
+		"from_id":              e.FromID,
+		"to_id":                e.ToID,
+		"graph_kind":           e.GraphKind,
+		"relation_type":        e.RelationType,
+		"polarity":             e.Polarity,
+		"confidence":           e.Confidence,
+		"condition_text":       e.ConditionText,
+		"source_type":          e.SourceType,
+		"source_ref":           e.SourceRef,
+		"created_at":           e.CreatedAt.Format(time.RFC3339),
+		"evidence_count":       e.EvidenceCount,
+		"failed_count":         e.FailedCount,
+		"decay_half_life_days": e.DecayHalfLifeDays,
+		"is_executable":        e.IsExecutable,
+		"activation_rule":      e.ActivationRule,
+		"updated_at":           e.UpdatedAt.Format(time.RFC3339),
+	}
+	if e.LastVerifiedAt != nil {
+		item["last_verified_at"] = e.LastVerifiedAt.Format(time.RFC3339)
+	}
+	if e.ObservedAt != nil {
+		item["observed_at"] = e.ObservedAt.Format(time.RFC3339)
+	}
+	if e.ValidFrom != nil {
+		item["valid_from"] = e.ValidFrom.Format(time.RFC3339)
+	}
+	if e.ValidUntil != nil {
+		item["valid_until"] = e.ValidUntil.Format(time.RFC3339)
+	}
+	if e.ExpiresAt != nil {
+		item["expires_at"] = e.ExpiresAt.Format(time.RFC3339)
+	}
+	return item
 }
 
 func ToolSchema(tool string) map[string]any {
@@ -674,6 +732,30 @@ func ToolSchema(tool string) map[string]any {
 			"required":             []string{"edge_id", "success"},
 			"additionalProperties": false,
 		}
+	case ToolRetireEdge:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"edge_id": map[string]any{"type": "integer", "description": "Edge to retire"},
+				"as_of":   map[string]any{"type": "string", "description": "RFC3339 retirement time; defaults to now"},
+			},
+			"required":             []string{"edge_id"},
+			"additionalProperties": false,
+		}
+	case ToolConflictScan:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"from_id":       map[string]any{"type": "string", "description": "Source node of the candidate edge"},
+				"to_id":         map[string]any{"type": "string", "description": "Target node of the candidate edge"},
+				"relation_type": map[string]any{"type": "string", "description": "Candidate relation type"},
+				"polarity":      map[string]any{"type": "integer", "description": "-1/0/1; defaults to 1"},
+				"graph_kind":    map[string]any{"type": "string", "description": "Graph kind filter; defaults to knowledge"},
+				"as_of":         map[string]any{"type": "string", "description": "RFC3339"},
+			},
+			"required":             []string{"from_id", "to_id", "relation_type"},
+			"additionalProperties": false,
+		}
 	case ToolLookupNodeExact, ToolLookupNodeSemantic:
 		return map[string]any{
 			"type": "object",
@@ -736,6 +818,10 @@ func ToolDescription(tool string) string {
 		return "Attach an evidence item to an edge and update success/failure counters."
 	case ToolVerifyEdge:
 		return "Record verification outcome for an edge and optionally update confidence."
+	case ToolRetireEdge:
+		return "Close the validity window of an edge; after the retirement time it no longer contributes to reasoning or decision evaluation."
+	case ToolConflictScan:
+		return "List active edges that deterministically contradict a candidate edge (opposite polarity, antonym relation, or reverse contradicts edge)."
 	case ToolLookupNodeExact:
 		return "Find a stored node id by exact string match."
 	case ToolLookupNodeSemantic:
@@ -951,6 +1037,8 @@ func parseRequiredFloat(args map[string]any, tool, field string) (float64, error
 		return v, nil
 	case int:
 		return float64(v), nil
+	case int64:
+		return float64(v), nil
 	default:
 		return 0, fmt.Errorf("%s: %s must be a number", tool, field)
 	}
@@ -968,6 +1056,8 @@ func parseOptionalFloat(args map[string]any, field string, fallback float64) (fl
 	case float64:
 		return v, nil
 	case int:
+		return float64(v), nil
+	case int64:
 		return float64(v), nil
 	default:
 		return 0, fmt.Errorf("%s must be a number", field)
@@ -987,6 +1077,8 @@ func parseOptionalFloatMaybe(args map[string]any, field string) (float64, bool, 
 		return v, true, nil
 	case int:
 		return float64(v), true, nil
+	case int64:
+		return float64(v), true, nil
 	default:
 		return 0, false, fmt.Errorf("%s must be a number", field)
 	}
@@ -1004,6 +1096,8 @@ func parseOptionalInt(args map[string]any, field string, fallback int) (int, err
 	case int:
 		return v, nil
 	case float64:
+		return int(v), nil
+	case int64:
 		return int(v), nil
 	default:
 		return 0, fmt.Errorf("%s must be an integer", field)

@@ -52,6 +52,10 @@ func main() {
 		runAttachEdgeEvidence(ctx, args)
 	case "verify-edge":
 		runVerifyEdge(ctx, args)
+	case "retire-edge":
+		runRetireEdge(ctx, args)
+	case "conflict-scan":
+		runConflictScan(ctx, args)
 	case "expand-reasoning":
 		runExpandReasoning(ctx, args)
 	case "lookup-node-exact":
@@ -76,7 +80,7 @@ func main() {
 }
 
 func usage() string {
-	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, attach-edge-evidence, verify-edge, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
+	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, attach-edge-evidence, verify-edge, retire-edge, conflict-scan, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
 }
 
 func addCommonFlags(fs *flag.FlagSet, c *commonFlags) {
@@ -483,6 +487,58 @@ func runVerifyEdge(ctx context.Context, argv []string) {
 	exitOnOpenError(err)
 	defer svc.Close()
 	out, err := svc.Call(ctx, kggraph.ToolVerifyEdge, args)
+	writeResult(err, out)
+}
+
+func runRetireEdge(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("retire-edge", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var edgeID int64
+	var asOf string
+	fs.Int64Var(&edgeID, "edge-id", 0, "edge id to retire")
+	fs.StringVar(&asOf, "as-of", "", "optional RFC3339 retirement time; defaults to now")
+	mustParse(fs, argv)
+	args := map[string]any{"edge_id": edgeID}
+	if strings.TrimSpace(asOf) != "" {
+		args["as_of"] = asOf
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolRetireEdge, args)
+	writeResult(err, out)
+}
+
+func runConflictScan(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("conflict-scan", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var fromID, toID, relationType, graphKind, asOf string
+	var polarity int
+	fs.StringVar(&fromID, "from-id", "", "source node id of the candidate edge")
+	fs.StringVar(&toID, "to-id", "", "target node id of the candidate edge")
+	fs.StringVar(&relationType, "relation-type", "", "candidate relation type")
+	fs.IntVar(&polarity, "polarity", 1, "candidate polarity: -1, 0, 1")
+	fs.StringVar(&graphKind, "graph-kind", "knowledge", "graph kind filter")
+	fs.StringVar(&asOf, "as-of", "", "optional RFC3339 query time")
+	mustParse(fs, argv)
+	args := map[string]any{
+		"from_id":       fromID,
+		"to_id":         toID,
+		"relation_type": relationType,
+		"polarity":      polarity,
+		"graph_kind":    graphKind,
+	}
+	if strings.TrimSpace(asOf) != "" {
+		args["as_of"] = asOf
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolConflictScan, args)
 	writeResult(err, out)
 }
 

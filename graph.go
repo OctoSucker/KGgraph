@@ -360,6 +360,20 @@ func (g *Graph) VerifyEdge(edgeID int64, success bool, confidence *float64, veri
 	return g.store.EdgeVerify(edgeID, success, confidence, verifiedAt)
 }
 
+// RetireEdge closes the validity window of an edge at asOf. After asOf the
+// edge no longer contributes to reasoning or decision evaluation until it is
+// explicitly re-upserted with fresh time metadata.
+func (g *Graph) RetireEdge(edgeID int64, asOf time.Time) (EdgeRow, error) {
+	if g == nil || g.store == nil {
+		return EdgeRow{}, fmt.Errorf("knowledgegraph: retire edge: store is nil")
+	}
+	row, err := g.store.EdgeRetire(edgeID, asOf)
+	if err != nil {
+		return EdgeRow{}, fmt.Errorf("knowledgegraph: retire edge: %w", err)
+	}
+	return row, nil
+}
+
 func (g *Graph) CanonicalFor(term string) (string, bool, error) {
 	term = canonicalizeNodeID(term)
 	if term == "" {

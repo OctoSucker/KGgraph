@@ -428,6 +428,94 @@ func (s *Store) EdgeVerify(edgeID int64, success bool, confidence *float64, veri
 	return nil
 }
 
+func (s *Store) EdgeByID(edgeID int64) (EdgeRow, error) {
+	if edgeID <= 0 {
+		return EdgeRow{}, fmt.Errorf("knowledgegraph: edge by id: edge_id must be > 0")
+	}
+	row := s.conn.QueryRow(fmt.Sprintf(`
+		SELECT id, from_id, to_id, graph_kind, relation_type, polarity, confidence, condition_text,
+		       source_type, source_ref, created_at, observed_at, valid_from, valid_until,
+			   evidence_count, failed_count, last_verified_at,
+			   decay_half_life_days, expires_at, is_executable, activation_rule, updated_at
+		FROM %s
+		WHERE id = ?
+	`, tableEdges), edgeID)
+	return scanEdgeRow(row)
+}
+
+// EdgeRetire closes the edge's validity window at asOf (UTC). Edges whose
+// valid_until is already set to a later time are left untouched; re-opening a
+// retired edge requires an explicit upsert with new time metadata.
+func (s *Store) EdgeRetire(edgeID int64, asOf time.Time) (EdgeRow, error) {
+	if edgeID <= 0 {
+		return EdgeRow{}, fmt.Errorf("knowledgegraph: retire edge: edge_id must be > 0")
+	}
+	if asOf.IsZero() {
+		asOf = time.Now().UTC()
+	}
+	asOf = asOf.UTC()
+	row, err := s.EdgeByID(edgeID)
+	if err != nil {
+		return EdgeRow{}, err
+	}
+	if row.ValidUntil != nil && !asOf.Before(row.ValidUntil.UTC()) {
+		// Already retired at or before asOf; keep the earlier validity end.
+		return row, nil
+	}
+	if _, err := s.conn.Exec(fmt.Sprintf(`
+		UPDATE %s
+		SET valid_until = ?, updated_at = CURRENT_TIMESTAMP
+		WHERE id = ?
+	`, tableEdges), asOf, edgeID); err != nil {
+		return EdgeRow{}, err
+	}
+	return s.EdgeByID(edgeID)
+}
+
+type edgeScanner interface {
+	Scan(dest ...any) error
+}
+
+func scanEdgeRow(row edgeScanner) (EdgeRow, error) {
+	var r EdgeRow
+	var observedAt sql.NullTime
+	var validFrom sql.NullTime
+	var validUntil sql.NullTime
+	var lastVerifiedAt sql.NullTime
+	var expiresAt sql.NullTime
+	var isExecutable int
+	if err := row.Scan(
+		&r.ID, &r.FromID, &r.ToID, &r.GraphKind, &r.RelationType, &r.Polarity, &r.Confidence, &r.ConditionText,
+		&r.SourceType, &r.SourceRef, &r.CreatedAt, &observedAt, &validFrom, &validUntil,
+		&r.EvidenceCount, &r.FailedCount, &lastVerifiedAt,
+		&r.DecayHalfLifeDays, &expiresAt, &isExecutable, &r.ActivationRule, &r.UpdatedAt,
+	); err != nil {
+		return EdgeRow{}, err
+	}
+	if observedAt.Valid {
+		t := observedAt.Time
+		r.ObservedAt = &t
+	}
+	if validFrom.Valid {
+		t := validFrom.Time
+		r.ValidFrom = &t
+	}
+	if validUntil.Valid {
+		t := validUntil.Time
+		r.ValidUntil = &t
+	}
+	if lastVerifiedAt.Valid {
+		t := lastVerifiedAt.Time
+		r.LastVerifiedAt = &t
+	}
+	if expiresAt.Valid {
+		t := expiresAt.Time
+		r.ExpiresAt = &t
+	}
+	r.IsExecutable = isExecutable != 0
+	return r, nil
+}
+
 func (s *Store) EdgesSelectAll() ([]EdgeRow, error) {
 	rows, err := s.conn.Query(fmt.Sprintf(`
 		SELECT id, from_id, to_id, graph_kind, relation_type, polarity, confidence, condition_text,
@@ -442,42 +530,10 @@ func (s *Store) EdgesSelectAll() ([]EdgeRow, error) {
 	defer rows.Close()
 	var out []EdgeRow
 	for rows.Next() {
-		var r EdgeRow
-		var observedAt sql.NullTime
-		var validFrom sql.NullTime
-		var validUntil sql.NullTime
-		var lastVerifiedAt sql.NullTime
-		var expiresAt sql.NullTime
-		var isExecutable int
-		if err := rows.Scan(
-			&r.ID, &r.FromID, &r.ToID, &r.GraphKind, &r.RelationType, &r.Polarity, &r.Confidence, &r.ConditionText,
-			&r.SourceType, &r.SourceRef, &r.CreatedAt, &observedAt, &validFrom, &validUntil,
-			&r.EvidenceCount, &r.FailedCount, &lastVerifiedAt,
-			&r.DecayHalfLifeDays, &expiresAt, &isExecutable, &r.ActivationRule, &r.UpdatedAt,
-		); err != nil {
+		r, err := scanEdgeRow(rows)
+		if err != nil {
 			return nil, err
 		}
-		if observedAt.Valid {
-			t := observedAt.Time
-			r.ObservedAt = &t
-		}
-		if validFrom.Valid {
-			t := validFrom.Time
-			r.ValidFrom = &t
-		}
-		if validUntil.Valid {
-			t := validUntil.Time
-			r.ValidUntil = &t
-		}
-		if lastVerifiedAt.Valid {
-			t := lastVerifiedAt.Time
-			r.LastVerifiedAt = &t
-		}
-		if expiresAt.Valid {
-			t := expiresAt.Time
-			r.ExpiresAt = &t
-		}
-		r.IsExecutable = isExecutable != 0
 		out = append(out, r)
 	}
 	return out, rows.Err()
