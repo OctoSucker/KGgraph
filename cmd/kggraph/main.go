@@ -60,6 +60,12 @@ func main() {
 		runConflictScan(ctx, args)
 	case "decision-audit":
 		runDecisionAudit(ctx, args)
+	case "lookup-context":
+		runLookupContext(ctx, args)
+	case "export-graph":
+		runExportGraph(ctx, args)
+	case "import-graph":
+		runImportGraph(ctx, args)
 	case "expand-reasoning":
 		runExpandReasoning(ctx, args)
 	case "lookup-node-exact":
@@ -84,7 +90,7 @@ func main() {
 }
 
 func usage() string {
-	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, attach-edge-evidence, verify-edge, retire-edge, reopen-edge, conflict-scan, decision-audit, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
+	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, attach-edge-evidence, verify-edge, retire-edge, reopen-edge, conflict-scan, decision-audit, lookup-context, export-graph, import-graph, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
 }
 
 func addCommonFlags(fs *flag.FlagSet, c *commonFlags) {
@@ -593,6 +599,82 @@ func runDecisionAudit(ctx context.Context, argv []string) {
 	exitOnOpenError(err)
 	defer svc.Close()
 	out, err := svc.Call(ctx, kggraph.ToolDecisionAudit, args)
+	writeResult(err, out)
+}
+
+func runLookupContext(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("lookup-context", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var term, graphKind, asOf string
+	var maxDepth, maxBranch, maxResults int
+	var minScore float64
+	var includeNegative bool
+	fs.StringVar(&term, "term", "", "term to resolve into graph context")
+	fs.StringVar(&graphKind, "graph-kind", "knowledge", "graph kind filter")
+	fs.StringVar(&asOf, "as-of", "", "optional RFC3339 query time")
+	fs.IntVar(&maxDepth, "max-depth", 3, "max reasoning depth")
+	fs.IntVar(&maxBranch, "max-branch", 5, "max outgoing edges per step")
+	fs.IntVar(&maxResults, "max-results", 10, "max context nodes")
+	fs.Float64Var(&minScore, "min-score", 0, "minimum propagated score to keep")
+	fs.BoolVar(&includeNegative, "include-negative", false, "whether to include negative-polarity edges")
+	mustParse(fs, argv)
+	args := map[string]any{
+		"term":             term,
+		"graph_kind":       graphKind,
+		"max_depth":        maxDepth,
+		"max_branch":       maxBranch,
+		"max_results":      maxResults,
+		"min_score":        minScore,
+		"include_negative": includeNegative,
+	}
+	if strings.TrimSpace(asOf) != "" {
+		args["as_of"] = asOf
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolLookupContext, args)
+	writeResult(err, out)
+}
+
+func runExportGraph(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("export-graph", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	mustParse(fs, argv)
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolExportGraph, map[string]any{})
+	writeResult(err, out)
+}
+
+func runImportGraph(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("import-graph", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var file string
+	fs.StringVar(&file, "file", "", "path to graph JSON export file")
+	mustParse(fs, argv)
+	if strings.TrimSpace(file) == "" {
+		writeJSONAndExit(2, map[string]any{"error": "import-graph: --file is required"})
+	}
+	raw, err := os.ReadFile(file)
+	if err != nil {
+		writeJSONAndExit(2, map[string]any{"error": fmt.Sprintf("import-graph: read file: %v", err)})
+	}
+	var payload map[string]any
+	if err := json.Unmarshal(raw, &payload); err != nil {
+		writeJSONAndExit(2, map[string]any{"error": fmt.Sprintf("import-graph: parse file: %v", err)})
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolImportGraph, map[string]any{"graph": payload})
 	writeResult(err, out)
 }
 

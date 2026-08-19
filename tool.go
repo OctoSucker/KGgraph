@@ -24,6 +24,9 @@ const (
 	ToolReopenEdge         = "kg_reopen_edge"
 	ToolConflictScan       = "kg_conflict_scan"
 	ToolDecisionAudit      = "kg_decision_audit"
+	ToolLookupContext      = "kg_lookup_context"
+	ToolExportGraph        = "kg_export_graph"
+	ToolImportGraph        = "kg_import_graph"
 	ToolLookupNodeExact    = "kg_lookup_node_exact"
 	ToolLookupNodeSemantic = "kg_lookup_node_semantic"
 	ToolListNodes          = "kg_list_nodes"
@@ -71,6 +74,9 @@ func (s *Service) ToolNames() []string {
 		ToolReopenEdge,
 		ToolConflictScan,
 		ToolDecisionAudit,
+		ToolLookupContext,
+		ToolExportGraph,
+		ToolImportGraph,
 		ToolLookupNodeExact,
 		ToolLookupNodeSemantic,
 		ToolListNodes,
@@ -563,6 +569,43 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 			Thesis: thesis,
 			AsOf:   asOf,
 		})
+	case ToolLookupContext:
+		term, err := parseRequiredString(arguments, tool, "term")
+		if err != nil {
+			return nil, err
+		}
+		graphKind, _ := parseOptionalString(arguments, "graph_kind", "knowledge")
+		maxDepth, _ := parseOptionalInt(arguments, "max_depth", 3)
+		maxBranch, _ := parseOptionalInt(arguments, "max_branch", 5)
+		maxResults, _ := parseOptionalInt(arguments, "max_results", 10)
+		minScore, _ := parseOptionalFloat(arguments, "min_score", 0)
+		includeNegative, _ := parseOptionalBool(arguments, "include_negative", false)
+		var asOf time.Time
+		if at, ok, err := parseOptionalTime(arguments, "as_of"); err != nil {
+			return nil, err
+		} else if ok {
+			asOf = at
+		}
+		return s.LookupContext(ctx, LookupContextInput{
+			Term:            term,
+			GraphKind:       graphKind,
+			AsOf:            asOf,
+			MaxDepth:        maxDepth,
+			MaxBranch:       maxBranch,
+			MaxResults:      maxResults,
+			MinScore:        minScore,
+			IncludeNegative: includeNegative,
+		})
+	case ToolExportGraph:
+		return s.ExportGraph(ctx)
+	case ToolImportGraph:
+		var payload map[string]any
+		if graph, ok := arguments["graph"].(map[string]any); ok {
+			payload = graph
+		} else {
+			payload = arguments
+		}
+		return s.ImportGraph(ctx, payload)
 	case ToolLookupNodeExact:
 		term, err := parseRequiredString(arguments, tool, "term")
 		if err != nil {
@@ -855,6 +898,39 @@ func ToolSchema(tool string) map[string]any {
 			"required":             []string{"market", "thesis"},
 			"additionalProperties": false,
 		}
+	case ToolLookupContext:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"term":             map[string]any{"type": "string", "description": "Term to resolve into graph context"},
+				"graph_kind":       map[string]any{"type": "string", "description": "Graph kind filter; defaults to knowledge"},
+				"as_of":            map[string]any{"type": "string", "description": "RFC3339"},
+				"max_depth":        map[string]any{"type": "integer"},
+				"max_branch":       map[string]any{"type": "integer"},
+				"max_results":      map[string]any{"type": "integer"},
+				"min_score":        map[string]any{"type": "number"},
+				"include_negative": map[string]any{"type": "boolean"},
+			},
+			"required":             []string{"term"},
+			"additionalProperties": false,
+		}
+	case ToolExportGraph:
+		return map[string]any{
+			"type":                 "object",
+			"properties":           map[string]any{},
+			"additionalProperties": false,
+		}
+	case ToolImportGraph:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"graph":    map[string]any{"type": "object", "description": "Payload produced by kg_export_graph, or inline nodes/edges/evidence arrays"},
+				"nodes":    map[string]any{"type": "array"},
+				"edges":    map[string]any{"type": "array"},
+				"evidence": map[string]any{"type": "array"},
+			},
+			"additionalProperties": false,
+		}
 	case ToolLookupNodeExact, ToolLookupNodeSemantic:
 		return map[string]any{
 			"type": "object",
@@ -925,6 +1001,12 @@ func ToolDescription(tool string) string {
 		return "List active edges that deterministically contradict a candidate edge (opposite polarity, antonym relation, or reverse contradicts edge)."
 	case ToolDecisionAudit:
 		return "Show the full provenance timeline of a recorded decision, including edge history, attached evidence, and reviews."
+	case ToolLookupContext:
+		return "Resolve a term into graph context using exact or semantic match plus weighted multi-hop expansion, with edge evidence attached."
+	case ToolExportGraph:
+		return "Serialize the whole graph (nodes, edges, evidence) as a JSON payload."
+	case ToolImportGraph:
+		return "Load a graph JSON payload (export output) into this store, re-attaching evidence by edge identity."
 	case ToolLookupNodeExact:
 		return "Find a stored node id by exact string match."
 	case ToolLookupNodeSemantic:

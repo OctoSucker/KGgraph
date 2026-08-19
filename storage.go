@@ -552,6 +552,29 @@ func (s *Store) EdgeEvidenceList(edgeID int64) ([]EdgeEvidenceRow, error) {
 	return out, rows.Err()
 }
 
+func (s *Store) EvidenceSelectAll() ([]EdgeEvidenceRow, error) {
+	rows, err := s.conn.Query(`
+		SELECT id, edge_id, source_type, source_ref, snippet, observed_at, supports, weight
+		FROM kg_edge_evidence
+		ORDER BY id
+	`)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var out []EdgeEvidenceRow
+	for rows.Next() {
+		var r EdgeEvidenceRow
+		var supports int
+		if err := rows.Scan(&r.ID, &r.EdgeID, &r.SourceType, &r.SourceRef, &r.Snippet, &r.ObservedAt, &supports, &r.Weight); err != nil {
+			return nil, err
+		}
+		r.Supports = supports != 0
+		out = append(out, r)
+	}
+	return out, rows.Err()
+}
+
 type edgeScanner interface {
 	Scan(dest ...any) error
 }

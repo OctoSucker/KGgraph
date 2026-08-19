@@ -41,6 +41,10 @@ Each decision is frozen with supporting evidence, counter-evidence, failure cond
 
 Use `ingest-statement` (LLM-assisted extraction only) for low-risk claims, run `conflict-scan` before adding a claim that may contradict existing knowledge, attach evidence and verify edges as sources are checked, and `retire-edge` stale facts so reasoning reflects what is true now. `expand-reasoning` provides multi-hop context without giving the agent execution permission.
 
+For retrieval, `lookup-context` resolves a term by exact match first, then semantic match (when embeddings are configured), then weighted multi-hop expansion — the response includes the reached nodes, the edges on the paths, and their attached evidence. Without an embedder it degrades to exact + expansion, so it works fully offline.
+
+Graphs are portable: `export-graph` writes nodes, edges, and evidence as one JSON payload, and `import-graph` loads it into another workspace, re-attaching evidence by edge identity instead of raw ids.
+
 **Try it in one command** (no API keys, fully local):
 
 ```bash
@@ -172,6 +176,9 @@ kggraph expand-reasoning \
 | `reopen-edge` | Extend an edge's validity, or clear its validity end entirely | No |
 | `conflict-scan` | List active edges that deterministically contradict a candidate edge | No |
 | `decision-audit` | Show the full provenance timeline of a recorded decision, including attached evidence and reviews | No |
+| `lookup-context` | Resolve a term into graph context (exact/semantic match + multi-hop expansion, with evidence) | Uses embeddings for semantic match |
+| `export-graph` | Serialize the whole graph as JSON for backup or migration | No |
+| `import-graph` | Load a graph JSON export, re-attaching evidence by edge identity | No |
 | `lookup-node-exact` | Resolve an exact node id | No |
 | `lookup-node-semantic` | Resolve a node by embedding similarity | Uses embeddings |
 | `list-nodes` | List nodes | No |
@@ -381,6 +388,9 @@ Main tools:
 - `kg_reopen_edge`
 - `kg_conflict_scan`
 - `kg_decision_audit`
+- `kg_lookup_context`
+- `kg_export_graph`
+- `kg_import_graph`
 
 Example MCP client config: `examples/mcp-stdio.json`
 

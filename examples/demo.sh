@@ -98,6 +98,16 @@ kg expand-reasoning \
   --start-id "knowledge graph" --max-depth 2 --max-results 6
 
 echo
+echo "==> Hybrid retrieval: lookup-context (exact match + multi-hop expansion)"
+kg lookup-context \
+  --term "knowledge graph" --max-depth 2 --max-results 6
+
+echo
+echo "==> Graph portability: export and import into a fresh workspace"
+kg export-graph > "$BUILD_DIR/export.json"
+"$BIN" import-graph --workspace "$WORKSPACE-copy" --file "$BUILD_DIR/export.json"
+
+echo
 echo "==> 2. Decision discipline: oil escalation market"
 kg record-decision \
   --market "Oil escalation market" \
