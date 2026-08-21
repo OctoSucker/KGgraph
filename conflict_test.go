@@ -103,6 +103,39 @@ func TestConflictScanFindsAntonymRelation(t *testing.T) {
 	}
 }
 
+func TestConflictScanFindsIncreasesDecreasesAntonym(t *testing.T) {
+	t.Parallel()
+	store := mustOpenTestStore(t)
+	defer store.Close()
+	svc, err := NewService(store, nil)
+	if err != nil {
+		t.Fatalf("new service: %v", err)
+	}
+	ctx := context.Background()
+	if _, err := svc.graph.UpsertEdge(ctx, EdgeUpsert{
+		FromID:       "利率上升",
+		ToID:         "债券价格",
+		GraphKind:    "knowledge",
+		RelationType: "decreases",
+		Polarity:     1,
+		Confidence:   0.9,
+	}); err != nil {
+		t.Fatalf("upsert edge: %v", err)
+	}
+	out := conflictOut(t, svc, map[string]any{
+		"from_id":       "利率上升",
+		"to_id":         "债券价格",
+		"relation_type": "increases",
+		"polarity":      1,
+	})
+	if conflictCount(t, out) != 1 {
+		t.Fatalf("expected 1 conflict, got %#v", out)
+	}
+	if reason := firstConflictReason(t, out); reason != "antonym_relation" {
+		t.Fatalf("expected antonym_relation, got %q", reason)
+	}
+}
+
 func TestConflictScanFindsReverseContradictsEdge(t *testing.T) {
 	t.Parallel()
 	store := mustOpenTestStore(t)

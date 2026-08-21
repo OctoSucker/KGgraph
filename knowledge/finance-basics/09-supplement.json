@@ -1,0 +1,7 @@
+{
+  "nodes": [
+    {"id": "风险控制", "node_type": "practice", "aliases": ["risk control"]},
+    {"id": "市场价格", "node_type": "metric", "aliases": ["market price"]}
+  ],
+  "edges": []
+}

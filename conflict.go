@@ -210,6 +210,10 @@ func oppositeRelation(relation string) string {
 		return "decreases_probability_of"
 	case "decreases_probability_of":
 		return "increases_probability_of"
+	case "increases":
+		return "decreases"
+	case "decreases":
+		return "increases"
 	case "requires":
 		return "blocks"
 	case "blocks":
