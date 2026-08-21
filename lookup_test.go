@@ -186,3 +186,34 @@ func TestLookupContextIncludesEdgeEvidence(t *testing.T) {
 		t.Fatalf("expected evidence in edge detail, got %#v", detail["evidence"])
 	}
 }
+
+func TestGraphEmbeddingCachePopulatedOnUpsert(t *testing.T) {
+	t.Parallel()
+	embedder := &stubEmbedder{vecs: map[string][]float32{
+		"memory layer": {1, 0, 0},
+		"memory layr":  {1, 0, 0},
+	}}
+	store := mustOpenTestStore(t)
+	defer store.Close()
+	g, err := NewGraph(store, embedder)
+	if err != nil {
+		t.Fatalf("new graph: %v", err)
+	}
+	ctx := context.Background()
+	if err := g.UpsertNode(ctx, NodeUpsert{ID: "Memory Layer", NodeType: "concept", Status: "active"}); err != nil {
+		t.Fatalf("upsert node: %v", err)
+	}
+	g.embedMu.RLock()
+	_, ok := g.embedCache["memory layer"]
+	g.embedMu.RUnlock()
+	if !ok {
+		t.Fatalf("expected embedding cache entry after upsert")
+	}
+	canon, ok, err := g.CanonicalForContext(ctx, "memory layr")
+	if err != nil {
+		t.Fatalf("semantic lookup: %v", err)
+	}
+	if !ok || canon != "memory layer" {
+		t.Fatalf("expected semantic match to memory layer, got %q ok=%v", canon, ok)
+	}
+}

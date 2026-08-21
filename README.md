@@ -353,6 +353,8 @@ By default, KGgraph auto-fills edge time fields internally:
 
 You only need to provide extra time fields when you want strict time-window behavior.
 
+Semantic lookups (`lookup-node-semantic`, `lookup-context`) keep an in-memory embedding cache once nodes are upserted, so repeated lookups avoid re-reading and re-decoding every embedding from SQLite.
+
 For `ingest-statement`, KGgraph uses the LLM only as a constrained extractor:
 - it must return strict JSON
 - confidence means extraction certainty, not real-world truth probability

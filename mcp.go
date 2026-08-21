@@ -9,9 +9,20 @@ import (
 )
 
 func RunMCPServer(ctx context.Context, svc *Service) error {
+	return RunMCPServerWithTransport(ctx, svc, &mcp.StdioTransport{})
+}
+
+// RunMCPServerWithTransport starts the MCP server over any transport. It is
+// the testable core of RunMCPServer.
+func RunMCPServerWithTransport(ctx context.Context, svc *Service, transport mcp.Transport) error {
 	if svc == nil {
 		return fmt.Errorf("knowledgegraph: service is nil")
 	}
+	server := newMCPServer(svc)
+	return server.Run(ctx, transport)
+}
+
+func newMCPServer(svc *Service) *mcp.Server {
 	server := mcp.NewServer(&mcp.Implementation{
 		Name:    "KGgraph",
 		Version: Version,
@@ -52,5 +63,5 @@ func RunMCPServer(ctx context.Context, svc *Service) error {
 			}, nil
 		})
 	}
-	return server.Run(ctx, &mcp.StdioTransport{})
+	return server
 }

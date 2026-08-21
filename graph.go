@@ -7,6 +7,7 @@ import (
 	"math"
 	"sort"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -20,18 +21,22 @@ type Graph struct {
 	embedder        Embedder
 	minCosine       float64
 	embeddingMargin float64
+	embedMu         sync.RWMutex
+	embedCache      map[string][]float32
 }
 
 func NewGraph(store *Store, embedder Embedder) (*Graph, error) {
 	if store == nil {
 		return nil, fmt.Errorf("knowledgegraph: store is nil")
 	}
-	return &Graph{
+	g := &Graph{
 		store:           store,
 		embedder:        embedder,
 		minCosine:       DefaultEmbeddingMinCosine,
 		embeddingMargin: DefaultEmbeddingAmbiguityGap,
-	}, nil
+		embedCache:      map[string][]float32{},
+	}
+	return g, nil
 }
 
 func (g *Graph) AddNode(ctx context.Context, id string) error {
@@ -77,6 +82,9 @@ func (g *Graph) UpsertNode(ctx context.Context, in NodeUpsert) error {
 		if err != nil {
 			return err
 		}
+		g.embedMu.Lock()
+		g.embedCache[id] = vec
+		g.embedMu.Unlock()
 	}
 	if err := g.store.NodeUpsert(id, nodeType, aliasesJSON, status, blob); err != nil {
 		return fmt.Errorf("knowledgegraph: upsert node: %w", err)
@@ -472,6 +480,20 @@ type embeddingRow struct {
 }
 
 func (g *Graph) embeddingRowsFromStore() ([]embeddingRow, error) {
+	g.embedMu.RLock()
+	haveCache := len(g.embedCache) > 0
+	g.embedMu.RUnlock()
+	if haveCache {
+		g.embedMu.RLock()
+		defer g.embedMu.RUnlock()
+		out := make([]embeddingRow, 0, len(g.embedCache))
+		for id, vec := range g.embedCache {
+			cp := make([]float32, len(vec))
+			copy(cp, vec)
+			out = append(out, embeddingRow{id: id, v: cp})
+		}
+		return out, nil
+	}
 	rows, err := g.store.NodesSelectAll()
 	if err != nil {
 		return nil, fmt.Errorf("knowledgegraph: list embeddings: %w", err)
@@ -488,6 +510,9 @@ func (g *Graph) embeddingRowsFromStore() ([]embeddingRow, error) {
 		cp := make([]float32, len(vec))
 		copy(cp, vec)
 		out = append(out, embeddingRow{id: row.ID, v: cp})
+		g.embedMu.Lock()
+		g.embedCache[row.ID] = vec
+		g.embedMu.Unlock()
 	}
 	return out, nil
 }
