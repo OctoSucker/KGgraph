@@ -20,6 +20,7 @@ const (
 	ToolStrictAsk          = "kg_strict_ask"
 	ToolPreTradeCheck      = "kg_pre_trade_check"
 	ToolDecisionStatus     = "kg_decision_status"
+	ToolDecisionStats      = "kg_decision_stats"
 	ToolAttachEdgeEvidence = "kg_attach_edge_evidence"
 	ToolVerifyEdge         = "kg_verify_edge"
 	ToolRetireEdge         = "kg_retire_edge"
@@ -73,6 +74,7 @@ func (s *Service) ToolNames() []string {
 		ToolStrictAsk,
 		ToolPreTradeCheck,
 		ToolDecisionStatus,
+		ToolDecisionStats,
 		ToolAttachEdgeEvidence,
 		ToolVerifyEdge,
 		ToolRetireEdge,
@@ -399,6 +401,15 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 			ActiveCounterEvidence: activeCounterEvidence,
 			IncludeEvaluation:     includeEvaluation,
 		})
+	case ToolDecisionStats:
+		market, _ := parseOptionalString(arguments, "market", "")
+		var asOf time.Time
+		if at, ok, err := parseOptionalTime(arguments, "as_of"); err != nil {
+			return nil, err
+		} else if ok {
+			asOf = at
+		}
+		return s.DecisionStats(ctx, DecisionStatsInput{Market: market, AsOf: asOf})
 	case ToolExpandReasoning:
 		startID, err := parseRequiredString(arguments, tool, "start_id")
 		if err != nil {
@@ -900,6 +911,15 @@ func ToolSchema(tool string) map[string]any {
 			},
 			"additionalProperties": false,
 		}
+	case ToolDecisionStats:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"market": map[string]any{"type": "string", "description": "Optional market filter"},
+				"as_of":  map[string]any{"type": "string", "description": "RFC3339"},
+			},
+			"additionalProperties": false,
+		}
 	case ToolAttachEdgeEvidence:
 		return map[string]any{
 			"type": "object",
@@ -1074,6 +1094,8 @@ func ToolDescription(tool string) string {
 		return "Run a deterministic pre-trade gate for a recorded decision and intended action."
 	case ToolDecisionStatus:
 		return "List deterministic status for recorded decision theses, optionally filtered by market."
+	case ToolDecisionStats:
+		return "Aggregate recorded decision reviews into outcome counts, win rate, per-market stats, and lesson reuse."
 	case ToolAttachEdgeEvidence:
 		return "Attach an evidence item to an edge and update success/failure counters."
 	case ToolVerifyEdge:

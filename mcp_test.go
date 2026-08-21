@@ -44,7 +44,7 @@ func TestMCPServerEndToEnd(t *testing.T) {
 	}
 	for _, want := range []string{
 		ToolIngestPreview, ToolIngestConfirm, ToolRecordDecision, ToolStrictAsk, ToolConflictScan,
-		ToolRetireEdge, ToolReopenEdge, ToolDecisionAudit,
+		ToolRetireEdge, ToolReopenEdge, ToolDecisionAudit, ToolDecisionStats,
 		ToolLookupContext, ToolExportGraph, ToolImportGraph, ToolListEvidence,
 	} {
 		if !names[want] {

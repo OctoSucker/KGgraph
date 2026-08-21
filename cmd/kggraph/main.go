@@ -53,6 +53,8 @@ func main() {
 		runPreTradeCheck(ctx, args)
 	case "decision-status":
 		runDecisionStatus(ctx, args)
+	case "decision-stats":
+		runDecisionStats(ctx, args)
 	case "attach-edge-evidence":
 		runAttachEdgeEvidence(ctx, args)
 	case "verify-edge":
@@ -95,7 +97,7 @@ func main() {
 }
 
 func usage() string {
-	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, ingest-preview, ingest-confirm, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, attach-edge-evidence, verify-edge, retire-edge, reopen-edge, conflict-scan, decision-audit, lookup-context, export-graph, import-graph, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
+	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, ingest-preview, ingest-confirm, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, decision-stats, attach-edge-evidence, verify-edge, retire-edge, reopen-edge, conflict-scan, decision-audit, lookup-context, export-graph, import-graph, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
 }
 
 func addCommonFlags(fs *flag.FlagSet, c *commonFlags) {
@@ -518,6 +520,26 @@ func runDecisionStatus(ctx context.Context, argv []string) {
 	exitOnOpenError(err)
 	defer svc.Close()
 	out, err := svc.Call(ctx, kggraph.ToolDecisionStatus, args)
+	writeResult(err, out)
+}
+
+func runDecisionStats(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("decision-stats", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var market, asOf string
+	fs.StringVar(&market, "market", "", "optional market filter")
+	fs.StringVar(&asOf, "as-of", "", "optional RFC3339 query time")
+	mustParse(fs, argv)
+	args := map[string]any{"market": market}
+	if strings.TrimSpace(asOf) != "" {
+		args["as_of"] = asOf
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolDecisionStats, args)
 	writeResult(err, out)
 }
 

@@ -182,6 +182,7 @@ kggraph ingest-confirm \
 | `strict-ask` | Render a fixed human-readable answer from deterministic evaluation | No |
 | `pre-trade-check` | Run the execution gate for an intended action | No |
 | `decision-status` | List status for all recorded theses | No |
+| `decision-stats` | Aggregate decision reviews into outcome counts, win rate, per-market stats, and lesson reuse | No |
 | `review-decision` | Record realized outcome, lessons, and rule updates | No |
 | `ingest-statement` | Extract low-risk graph nodes/edges from natural language | Yes |
 | `ingest-preview` | Extract and conflict-scan without writing; returns a reviewable payload | Yes |
@@ -401,6 +402,7 @@ Main tools:
 - `kg_strict_ask`
 - `kg_pre_trade_check`
 - `kg_decision_status`
+- `kg_decision_stats`
 - `kg_expand_reasoning`
 - `kg_lookup_node_exact`
 - `kg_lookup_node_semantic`
