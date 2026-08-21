@@ -81,7 +81,7 @@ func (s *Service) IngestStatement(ctx context.Context, statement, graphKind, sou
 	if policy == ConflictPolicyBlock && len(draft.conflictsByEdge) > 0 {
 		return nil, fmt.Errorf("knowledgegraph: ingest statement: conflict_policy=block rejected %d conflicting edge(s)", len(draft.conflictsByEdge))
 	}
-	return s.finishIngest(ctx, statement, graphKind, sourceType, sourceRef, model, policy, draft)
+	return s.finishIngest(ctx, statement, graphKind, sourceType, sourceRef, model, policy, draft, "ingest_statement")
 }
 
 // IngestPreview runs extraction and conflict scanning but writes nothing. The
@@ -153,7 +153,7 @@ func (s *Service) IngestConfirm(ctx context.Context, preview map[string]any, gra
 		return nil, fmt.Errorf("knowledgegraph: ingest confirm: conflict_policy=block rejected %d conflicting edge(s)", len(draft.conflictsByEdge))
 	}
 	model := mapString(preview, "ingest_model")
-	return s.finishIngest(ctx, statement, graphKind, sourceType, sourceRef, model, policy, draft)
+	return s.finishIngest(ctx, statement, graphKind, sourceType, sourceRef, model, policy, draft, IngestConfirmMode)
 }
 
 func normalizeIngestPolicy(raw string) (string, error) {
@@ -248,7 +248,7 @@ func (s *Service) prepareIngestDraft(ctx context.Context, nodes []NodeUpsert, ed
 }
 
 // finishIngest writes a prepared draft and returns the ingest result payload.
-func (s *Service) finishIngest(ctx context.Context, statement, graphKind, sourceType, sourceRef, model, policy string, draft *ingestDraft) (map[string]any, error) {
+func (s *Service) finishIngest(ctx context.Context, statement, graphKind, sourceType, sourceRef, model, policy string, draft *ingestDraft, mode string) (map[string]any, error) {
 	nodeSet := map[string]struct{}{}
 	for _, n := range draft.nodes {
 		if err := s.graph.UpsertNode(ctx, n); err != nil {
@@ -289,6 +289,7 @@ func (s *Service) finishIngest(ctx context.Context, statement, graphKind, source
 		nodeIDs = append(nodeIDs, id)
 	}
 	return map[string]any{
+		"mode":              mode,
 		"statement":         statement,
 		"graph_kind":        graphKind,
 		"source_type":       sourceType,
