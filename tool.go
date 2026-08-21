@@ -27,6 +27,7 @@ const (
 	ToolLookupContext      = "kg_lookup_context"
 	ToolExportGraph        = "kg_export_graph"
 	ToolImportGraph        = "kg_import_graph"
+	ToolListEvidence       = "kg_list_evidence"
 	ToolLookupNodeExact    = "kg_lookup_node_exact"
 	ToolLookupNodeSemantic = "kg_lookup_node_semantic"
 	ToolListNodes          = "kg_list_nodes"
@@ -77,6 +78,7 @@ func (s *Service) ToolNames() []string {
 		ToolLookupContext,
 		ToolExportGraph,
 		ToolImportGraph,
+		ToolListEvidence,
 		ToolLookupNodeExact,
 		ToolLookupNodeSemantic,
 		ToolListNodes,
@@ -606,6 +608,25 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 			payload = arguments
 		}
 		return s.ImportGraph(ctx, payload)
+	case ToolListEvidence:
+		rows, err := s.store.EvidenceSelectAll()
+		if err != nil {
+			return nil, err
+		}
+		evidence := make([]map[string]any, 0, len(rows))
+		for _, ev := range rows {
+			evidence = append(evidence, map[string]any{
+				"id":          ev.ID,
+				"edge_id":     ev.EdgeID,
+				"source_type": ev.SourceType,
+				"source_ref":  ev.SourceRef,
+				"snippet":     ev.Snippet,
+				"observed_at": ev.ObservedAt.UTC().Format(time.RFC3339),
+				"supports":    ev.Supports,
+				"weight":      ev.Weight,
+			})
+		}
+		return map[string]any{"evidence": evidence}, nil
 	case ToolLookupNodeExact:
 		term, err := parseRequiredString(arguments, tool, "term")
 		if err != nil {
@@ -931,6 +952,12 @@ func ToolSchema(tool string) map[string]any {
 			},
 			"additionalProperties": false,
 		}
+	case ToolListEvidence:
+		return map[string]any{
+			"type":                 "object",
+			"properties":           map[string]any{},
+			"additionalProperties": false,
+		}
 	case ToolLookupNodeExact, ToolLookupNodeSemantic:
 		return map[string]any{
 			"type": "object",
@@ -1007,6 +1034,8 @@ func ToolDescription(tool string) string {
 		return "Serialize the whole graph (nodes, edges, evidence) as a JSON payload."
 	case ToolImportGraph:
 		return "Load a graph JSON payload (export output) into this store, re-attaching evidence by edge identity."
+	case ToolListEvidence:
+		return "List all attached edge evidence across the graph."
 	case ToolLookupNodeExact:
 		return "Find a stored node id by exact string match."
 	case ToolLookupNodeSemantic:

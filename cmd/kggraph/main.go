@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 
 	kggraph "github.com/OctoSucker/KGgraph"
@@ -454,7 +455,14 @@ func runAttachEdgeEvidence(ctx context.Context, argv []string) {
 	fs.StringVar(&sourceType, "source-type", "", "source type")
 	fs.StringVar(&sourceRef, "source-ref", "", "source ref")
 	fs.StringVar(&snippet, "snippet", "", "evidence snippet")
-	fs.BoolVar(&supports, "supports", true, "whether evidence supports the edge")
+	fs.Func("supports", "whether evidence supports the edge (true/false)", func(v string) error {
+		b, err := strconv.ParseBool(v)
+		if err != nil {
+			return fmt.Errorf("supports must be true or false: %v", err)
+		}
+		supports = b
+		return nil
+	})
 	fs.Float64Var(&weight, "weight", 1.0, "evidence weight")
 	fs.StringVar(&observedAt, "observed-at", "", "optional RFC3339 observed timestamp")
 	mustParse(fs, argv)
@@ -487,7 +495,14 @@ func runVerifyEdge(ctx context.Context, argv []string) {
 	var setConfidence bool
 	var verifiedAt string
 	fs.Int64Var(&edgeID, "edge-id", 0, "edge id")
-	fs.BoolVar(&success, "success", true, "verification result")
+	fs.Func("success", "verification result (true/false)", func(v string) error {
+		b, err := strconv.ParseBool(v)
+		if err != nil {
+			return fmt.Errorf("success must be true or false: %v", err)
+		}
+		success = b
+		return nil
+	})
 	fs.Float64Var(&confidence, "confidence", 0, "optional confidence value")
 	fs.BoolVar(&setConfidence, "set-confidence", false, "whether to update confidence")
 	fs.StringVar(&verifiedAt, "verified-at", "", "optional RFC3339 verified timestamp")

@@ -150,3 +150,39 @@ func TestDecisionAuditIncludesTimelineEvidenceAndReviews(t *testing.T) {
 		t.Fatalf("expected review outcome incorrect, got %#v", reviews[0])
 	}
 }
+
+func TestListEvidenceToolReturnsAttachedEvidence(t *testing.T) {
+	t.Parallel()
+	store := mustOpenTestStore(t)
+	defer store.Close()
+	svc, err := NewService(store, nil)
+	if err != nil {
+		t.Fatalf("new service: %v", err)
+	}
+	ctx := context.Background()
+	edgeID, err := svc.graph.UpsertEdge(ctx, EdgeUpsert{
+		FromID:       "a",
+		ToID:         "b",
+		GraphKind:    "knowledge",
+		RelationType: "supports",
+		Polarity:     1,
+		Confidence:   0.8,
+	})
+	if err != nil {
+		t.Fatalf("upsert edge: %v", err)
+	}
+	if err := svc.graph.AttachEdgeEvidence(edgeID, "research", "doc-1", "snippet", true, 1.0, nil); err != nil {
+		t.Fatalf("attach evidence: %v", err)
+	}
+	out, err := svc.Call(ctx, ToolListEvidence, map[string]any{})
+	if err != nil {
+		t.Fatalf("list evidence: %v", err)
+	}
+	evidence, ok := out["evidence"].([]map[string]any)
+	if !ok || len(evidence) != 1 {
+		t.Fatalf("expected 1 evidence row, got %#v", out["evidence"])
+	}
+	if evidence[0]["edge_id"] != edgeID || evidence[0]["source_ref"] != "doc-1" {
+		t.Fatalf("unexpected evidence row: %#v", evidence[0])
+	}
+}

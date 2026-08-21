@@ -57,20 +57,40 @@ func handleGraphAPI(ctx context.Context, cfg commonFlags, w http.ResponseWriter,
 		writeAPIError(w, 500, err)
 		return
 	}
+	evidenceOut, err := svc.Call(ctx, kggraph.ToolListEvidence, map[string]any{})
+	if err != nil {
+		writeAPIError(w, 500, err)
+		return
+	}
 
 	nodesRaw, _ := nodesOut["nodes"].([]map[string]any)
 	edgesRaw, _ := edgesOut["edges"].([]map[string]any)
+	evidenceRaw, _ := evidenceOut["evidence"].([]map[string]any)
+	evidenceByEdge := map[int64][]map[string]any{}
+	for _, ev := range evidenceRaw {
+		eid, _ := ev["edge_id"].(int64)
+		evidenceByEdge[eid] = append(evidenceByEdge[eid], ev)
+	}
 
 	startID := strings.TrimSpace(r.URL.Query().Get("start_id"))
 	maxDepth := parsePositiveIntOrDefault(r.URL.Query().Get("max_depth"), 2)
 	graphKind := strings.TrimSpace(r.URL.Query().Get("graph_kind"))
 	filteredNodes, filteredEdges := filterSubgraph(nodesRaw, edgesRaw, startID, maxDepth, graphKind)
+	for i := range filteredEdges {
+		e := filteredEdges[i]
+		if eid, ok := e["id"].(int64); ok {
+			if rows, ok := evidenceByEdge[eid]; ok && len(rows) > 0 {
+				e["evidence"] = rows
+			}
+		}
+	}
 
 	payload := map[string]any{
-		"nodes":       filteredNodes,
-		"edges":       filteredEdges,
-		"total_nodes": len(nodesRaw),
-		"total_edges": len(edgesRaw),
+		"nodes":          filteredNodes,
+		"edges":          filteredEdges,
+		"total_nodes":    len(nodesRaw),
+		"total_edges":    len(edgesRaw),
+		"evidence_count": len(evidenceRaw),
 	}
 	w.Header().Set("Content-Type", "application/json")
 	_ = json.NewEncoder(w).Encode(payload)
@@ -475,6 +495,8 @@ const graphViewHTML = `<!doctype html>
     <div class="stats">
       <div class="stat"><div class="k">Visible Nodes</div><div class="v" id="visibleNodes">0</div></div>
       <div class="stat"><div class="k">Visible Edges</div><div class="v" id="visibleEdges">0</div></div>
+      <div class="stat"><div class="k">Retired/Expired</div><div class="v" id="retiredEdges">0</div></div>
+      <div class="stat"><div class="k">Conflicts</div><div class="v" id="conflictEdges">0</div></div>
       <div class="stat"><div class="k">Total Nodes</div><div class="v" id="totalNodes">0</div></div>
       <div class="stat"><div class="k">Total Edges</div><div class="v" id="totalEdges">0</div></div>
       <div class="legend" id="legend"></div>
@@ -563,7 +585,7 @@ const graphViewHTML = `<!doctype html>
       };
     }
     function renderLegend(items) {
-      legendEl.innerHTML = items.slice(0, 8).map((it) =>
+      legendEl.innerHTML = items.slice(0, 12).map((it) =>
         "<span class='legend-item'><span class='legend-dot' style='background:" + esc(it.color) + ";border-color:" + esc(it.color) + "'></span>" +
         "<span>" + esc(it.label) + "</span></span>"
       ).join("");
@@ -573,6 +595,77 @@ const graphViewHTML = `<!doctype html>
     }
     function nodeTypeKey(node) {
       return node.node_type || "unknown";
+    }
+    function parseTime(v) {
+      if (!v) return null;
+      const t = new Date(v);
+      return isNaN(t.getTime()) ? null : t;
+    }
+    function edgeLifecycleState(e) {
+      const now = Date.now();
+      const vu = parseTime(e.valid_until);
+      const ex = parseTime(e.expires_at);
+      const vf = parseTime(e.valid_from);
+      if (vu && vu.getTime() <= now) return "retired";
+      if (ex && ex.getTime() <= now) return "expired";
+      if (vf && vf.getTime() > now) return "scheduled";
+      return "active";
+    }
+    function flagEdgeConflicts(edges) {
+      const antonym = {
+        "supports": "contradicts",
+        "contradicts": "supports",
+        "increases_probability_of": "decreases_probability_of",
+        "decreases_probability_of": "increases_probability_of",
+        "requires": "blocks",
+        "blocks": "requires"
+      };
+      const conflicted = new Set();
+      const conflictWith = new Map();
+      const addConflict = (id, other) => {
+        if (!conflictWith.has(id)) conflictWith.set(id, []);
+        conflictWith.get(id).push(other);
+      };
+      for (let i = 0; i < edges.length; i++) {
+        const a = edges[i];
+        for (let j = i + 1; j < edges.length; j++) {
+          const b = edges[j];
+          if (a.graph_kind !== b.graph_kind) continue;
+          const sameDir = a.from_id === b.from_id && a.to_id === b.to_id;
+          const reverseContradicts = b.relation_type === "contradicts" && b.from_id === a.to_id && b.to_id === a.from_id;
+          if (!sameDir && !reverseContradicts) continue;
+          let conflict = false;
+          if (sameDir && a.relation_type === b.relation_type && a.polarity && b.polarity && a.polarity !== b.polarity) conflict = true;
+          if (sameDir && antonym[a.relation_type] === b.relation_type) conflict = true;
+          if (reverseContradicts) conflict = true;
+          if (conflict) {
+            conflicted.add(a.id);
+            conflicted.add(b.id);
+            addConflict(a.id, b.id);
+            addConflict(b.id, a.id);
+          }
+        }
+      }
+      edges.forEach(e => {
+        if (conflicted.has(e.id)) {
+          e.conflicted = true;
+          e.conflict_with = conflictWith.get(e.id) || [];
+        }
+      });
+    }
+    function edgeTooltip(e, state) {
+      const lines = [
+        "relation: " + (e.relation_type || ""),
+        "kind: " + (e.graph_kind || ""),
+        "state: " + state,
+        "confidence: " + (e.confidence ?? ""),
+        "evidence: " + (e.evidence_count ?? 0) + ", failed: " + (e.failed_count ?? 0)
+      ];
+      if (e.conflicted) lines.push("conflict: yes");
+      if (e.source_ref) lines.push("source: " + e.source_ref);
+      if (e.valid_from) lines.push("valid_from: " + e.valid_from);
+      if (e.valid_until) lines.push("valid_until: " + e.valid_until);
+      return lines.join("\n");
     }
     function renderFilterChips(container, values, selectedSet) {
       container.innerHTML = "";
@@ -640,6 +733,7 @@ const graphViewHTML = `<!doctype html>
       suppressURLSync = false;
     }
     function buildVisData(nodesRaw, edgesRaw) {
+      flagEdgeConflicts(edgesRaw);
       const nodes = nodesRaw.map(n => {
         nodeMap.set(n.id, n);
         return {
@@ -654,19 +748,31 @@ const graphViewHTML = `<!doctype html>
       });
       const edges = edgesRaw.map(e => {
         edgeMap.set(e.id, e);
+        const state = edgeLifecycleState(e);
         const c = hashColor(relationKey(e));
+        let color = c.line;
+        let dashes = false;
+        let width = 2;
+        if (e.conflicted) {
+          color = "#dc2626";
+          dashes = [3, 3];
+          width = 3;
+        } else if (state === "retired" || state === "expired") {
+          color = "#9ca3af";
+          dashes = [8, 4];
+        } else if (state === "scheduled") {
+          color = "#f59e0b";
+          dashes = [10, 5];
+        }
         return {
           id: e.id,
           from: e.from_id,
           to: e.to_id,
           label: e.relation_type || "",
-          color: { color: c.line, highlight: c.line, hover: c.line, opacity: 0.85 },
-          title:
-            "relation: " + (e.relation_type || "") + "\n" +
-            "kind: " + (e.graph_kind || "") + "\n" +
-            "confidence: " + (e.confidence ?? "") + "\n" +
-            "condition: " + (e.condition_text || "") + "\n" +
-            "evidence: " + (e.evidence_count ?? 0) + ", failed: " + (e.failed_count ?? 0)
+          color: { color: color, highlight: color, hover: color, opacity: 0.9 },
+          dashes: dashes,
+          width: width,
+          title: edgeTooltip(e, state)
         };
       });
       return { nodes, edges };
@@ -683,7 +789,12 @@ const graphViewHTML = `<!doctype html>
       }
       const vis = buildVisData(filteredNodes, filteredEdges);
       applyGraphData(vis.nodes, vis.edges);
-      updateStats(filteredNodes.length, filteredEdges.length, rawNodes.length, rawEdges.length);
+      const retired = filteredEdges.filter(e => {
+        const s = edgeLifecycleState(e);
+        return s === "retired" || s === "expired";
+      }).length;
+      const conflicts = filteredEdges.filter(e => e.conflicted).length;
+      updateStats(filteredNodes.length, filteredEdges.length, rawNodes.length, rawEdges.length, retired, conflicts);
       syncURLState();
       if (filteredNodes.length === 0 && filteredEdges.length === 0) {
         network.setOptions({ physics: { enabled: false } });
@@ -757,9 +868,11 @@ const graphViewHTML = `<!doctype html>
       }
     });
 
-    function updateStats(nodes, edges, totalNodes, totalEdges) {
+    function updateStats(nodes, edges, totalNodes, totalEdges, retired, conflicts) {
       document.getElementById("visibleNodes").textContent = String(nodes);
       document.getElementById("visibleEdges").textContent = String(edges);
+      document.getElementById("retiredEdges").textContent = String(retired || 0);
+      document.getElementById("conflictEdges").textContent = String(conflicts || 0);
       document.getElementById("totalNodes").textContent = String(totalNodes);
       document.getElementById("totalEdges").textContent = String(totalEdges);
     }
@@ -798,7 +911,13 @@ const graphViewHTML = `<!doctype html>
             relationColors.set(key, hashColor(key).line);
           }
         });
-        renderLegend(Array.from(relationColors.entries()).map(([label, color]) => ({ label, color })));
+        renderLegend([
+          { label: "Active", color: "#2f80ed" },
+          { label: "Retired/Expired", color: "#9ca3af" },
+          { label: "Scheduled", color: "#f59e0b" },
+          { label: "Conflict", color: "#dc2626" },
+          ...Array.from(relationColors.entries()).map(([label, color]) => ({ label, color }))
+        ]);
         setDetail("Selection", [
           ["Hint", "点击节点或边，查看详细信息（尤其是 edge 的属性）。"],
           ["Current Filter", "start_id=" + (startId || "-") + ", max_depth=" + (maxDepth || "-") + ", graph_kind=" + (graphKind || "-")]
@@ -881,20 +1000,21 @@ const graphViewHTML = `<!doctype html>
         ["id", n.id],
         ["type", n.node_type],
         ["status", n.status],
-        ["aliases", Array.isArray(n.aliases) ? n.aliases.join(", ") : n.aliases],
-        ["source", n.source],
+        ["aliases", n.aliases_json && n.aliases_json !== "[]" ? n.aliases_json : "-"],
       ]);
     });
     network.on("selectEdge", params => {
       const id = params.edges && params.edges[0];
       const e = edgeMap.get(id);
       if (!e) return;
-      setDetail("Edge", [
+      const state = edgeLifecycleState(e);
+      const rows = [
         ["id", e.id],
         ["from", e.from_id],
         ["to", e.to_id],
         ["relation", e.relation_type],
         ["graph_kind", e.graph_kind],
+        ["state", state],
         ["confidence", e.confidence],
         ["condition_text", e.condition_text],
         ["evidence_count", e.evidence_count],
@@ -902,7 +1022,17 @@ const graphViewHTML = `<!doctype html>
         ["observed_at", e.observed_at],
         ["valid_from", e.valid_from],
         ["valid_until", e.valid_until],
-      ]);
+        ["source_ref", e.source_ref],
+      ];
+      if (e.conflicted) rows.push(["conflict_with", (e.conflict_with || []).join(", ")]);
+      const ev = e.evidence || [];
+      ev.slice(0, 5).forEach((x, i) => {
+        rows.push(["evidence " + (i + 1) + " ref", x.source_ref || "-"]);
+        rows.push(["evidence " + (i + 1) + " snippet", x.snippet || "-"]);
+        rows.push(["evidence " + (i + 1) + " support", (x.supports ? "supports" : "refutes") + ", weight=" + x.weight]);
+      });
+      if (ev.length > 5) rows.push(["evidence", ev.length + " total"]);
+      setDetail("Edge", rows);
     });
     network.on("deselectNode", () => {
       setDetail("Selection", [["Hint", "点击边可以查看 edge 的完整属性。"]]);
@@ -925,8 +1055,7 @@ const graphViewHTML = `<!doctype html>
         ["id", n.id],
         ["type", n.node_type],
         ["status", n.status],
-        ["aliases", Array.isArray(n.aliases) ? n.aliases.join(", ") : n.aliases],
-        ["source", n.source],
+        ["aliases", n.aliases_json && n.aliases_json !== "[]" ? n.aliases_json : "-"],
       ]);
       setStatus("ok", "Focused: " + id);
     });

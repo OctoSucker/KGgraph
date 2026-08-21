@@ -391,6 +391,7 @@ Main tools:
 - `kg_lookup_context`
 - `kg_export_graph`
 - `kg_import_graph`
+- `kg_list_evidence`
 
 Example MCP client config: `examples/mcp-stdio.json`
 
@@ -402,6 +403,12 @@ kggraph graph-view
 ```
 
 In the viewer, set `start-id` / `max-depth` / `graph-kind`, then click `Refresh` to reload from SQLite.
+
+The viewer reflects the knowledge lifecycle:
+
+- edges are drawn as **solid** when active, **gray/dashed** when retired or expired, **amber/dashed** when scheduled, and **red/dashed** when they conflict with another edge in view;
+- the stats row shows `Retired/Expired` and `Conflicts` counts;
+- clicking an edge opens a detail panel with validity windows, source reference, conflicting edge ids, and up to five attached evidence rows (source ref, snippet, support/refute, weight).
 
 ## Design boundaries
 
