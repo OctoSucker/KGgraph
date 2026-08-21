@@ -155,6 +155,24 @@ kggraph expand-reasoning \
 
 `ingest-statement` uses the LLM only as a constrained extractor. It is not the right entrypoint for trades or other high-stakes decisions.
 
+For reviewable ingestion, split extraction from writing:
+
+```bash
+# 1) Extract and conflict-scan without writing anything
+kggraph ingest-preview \
+  --workspace ./workspace \
+  --statement "战争升级通常会推高原油价格，并在市场未提前消化时压制美股大盘" \
+  --conflict-policy warn > preview.json
+
+# 2) Review preview.json, then write it (re-validated and re-scanned)
+kggraph ingest-confirm \
+  --workspace ./workspace \
+  --file preview.json \
+  --source-ref "research-note-2026-08"
+```
+
+`ingest-confirm` never trusts the preview blindly: it re-validates every node/edge and re-runs the conflict scan with the selected policy before writing, so what you reviewed is exactly what gets stored.
+
 ## CLI command reference
 
 | Command | Purpose | Calls LLM |
@@ -166,6 +184,8 @@ kggraph expand-reasoning \
 | `decision-status` | List status for all recorded theses | No |
 | `review-decision` | Record realized outcome, lessons, and rule updates | No |
 | `ingest-statement` | Extract low-risk graph nodes/edges from natural language | Yes |
+| `ingest-preview` | Extract and conflict-scan without writing; returns a reviewable payload | Yes |
+| `ingest-confirm` | Write a preview payload after re-validating and re-scanning conflicts | No |
 | `expand-reasoning` | Expand weighted graph paths from a start node | No |
 | `add-fact-edge` | Manually add a knowledge edge | No |
 | `add-skill-edge` | Manually add an executable skill/procedure edge | No |
@@ -373,6 +393,8 @@ Main tools:
 - `kg_add_fact_edge`
 - `kg_add_skill_edge`
 - `kg_ingest_statement`
+- `kg_ingest_preview`
+- `kg_ingest_confirm`
 - `kg_record_decision`
 - `kg_review_decision`
 - `kg_evaluate_decision`

@@ -37,6 +37,10 @@ func main() {
 		runAddEdge(ctx, args, kggraph.ToolAddSkillEdge)
 	case "ingest-statement":
 		runIngestStatement(ctx, args)
+	case "ingest-preview":
+		runIngestPreview(ctx, args)
+	case "ingest-confirm":
+		runIngestConfirm(ctx, args)
 	case "record-decision":
 		runRecordDecision(ctx, args)
 	case "review-decision":
@@ -91,7 +95,7 @@ func main() {
 }
 
 func usage() string {
-	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, attach-edge-evidence, verify-edge, retire-edge, reopen-edge, conflict-scan, decision-audit, lookup-context, export-graph, import-graph, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
+	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, ingest-preview, ingest-confirm, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, attach-edge-evidence, verify-edge, retire-edge, reopen-edge, conflict-scan, decision-audit, lookup-context, export-graph, import-graph, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
 }
 
 func addCommonFlags(fs *flag.FlagSet, c *commonFlags) {
@@ -237,6 +241,81 @@ func runIngestStatement(ctx context.Context, argv []string) {
 	exitOnOpenError(err)
 	defer svc.Close()
 	out, err := svc.Call(ctx, kggraph.ToolIngestStatement, args)
+	writeResult(err, out)
+}
+
+func runIngestPreview(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("ingest-preview", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var statement, graphKind, sourceType, sourceRef, model string
+	var conflictPolicy string
+	var defaultConfidence float64
+	fs.StringVar(&statement, "statement", "", "natural-language statement to preview")
+	fs.StringVar(&graphKind, "graph-kind", "knowledge", "graph kind filter")
+	fs.StringVar(&sourceType, "source-type", "llm_extracted", "source type")
+	fs.StringVar(&sourceRef, "source-ref", "", "source ref")
+	fs.StringVar(&model, "model", getenvDefault("OPENAI_MODEL", kggraph.DefaultIngestModel), "LLM model used for extraction")
+	fs.Float64Var(&defaultConfidence, "default-confidence", kggraph.DefaultIngestConfidence, "fallback confidence when LLM is uncertain")
+	fs.StringVar(&conflictPolicy, "conflict-policy", "warn", "block, warn, or off")
+	mustParse(fs, argv)
+	args := map[string]any{
+		"statement":          statement,
+		"graph_kind":         graphKind,
+		"source_type":        sourceType,
+		"source_ref":         sourceRef,
+		"model":              model,
+		"default_confidence": defaultConfidence,
+		"conflict_policy":    conflictPolicy,
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolIngestPreview, args)
+	writeResult(err, out)
+}
+
+func runIngestConfirm(ctx context.Context, argv []string) {
+	fs := flag.NewFlagSet("ingest-confirm", flag.ContinueOnError)
+	fs.SetOutput(os.Stderr)
+	var cfg commonFlags
+	addCommonFlags(fs, &cfg)
+	var previewJSON, file, graphKind, sourceType, sourceRef, conflictPolicy string
+	fs.StringVar(&previewJSON, "preview-json", "", "preview payload JSON from ingest-preview")
+	fs.StringVar(&file, "file", "", "path to preview payload JSON file")
+	fs.StringVar(&graphKind, "graph-kind", "knowledge", "graph kind")
+	fs.StringVar(&sourceType, "source-type", "llm_extracted", "source type")
+	fs.StringVar(&sourceRef, "source-ref", "", "source ref")
+	fs.StringVar(&conflictPolicy, "conflict-policy", "warn", "block, warn, or off")
+	mustParse(fs, argv)
+	var raw []byte
+	if strings.TrimSpace(file) != "" {
+		data, err := os.ReadFile(file)
+		if err != nil {
+			writeJSONAndExit(2, map[string]any{"error": fmt.Sprintf("ingest-confirm: read file: %v", err)})
+		}
+		raw = data
+	} else if strings.TrimSpace(previewJSON) != "" {
+		raw = []byte(previewJSON)
+	} else {
+		writeJSONAndExit(2, map[string]any{"error": "ingest-confirm: --preview-json or --file is required"})
+	}
+	var preview map[string]any
+	if err := json.Unmarshal(raw, &preview); err != nil {
+		writeJSONAndExit(2, map[string]any{"error": fmt.Sprintf("ingest-confirm: parse preview: %v", err)})
+	}
+	args := map[string]any{
+		"preview":         preview,
+		"graph_kind":      graphKind,
+		"source_type":     sourceType,
+		"source_ref":      sourceRef,
+		"conflict_policy": conflictPolicy,
+	}
+	svc, err := openService(cfg)
+	exitOnOpenError(err)
+	defer svc.Close()
+	out, err := svc.Call(ctx, kggraph.ToolIngestConfirm, args)
 	writeResult(err, out)
 }
 

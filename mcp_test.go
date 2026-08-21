@@ -43,7 +43,7 @@ func TestMCPServerEndToEnd(t *testing.T) {
 		names[tool.Name] = true
 	}
 	for _, want := range []string{
-		ToolRecordDecision, ToolStrictAsk, ToolConflictScan,
+		ToolIngestPreview, ToolIngestConfirm, ToolRecordDecision, ToolStrictAsk, ToolConflictScan,
 		ToolRetireEdge, ToolReopenEdge, ToolDecisionAudit,
 		ToolLookupContext, ToolExportGraph, ToolImportGraph, ToolListEvidence,
 	} {
@@ -115,6 +115,21 @@ func TestMCPServerEndToEnd(t *testing.T) {
 	export := mcpCall(ToolExportGraph, map[string]any{})
 	if mapInt64(export, "node_count") < 3 || mapInt64(export, "edge_count") < 2 {
 		t.Fatalf("unexpected export counts: %#v", export)
+	}
+	confirmed := mcpCall(ToolIngestConfirm, map[string]any{
+		"preview": map[string]any{
+			"statement": "c supports d",
+			"nodes": []any{
+				map[string]any{"id": "c", "node_type": "entity"},
+				map[string]any{"id": "d", "node_type": "entity"},
+			},
+			"edges": []any{
+				map[string]any{"from": "c", "to": "d", "relation": "supports", "polarity": 1, "confidence": 0.7},
+			},
+		},
+	})
+	if int(mapFloat(confirmed, "edge_count")) != 1 {
+		t.Fatalf("expected confirm to write 1 edge, got %#v", confirmed)
 	}
 
 	res, err := cs.CallTool(ctx, &mcp.CallToolParams{Name: ToolLookupNodeExact, Arguments: map[string]any{}})

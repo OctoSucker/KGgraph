@@ -12,6 +12,8 @@ const (
 	ToolAddFactEdge        = "kg_add_fact_edge"
 	ToolAddSkillEdge       = "kg_add_skill_edge"
 	ToolIngestStatement    = "kg_ingest_statement"
+	ToolIngestPreview      = "kg_ingest_preview"
+	ToolIngestConfirm      = "kg_ingest_confirm"
 	ToolRecordDecision     = "kg_record_decision"
 	ToolReviewDecision     = "kg_review_decision"
 	ToolEvaluateDecision   = "kg_evaluate_decision"
@@ -63,6 +65,8 @@ func (s *Service) ToolNames() []string {
 		ToolAddFactEdge,
 		ToolAddSkillEdge,
 		ToolIngestStatement,
+		ToolIngestPreview,
+		ToolIngestConfirm,
 		ToolRecordDecision,
 		ToolReviewDecision,
 		ToolEvaluateDecision,
@@ -167,6 +171,28 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 		defaultConfidence, _ := parseOptionalFloat(arguments, "default_confidence", DefaultIngestConfidence)
 		conflictPolicy, _ := parseOptionalString(arguments, "conflict_policy", ConflictPolicyWarn)
 		return s.IngestStatement(ctx, statement, graphKind, sourceType, sourceRef, model, defaultConfidence, conflictPolicy)
+	case ToolIngestPreview:
+		statement, err := parseRequiredString(arguments, tool, "statement")
+		if err != nil {
+			return nil, err
+		}
+		graphKind, _ := parseOptionalString(arguments, "graph_kind", "knowledge")
+		sourceType, _ := parseOptionalString(arguments, "source_type", "llm_extracted")
+		sourceRef, _ := parseOptionalString(arguments, "source_ref", "")
+		model, _ := parseOptionalString(arguments, "model", "")
+		defaultConfidence, _ := parseOptionalFloat(arguments, "default_confidence", DefaultIngestConfidence)
+		conflictPolicy, _ := parseOptionalString(arguments, "conflict_policy", ConflictPolicyWarn)
+		return s.IngestPreview(ctx, statement, graphKind, sourceType, sourceRef, model, defaultConfidence, conflictPolicy)
+	case ToolIngestConfirm:
+		preview, ok := arguments["preview"].(map[string]any)
+		if !ok {
+			return nil, fmt.Errorf("%s: preview object is required", tool)
+		}
+		graphKind, _ := parseOptionalString(arguments, "graph_kind", "knowledge")
+		sourceType, _ := parseOptionalString(arguments, "source_type", "llm_extracted")
+		sourceRef, _ := parseOptionalString(arguments, "source_ref", "")
+		conflictPolicy, _ := parseOptionalString(arguments, "conflict_policy", ConflictPolicyWarn)
+		return s.IngestConfirm(ctx, preview, graphKind, sourceType, sourceRef, conflictPolicy)
 	case ToolRecordDecision:
 		market, err := parseRequiredString(arguments, tool, "market")
 		if err != nil {
@@ -757,6 +783,34 @@ func ToolSchema(tool string) map[string]any {
 			"required":             []string{"statement"},
 			"additionalProperties": false,
 		}
+	case ToolIngestPreview:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"statement":          map[string]any{"type": "string", "description": "Natural-language conclusion or notes to preview"},
+				"graph_kind":         map[string]any{"type": "string"},
+				"source_type":        map[string]any{"type": "string"},
+				"source_ref":         map[string]any{"type": "string"},
+				"model":              map[string]any{"type": "string", "description": "LLM model for extraction"},
+				"default_confidence": map[string]any{"type": "number"},
+				"conflict_policy":    map[string]any{"type": "string", "description": "block|warn|off; default warn"},
+			},
+			"required":             []string{"statement"},
+			"additionalProperties": false,
+		}
+	case ToolIngestConfirm:
+		return map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"preview":         map[string]any{"type": "object", "description": "Payload returned by kg_ingest_preview"},
+				"graph_kind":      map[string]any{"type": "string"},
+				"source_type":     map[string]any{"type": "string"},
+				"source_ref":      map[string]any{"type": "string"},
+				"conflict_policy": map[string]any{"type": "string", "description": "block|warn|off; default warn"},
+			},
+			"required":             []string{"preview"},
+			"additionalProperties": false,
+		}
 	case ToolRecordDecision:
 		return map[string]any{
 			"type": "object",
@@ -1004,6 +1058,10 @@ func ToolDescription(tool string) string {
 		return "Create or update a skill/procedure edge with activation rule."
 	case ToolIngestStatement:
 		return "Ingest natural-language statement by extracting nodes/edges with LLM and writing them to graph."
+	case ToolIngestPreview:
+		return "Extract nodes/edges from a statement and scan for conflicts without writing anything; returns a preview payload for review."
+	case ToolIngestConfirm:
+		return "Write a preview payload produced by kg_ingest_preview after re-validating and re-scanning for conflicts."
 	case ToolRecordDecision:
 		return "Record a disciplined trading decision with thesis, action, evidence, counter-evidence, failure conditions, triggers, and position rule."
 	case ToolReviewDecision:
