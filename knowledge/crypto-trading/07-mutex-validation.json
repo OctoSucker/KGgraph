@@ -1,0 +1,43 @@
+{
+  "nodes": [
+    {"id": "信号冲突", "node_type": "state", "aliases": ["signal conflict"]},
+    {"id": "结构优先", "node_type": "rule", "aliases": ["structure priority"]},
+    {"id": "现货净流出看多信号", "node_type": "rule", "aliases": ["spot outflow bull signal"]},
+    {"id": "跌破关键支撑", "node_type": "signal", "aliases": ["key support breakdown"]},
+    {"id": "顺势追多", "node_type": "action", "aliases": ["chase longs"]},
+    {"id": "数据分层", "node_type": "concept", "aliases": ["data tiering"]},
+    {"id": "官方链上数据", "node_type": "concept", "aliases": ["official on-chain data"]},
+    {"id": "第三方聚合数据", "node_type": "concept", "aliases": ["third-party aggregated data"]},
+    {"id": "社媒情绪", "node_type": "concept", "aliases": ["social sentiment"]},
+    {"id": "高可信信号", "node_type": "state", "aliases": ["high confidence signal"]},
+    {"id": "中可信信号", "node_type": "state", "aliases": ["medium confidence signal"]},
+    {"id": "低可信信号", "node_type": "state", "aliases": ["low confidence signal"]},
+    {"id": "时效性分级", "node_type": "concept", "aliases": ["freshness tiering"]},
+    {"id": "快变指标", "node_type": "concept", "aliases": ["fast-moving metrics"]},
+    {"id": "慢变知识", "node_type": "concept", "aliases": ["slow-moving knowledge"]},
+    {"id": "交叉验证", "node_type": "practice", "aliases": ["cross-validation"]},
+    {"id": "信号噪音", "node_type": "concept", "aliases": ["signal noise"]},
+    {"id": "互斥检查", "node_type": "practice", "aliases": ["mutual exclusion check"]},
+    {"id": "信号降权", "node_type": "practice", "aliases": ["signal downweighting"]},
+    {"id": "决策框架", "node_type": "concept", "aliases": ["decision framework"]},
+    {"id": "实时数据", "node_type": "concept", "aliases": ["real-time data"]},
+    {"id": "长期规则", "node_type": "concept", "aliases": ["long-term rules"]}
+  ],
+  "edges": [
+    {"from_id": "信号冲突", "to_id": "结构优先", "relation_type": "signals", "polarity": 1, "confidence": 0.8, "condition_text": "多个信号互相矛盾时，以价格结构（通道/关键点/量价）为准", "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "跌破关键支撑", "to_id": "现货净流出看多信号", "relation_type": "invalidates", "polarity": -1, "confidence": 0.75, "condition_text": "链上净流出是中长期因子，跌破关键支撑时结构信号优先", "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "多头拥挤", "to_id": "顺势追多", "relation_type": "invalidates", "polarity": -1, "confidence": 0.8, "condition_text": "资金费率极正、多头拥挤时追多风险大于机会", "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "官方链上数据", "to_id": "高可信信号", "relation_type": "signals", "polarity": 1, "confidence": 0.9, "condition_text": "链上原生数据可独立验证", "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "第三方聚合数据", "to_id": "中可信信号", "relation_type": "signals", "polarity": 1, "confidence": 0.7, "condition_text": "聚合数据需要交叉验证来源", "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "社媒情绪", "to_id": "低可信信号", "relation_type": "signals", "polarity": 1, "confidence": 0.7, "condition_text": "社媒噪音大，仅作情绪参考", "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "高可信信号", "to_id": "交叉验证", "relation_type": "enables", "polarity": 1, "confidence": 0.8, "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "交叉验证", "to_id": "信号噪音", "relation_type": "decreases", "polarity": 1, "confidence": 0.8, "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "快变指标", "to_id": "实时数据", "relation_type": "requires", "polarity": 1, "confidence": 0.85, "condition_text": "资金费率、持仓量、净流入等指标时效性极强", "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "慢变知识", "to_id": "长期规则", "relation_type": "enables", "polarity": 1, "confidence": 0.85, "condition_text": "机制与原则类知识有效期长，可长期复用", "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "互斥检查", "to_id": "信号降权", "relation_type": "enables", "polarity": 1, "confidence": 0.8, "condition_text": "命中互斥条件时自动降低或否决该信号", "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "结构优先", "to_id": "决策框架", "relation_type": "part_of", "polarity": 1, "confidence": 0.85, "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "数据分层", "to_id": "决策框架", "relation_type": "part_of", "polarity": 1, "confidence": 0.85, "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "时效性分级", "to_id": "决策框架", "relation_type": "part_of", "polarity": 1, "confidence": 0.85, "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"},
+    {"from_id": "低可信信号", "to_id": "信号降权", "relation_type": "triggers", "polarity": 1, "confidence": 0.75, "condition_text": "低可信来源不与高可信信号冲突时只作参考", "source_type": "domain_curated", "source_ref": "crypto-trading-v1/mutex"}
+  ]
+}

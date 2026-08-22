@@ -217,3 +217,77 @@ func TestGraphEmbeddingCachePopulatedOnUpsert(t *testing.T) {
 		t.Fatalf("expected semantic match to memory layer, got %q ok=%v", canon, ok)
 	}
 }
+
+func TestLookupContextIncludesIncomingEdges(t *testing.T) {
+	t.Parallel()
+	store := mustOpenTestStore(t)
+	defer store.Close()
+	svc, err := NewService(store, nil)
+	if err != nil {
+		t.Fatalf("new service: %v", err)
+	}
+	ctx := context.Background()
+	if _, err := svc.graph.UpsertEdge(ctx, EdgeUpsert{
+		FromID:       "阶段高低点同步抬升",
+		ToID:         "上升通道",
+		GraphKind:    "knowledge",
+		RelationType: "signals",
+		Polarity:     1,
+		Confidence:   0.8,
+	}); err != nil {
+		t.Fatalf("upsert incoming edge: %v", err)
+	}
+	if _, err := svc.graph.UpsertEdge(ctx, EdgeUpsert{
+		FromID:       "上升通道",
+		ToID:         "择机做多",
+		GraphKind:    "knowledge",
+		RelationType: "enables",
+		Polarity:     1,
+		Confidence:   0.8,
+	}); err != nil {
+		t.Fatalf("upsert outgoing edge: %v", err)
+	}
+	if _, err := svc.graph.UpsertEdge(ctx, EdgeUpsert{
+		FromID:       "放量跌破通道下沿",
+		ToID:         "上升通道",
+		GraphKind:    "knowledge",
+		RelationType: "invalidates",
+		Polarity:     -1,
+		Confidence:   0.9,
+	}); err != nil {
+		t.Fatalf("upsert invalidation edge: %v", err)
+	}
+	out, err := svc.Call(ctx, ToolLookupContext, map[string]any{
+		"term": "上升通道", "graph_kind": "knowledge", "max_depth": 2,
+	})
+	if err != nil {
+		t.Fatalf("lookup context: %v", err)
+	}
+	edges, ok := out["edges"].(map[string]any)
+	if !ok || len(edges) != 3 {
+		t.Fatalf("expected 3 edges in context, got %#v", out["edges"])
+	}
+	incoming, ok := out["incoming_nodes"].([]string)
+	if !ok {
+		t.Fatalf("expected incoming_nodes list, got %#v", out["incoming_nodes"])
+	}
+	wantIncoming := map[string]bool{"阶段高低点同步抬升": true, "放量跌破通道下沿": true}
+	if len(incoming) != 2 {
+		t.Fatalf("expected 2 incoming source nodes, got %#v", incoming)
+	}
+	for _, id := range incoming {
+		if !wantIncoming[id] {
+			t.Fatalf("unexpected incoming node %q", id)
+		}
+	}
+	directions := map[string]int{}
+	for _, v := range edges {
+		m, _ := v.(map[string]any)
+		if dir, ok := m["direction"].(string); ok {
+			directions[dir]++
+		}
+	}
+	if directions["in"] != 2 || directions["out"] != 1 {
+		t.Fatalf("expected 2 in / 1 out edges, got %#v", directions)
+	}
+}
