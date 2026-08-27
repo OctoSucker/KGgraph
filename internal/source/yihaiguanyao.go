@@ -83,7 +83,13 @@ func FetchYihaiguanyao(ctx context.Context, book Book, dir string, force bool) (
 	if err := os.MkdirAll(bookDir, 0o755); err != nil {
 		return nil, err
 	}
-	chapters, preface := splitYhgyChapters(full, book.SkipTranslation)
+	pattern := reYhgyChapter
+	if book.ChapterPattern != "" {
+		if re, err := regexp.Compile(book.ChapterPattern); err == nil {
+			pattern = re
+		}
+	}
+	chapters, preface := splitYhgyChapters(full, book.SkipTranslation, pattern)
 
 	var entries []ChapterEntry
 	if preface != "" {
@@ -93,12 +99,20 @@ func FetchYihaiguanyao(ctx context.Context, book Book, dir string, force bool) (
 		}
 		entries = append(entries, ChapterEntry{File: fname, Title: "序", Chars: len([]rune(preface))})
 	}
-	for _, ch := range chapters {
-		fname := ch.Num + "-" + slugify(ch.Name) + ".txt"
+	for i, ch := range chapters {
+		num := ch.Num
+		if num == "" {
+			num = fmt.Sprintf("%02d", i+1)
+		}
+		fname := num + "-" + slugify(ch.Name) + ".txt"
 		if err := writeIfChanged(filepath.Join(bookDir, fname), ch.Text, force); err != nil {
 			return nil, err
 		}
-		entries = append(entries, ChapterEntry{File: fname, Title: ch.Num + "章 " + ch.Name, Chars: len([]rune(ch.Text))})
+		title := ch.Name
+		if ch.Num != "" {
+			title = ch.Num + "章 " + ch.Name
+		}
+		entries = append(entries, ChapterEntry{File: fname, Title: title, Chars: len([]rune(ch.Text))})
 	}
 	if err := writeFull(bookDir, entries, force); err != nil {
 		return nil, err
@@ -159,16 +173,21 @@ func cleanYhgyPage(html string) string {
 	return strings.Join(keep, "\n")
 }
 
-func splitYhgyChapters(full string, skipTranslation bool) ([]yhgyChapter, string) {
+func splitYhgyChapters(full string, skipTranslation bool, pattern *regexp.Regexp) ([]yhgyChapter, string) {
 	lines := strings.Split(full, "\n")
 	var chapters []yhgyChapter
 	var preface []string
 	cur := -1
 	inTranslation := false
 	for _, ln := range lines {
-		if m := reYhgyChapter.FindStringSubmatch(ln); m != nil {
+		if m := pattern.FindStringSubmatch(ln); m != nil {
 			cur++
-			chapters = append(chapters, yhgyChapter{Num: m[1], Name: strings.TrimSpace(m[2])})
+			num, name := "", strings.TrimSpace(m[0])
+			if len(m) >= 3 {
+				num = m[1]
+				name = strings.TrimSpace(m[2])
+			}
+			chapters = append(chapters, yhgyChapter{Num: num, Name: name})
 			inTranslation = false
 			continue
 		}

@@ -12,7 +12,7 @@ func TestSplitYhgyChapters(t *testing.T) {
 原文二
 （以下是小雅译）
 译文二`
-	chapters, preface := splitYhgyChapters(in, true)
+	chapters, preface := splitYhgyChapters(in, true, reYhgyChapter)
 	if preface != "前言一段" {
 		t.Fatalf("preface = %q", preface)
 	}
@@ -32,7 +32,7 @@ func TestSplitYhgyChaptersKeepTranslation(t *testing.T) {
 原文一
 （以下是小雅译）
 译文一`
-	chapters, _ := splitYhgyChapters(in, false)
+	chapters, _ := splitYhgyChapters(in, false, reYhgyChapter)
 	if len(chapters) != 1 {
 		t.Fatalf("chapters = %d", len(chapters))
 	}

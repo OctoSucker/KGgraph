@@ -234,6 +234,84 @@
       "title": "钦定协纪辨方书（四库全书本）",
       "provider": "wikisource",
       "page": "欽定協紀辨方書 (四庫全書本)"
+    },
+    {
+      "id": "ditian-sui-chanwei",
+      "title": "滴天髓阐微",
+      "provider": "wikisource",
+      "page": "滴天髓闡微",
+      "prefix": "滴天髓闡微/"
+    },
+    {
+      "id": "huozhulin",
+      "title": "火珠林",
+      "provider": "wikisource",
+      "page": "火珠林",
+      "prefix": "火珠林/"
+    },
+    {
+      "id": "ziwei-doushu",
+      "title": "紫微斗数全书",
+      "provider": "wikisource",
+      "page": "紫微斗數全書",
+      "prefix": "紫微斗數全書/"
+    },
+    {
+      "id": "liuren-zhinan",
+      "title": "六壬指南",
+      "provider": "wikisource",
+      "page": "六壬指南",
+      "prefix": "六壬指南/"
+    },
+    {
+      "id": "liuren-daquan",
+      "title": "六壬大全",
+      "provider": "wikisource",
+      "page": "六壬大全",
+      "prefix": "六壬大全/"
+    },
+    {
+      "id": "zhouyi-jijie",
+      "title": "周易集解",
+      "provider": "wikisource",
+      "page": "周易集解 (四庫全書本)",
+      "prefix": "周易集解 (四庫全書本)/"
+    },
+    {
+      "id": "yijing-qiankun-zaodu",
+      "title": "易纬乾坤凿度",
+      "provider": "wikisource",
+      "page": "乾坤鑿度 (四庫全書本)",
+      "prefix": "乾坤鑿度 (四庫全書本)/"
+    },
+    {
+      "id": "yanbo-diaosou-ge",
+      "title": "烟波钓叟歌",
+      "provider": "wikisource",
+      "page": "煙波釣叟歌",
+      "prefix": "煙波釣叟歌/"
+    },
+    {
+      "id": "xingxue-dacheng",
+      "title": "星学大成",
+      "provider": "wikisource",
+      "page": "星學大成 (四庫全書本)",
+      "prefix": "星學大成 (四庫全書本)/"
+    },
+    {
+      "id": "zhangguo-xingzong",
+      "title": "张果星宗",
+      "provider": "wikisource",
+      "page": "張果星宗",
+      "prefix": "張果星宗/"
+    },
+    {
+      "id": "mayi-xiangfa",
+      "title": "麻衣相法",
+      "provider": "yihaiguanyao",
+      "site_book_id": "27",
+      "skip_translation": true,
+      "chapter_pattern": "^论[一-龥]{1,8}$"
     }
   ]
 }

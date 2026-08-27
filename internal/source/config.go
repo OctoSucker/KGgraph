@@ -25,6 +25,7 @@ type Book struct {
 	// yihaiguanyao
 	SiteBookID      string `json:"site_book_id,omitempty"`
 	SkipTranslation bool   `json:"skip_translation,omitempty"`
+	ChapterPattern  string `json:"chapter_pattern,omitempty"`
 	MaxPages        int    `json:"max_pages,omitempty"`
 }
 
@@ -95,6 +96,7 @@ func runAdd(argv []string) {
 	dir := fs.String("dir", defaultCorpusPath(), "corpus directory")
 	var (
 		id, title, provider, page, prefix, resID, siteBookID string
+		chapterPattern                                       string
 		skipTranslation                                      bool
 	)
 	fs.StringVar(&id, "id", "", "book id (slug)")
@@ -104,6 +106,7 @@ func runAdd(argv []string) {
 	fs.StringVar(&prefix, "prefix", "", "wikisource subpage prefix (default <page>/)")
 	fs.StringVar(&resID, "res-id", "", "ctext res id")
 	fs.StringVar(&siteBookID, "site-book-id", "", "yihaiguanyao site book id")
+	fs.StringVar(&chapterPattern, "chapter-pattern", "", "yihaiguanyao chapter heading regex")
 	fs.BoolVar(&skipTranslation, "skip-translation", false, "yihaiguanyao: drop 小雅译 translation paragraphs")
 	mustParse(fs, argv)
 
@@ -141,6 +144,7 @@ func runAdd(argv []string) {
 		ResID:           resID,
 		SiteBookID:      siteBookID,
 		SkipTranslation: skipTranslation,
+		ChapterPattern:  chapterPattern,
 	}
 	if b.Prefix == "" && b.Page != "" {
 		b.Prefix = strings.TrimRight(b.Page, "/") + "/"

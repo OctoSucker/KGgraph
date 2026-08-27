@@ -720,7 +720,7 @@
       "slug": "zhouyi-benyi",
       "title": "周易本义",
       "provider": "ctext",
-      "source": "https://ctext.org/wiki.pl?if=gb&res=156827",
+      "source": "https://ctext.org/wiki.pl?if=gb\u0026res=156827",
       "chapters": [
         {
           "file": "四庫全書總目提要.txt",
@@ -754,7 +754,7 @@
       "slug": "yixue-qimeng",
       "title": "易学启蒙通释",
       "provider": "ctext",
-      "source": "https://ctext.org/wiki.pl?if=gb&res=992254",
+      "source": "https://ctext.org/wiki.pl?if=gb\u0026res=992254",
       "chapters": [
         {
           "file": "卷上.txt",
@@ -1080,7 +1080,7 @@
       "slug": "ziping-zhenquan",
       "title": "子平真诠评注",
       "provider": "ctext",
-      "source": "https://ctext.org/wiki.pl?if=gb&res=631975",
+      "source": "https://ctext.org/wiki.pl?if=gb\u0026res=631975",
       "chapters": [
         {
           "file": "全文.txt",
@@ -1122,7 +1122,7 @@
       "slug": "xingping-huihai",
       "title": "增补星平会海命学全书",
       "provider": "ctext",
-      "source": "https://ctext.org/wiki.pl?if=gb&res=7077657",
+      "source": "https://ctext.org/wiki.pl?if=gb\u0026res=7077657",
       "chapters": [
         {
           "file": "一.txt",
@@ -1490,7 +1490,7 @@
       "slug": "jiaoshi-yilin",
       "title": "焦氏易林",
       "provider": "ctext",
-      "source": "https://ctext.org/wiki.pl?if=gb&res=861394",
+      "source": "https://ctext.org/wiki.pl?if=gb\u0026res=861394",
       "chapters": [
         {
           "file": "卷一.txt",
@@ -1797,6 +1797,626 @@
       ],
       "total_chars": 229739,
       "fetched_at": "2026-08-27T00:00:00+08:00"
+    },
+    {
+      "slug": "ditian-sui-chanwei",
+      "title": "滴天髓阐微",
+      "provider": "wikisource",
+      "source": "https://zh.wikisource.org/wiki/%E6%BB%B4%E5%A4%A9%E9%AB%93%E9%97%A1%E5%BE%AE",
+      "chapters": [
+        {
+          "file": "滴天髓闡微.txt",
+          "title": "滴天髓闡微",
+          "chars": 88491
+        }
+      ],
+      "total_chars": 88491,
+      "fetched_at": "2026-08-27T22:48:20+08:00"
+    },
+    {
+      "slug": "huozhulin",
+      "title": "火珠林",
+      "provider": "wikisource",
+      "source": "https://zh.wikisource.org/wiki/%E7%81%AB%E7%8F%A0%E6%9E%97",
+      "chapters": [
+        {
+          "file": "火珠林.txt",
+          "title": "火珠林",
+          "chars": 21658
+        }
+      ],
+      "total_chars": 21658,
+      "fetched_at": "2026-08-27T22:48:23+08:00"
+    },
+    {
+      "slug": "ziwei-doushu",
+      "title": "紫微斗数全书",
+      "provider": "wikisource",
+      "source": "https://zh.wikisource.org/wiki/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B8%E5%85%A8%E6%9B%B8",
+      "chapters": [
+        {
+          "file": "紫微斗數全書.txt",
+          "title": "紫微斗數全書",
+          "chars": 1588
+        },
+        {
+          "file": "卷一.txt",
+          "title": "卷一",
+          "chars": 23310
+        },
+        {
+          "file": "卷三.txt",
+          "title": "卷三",
+          "chars": 12800
+        },
+        {
+          "file": "卷二.txt",
+          "title": "卷二",
+          "chars": 46241
+        }
+      ],
+      "total_chars": 83939,
+      "fetched_at": "2026-08-27T22:48:25+08:00"
+    },
+    {
+      "slug": "liuren-zhinan",
+      "title": "六壬指南",
+      "provider": "wikisource",
+      "source": "https://zh.wikisource.org/wiki/%E5%85%AD%E5%A3%AC%E6%8C%87%E5%8D%97",
+      "chapters": [
+        {
+          "file": "六壬指南.txt",
+          "title": "六壬指南",
+          "chars": 946
+        },
+        {
+          "file": "1.txt",
+          "title": "1",
+          "chars": 8235
+        },
+        {
+          "file": "2.txt",
+          "title": "2",
+          "chars": 15908
+        }
+      ],
+      "total_chars": 25089,
+      "fetched_at": "2026-08-27T22:48:28+08:00"
+    },
+    {
+      "slug": "liuren-daquan",
+      "title": "六壬大全",
+      "provider": "wikisource",
+      "source": "https://zh.wikisource.org/wiki/%E5%85%AD%E5%A3%AC%E5%A4%A7%E5%85%A8",
+      "chapters": [
+        {
+          "file": "六壬大全.txt",
+          "title": "六壬大全",
+          "chars": 1121
+        },
+        {
+          "file": "1.txt",
+          "title": "1",
+          "chars": 23836
+        },
+        {
+          "file": "10.txt",
+          "title": "10",
+          "chars": 27900
+        },
+        {
+          "file": "11.txt",
+          "title": "11",
+          "chars": 26179
+        },
+        {
+          "file": "12.txt",
+          "title": "12",
+          "chars": 22368
+        },
+        {
+          "file": "2.txt",
+          "title": "2",
+          "chars": 23164
+        },
+        {
+          "file": "3.txt",
+          "title": "3",
+          "chars": 24494
+        },
+        {
+          "file": "4.txt",
+          "title": "4",
+          "chars": 19734
+        },
+        {
+          "file": "5.txt",
+          "title": "5",
+          "chars": 27205
+        },
+        {
+          "file": "6.txt",
+          "title": "6",
+          "chars": 15754
+        },
+        {
+          "file": "7.txt",
+          "title": "7",
+          "chars": 28011
+        },
+        {
+          "file": "8.txt",
+          "title": "8",
+          "chars": 19267
+        },
+        {
+          "file": "9.txt",
+          "title": "9",
+          "chars": 35442
+        }
+      ],
+      "total_chars": 294475,
+      "fetched_at": "2026-08-27T22:48:31+08:00"
+    },
+    {
+      "slug": "zhouyi-jijie",
+      "title": "周易集解",
+      "provider": "wikisource",
+      "source": "https://zh.wikisource.org/wiki/%E5%91%A8%E6%98%93%E9%9B%86%E8%A7%A3%20%28%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC%29",
+      "chapters": [
+        {
+          "file": "周易集解-四庫全書本.txt",
+          "title": "周易集解 (四庫全書本)",
+          "chars": 2363
+        },
+        {
+          "file": "全覽.txt",
+          "title": "全覽",
+          "chars": 35
+        },
+        {
+          "file": "卷01.txt",
+          "title": "卷01",
+          "chars": 6470
+        },
+        {
+          "file": "卷02.txt",
+          "title": "卷02",
+          "chars": 7650
+        },
+        {
+          "file": "卷03.txt",
+          "title": "卷03",
+          "chars": 6599
+        },
+        {
+          "file": "卷04.txt",
+          "title": "卷04",
+          "chars": 7443
+        },
+        {
+          "file": "卷05.txt",
+          "title": "卷05",
+          "chars": 8085
+        },
+        {
+          "file": "卷06.txt",
+          "title": "卷06",
+          "chars": 8477
+        },
+        {
+          "file": "卷07.txt",
+          "title": "卷07",
+          "chars": 6646
+        },
+        {
+          "file": "卷08.txt",
+          "title": "卷08",
+          "chars": 7378
+        },
+        {
+          "file": "卷09.txt",
+          "title": "卷09",
+          "chars": 6320
+        },
+        {
+          "file": "卷10.txt",
+          "title": "卷10",
+          "chars": 6658
+        },
+        {
+          "file": "卷11.txt",
+          "title": "卷11",
+          "chars": 7161
+        },
+        {
+          "file": "卷12.txt",
+          "title": "卷12",
+          "chars": 6289
+        },
+        {
+          "file": "卷13.txt",
+          "title": "卷13",
+          "chars": 5723
+        },
+        {
+          "file": "卷14.txt",
+          "title": "卷14",
+          "chars": 6140
+        },
+        {
+          "file": "卷15.txt",
+          "title": "卷15",
+          "chars": 6245
+        },
+        {
+          "file": "卷16.txt",
+          "title": "卷16",
+          "chars": 5828
+        },
+        {
+          "file": "卷17.txt",
+          "title": "卷17",
+          "chars": 9992
+        }
+      ],
+      "total_chars": 121502,
+      "fetched_at": "2026-08-27T22:49:04+08:00"
+    },
+    {
+      "slug": "yijing-qiankun-zaodu",
+      "title": "易纬乾坤凿度",
+      "provider": "wikisource",
+      "source": "https://zh.wikisource.org/wiki/%E4%B9%BE%E5%9D%A4%E9%91%BF%E5%BA%A6%20%28%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC%29",
+      "chapters": [
+        {
+          "file": "乾坤鑿度-四庫全書本.txt",
+          "title": "乾坤鑿度 (四庫全書本)",
+          "chars": 2433
+        },
+        {
+          "file": "全覽.txt",
+          "title": "全覽",
+          "chars": 5
+        },
+        {
+          "file": "卷上.txt",
+          "title": "卷上",
+          "chars": 2743
+        },
+        {
+          "file": "卷下.txt",
+          "title": "卷下",
+          "chars": 1003
+        }
+      ],
+      "total_chars": 6184,
+      "fetched_at": "2026-08-27T22:49:07+08:00"
+    },
+    {
+      "slug": "yanbo-diaosou-ge",
+      "title": "烟波钓叟歌",
+      "provider": "wikisource",
+      "source": "https://zh.wikisource.org/wiki/%E7%85%99%E6%B3%A2%E9%87%A3%E5%8F%9F%E6%AD%8C",
+      "chapters": [
+        {
+          "file": "煙波釣叟歌.txt",
+          "title": "煙波釣叟歌",
+          "chars": 1879
+        }
+      ],
+      "total_chars": 1879,
+      "fetched_at": "2026-08-27T22:49:08+08:00"
+    },
+    {
+      "slug": "xingxue-dacheng",
+      "title": "星学大成",
+      "provider": "wikisource",
+      "source": "https://zh.wikisource.org/wiki/%E6%98%9F%E5%AD%B8%E5%A4%A7%E6%88%90%20%28%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC%29",
+      "chapters": [
+        {
+          "file": "星學大成-四庫全書本.txt",
+          "title": "星學大成 (四庫全書本)",
+          "chars": 1700
+        },
+        {
+          "file": "全覽.txt",
+          "title": "全覽",
+          "chars": 61
+        },
+        {
+          "file": "卷01.txt",
+          "title": "卷01",
+          "chars": 6446
+        },
+        {
+          "file": "卷02.txt",
+          "title": "卷02",
+          "chars": 7354
+        },
+        {
+          "file": "卷03.txt",
+          "title": "卷03",
+          "chars": 8111
+        },
+        {
+          "file": "卷04.txt",
+          "title": "卷04",
+          "chars": 13693
+        },
+        {
+          "file": "卷05.txt",
+          "title": "卷05",
+          "chars": 15757
+        },
+        {
+          "file": "卷06.txt",
+          "title": "卷06",
+          "chars": 8801
+        },
+        {
+          "file": "卷07.txt",
+          "title": "卷07",
+          "chars": 10847
+        },
+        {
+          "file": "卷08.txt",
+          "title": "卷08",
+          "chars": 1340
+        },
+        {
+          "file": "卷09.txt",
+          "title": "卷09",
+          "chars": 2112
+        },
+        {
+          "file": "卷10.txt",
+          "title": "卷10",
+          "chars": 12875
+        },
+        {
+          "file": "卷11.txt",
+          "title": "卷11",
+          "chars": 7275
+        },
+        {
+          "file": "卷12.txt",
+          "title": "卷12",
+          "chars": 4729
+        },
+        {
+          "file": "卷13.txt",
+          "title": "卷13",
+          "chars": 4815
+        },
+        {
+          "file": "卷14.txt",
+          "title": "卷14",
+          "chars": 7975
+        },
+        {
+          "file": "卷15.txt",
+          "title": "卷15",
+          "chars": 8176
+        },
+        {
+          "file": "卷16.txt",
+          "title": "卷16",
+          "chars": 15432
+        },
+        {
+          "file": "卷17.txt",
+          "title": "卷17",
+          "chars": 7835
+        },
+        {
+          "file": "卷18.txt",
+          "title": "卷18",
+          "chars": 7450
+        },
+        {
+          "file": "卷19.txt",
+          "title": "卷19",
+          "chars": 13122
+        },
+        {
+          "file": "卷20.txt",
+          "title": "卷20",
+          "chars": 7831
+        },
+        {
+          "file": "卷21.txt",
+          "title": "卷21",
+          "chars": 7056
+        },
+        {
+          "file": "卷22.txt",
+          "title": "卷22",
+          "chars": 6708
+        },
+        {
+          "file": "卷23.txt",
+          "title": "卷23",
+          "chars": 8614
+        },
+        {
+          "file": "卷24.txt",
+          "title": "卷24",
+          "chars": 2065
+        },
+        {
+          "file": "卷25.txt",
+          "title": "卷25",
+          "chars": 8450
+        },
+        {
+          "file": "卷26.txt",
+          "title": "卷26",
+          "chars": 6146
+        },
+        {
+          "file": "卷27.txt",
+          "title": "卷27",
+          "chars": 9425
+        },
+        {
+          "file": "卷28.txt",
+          "title": "卷28",
+          "chars": 4743
+        },
+        {
+          "file": "卷29.txt",
+          "title": "卷29",
+          "chars": 8986
+        },
+        {
+          "file": "卷30.txt",
+          "title": "卷30",
+          "chars": 12604
+        }
+      ],
+      "total_chars": 248534,
+      "fetched_at": "2026-08-27T22:49:15+08:00"
+    },
+    {
+      "slug": "zhangguo-xingzong",
+      "title": "张果星宗",
+      "provider": "wikisource",
+      "source": "https://zh.wikisource.org/wiki/%E5%BC%B5%E6%9E%9C%E6%98%9F%E5%AE%97",
+      "chapters": [
+        {
+          "file": "張果星宗.txt",
+          "title": "張果星宗",
+          "chars": 195980
+        }
+      ],
+      "total_chars": 195980,
+      "fetched_at": "2026-08-27T22:50:04+08:00"
+    },
+    {
+      "slug": "mayi-xiangfa",
+      "title": "麻衣相法",
+      "provider": "yihaiguanyao",
+      "source": "https://yihaiguanyao.com/book/27-%E9%BA%BB%E8%A1%A3%E7%9B%B8%E6%B3%95",
+      "chapters": [
+        {
+          "file": "00-序.txt",
+          "title": "序",
+          "chars": 9293
+        },
+        {
+          "file": "01-论形.txt",
+          "title": "论形",
+          "chars": 132
+        },
+        {
+          "file": "02-论神.txt",
+          "title": "论神",
+          "chars": 584
+        },
+        {
+          "file": "03-论形有余.txt",
+          "title": "论形有余",
+          "chars": 127
+        },
+        {
+          "file": "04-论神有余.txt",
+          "title": "论神有余",
+          "chars": 200
+        },
+        {
+          "file": "05-论形不足.txt",
+          "title": "论形不足",
+          "chars": 163
+        },
+        {
+          "file": "06-论神不足.txt",
+          "title": "论神不足",
+          "chars": 160
+        },
+        {
+          "file": "07-论声.txt",
+          "title": "论声",
+          "chars": 792
+        },
+        {
+          "file": "08-论气.txt",
+          "title": "论气",
+          "chars": 2661
+        },
+        {
+          "file": "09-论面.txt",
+          "title": "论面",
+          "chars": 879
+        },
+        {
+          "file": "10-论眉.txt",
+          "title": "论眉",
+          "chars": 9017
+        },
+        {
+          "file": "11-论齿.txt",
+          "title": "论齿",
+          "chars": 1872
+        },
+        {
+          "file": "12-论四肢.txt",
+          "title": "论四肢",
+          "chars": 172
+        },
+        {
+          "file": "13-论手.txt",
+          "title": "论手",
+          "chars": 920
+        },
+        {
+          "file": "14-论掌纹.txt",
+          "title": "论掌纹",
+          "chars": 3539
+        },
+        {
+          "file": "15-论手背纹.txt",
+          "title": "论手背纹",
+          "chars": 188
+        },
+        {
+          "file": "16-论足.txt",
+          "title": "论足",
+          "chars": 266
+        },
+        {
+          "file": "17-论足纹.txt",
+          "title": "论足纹",
+          "chars": 29123
+        },
+        {
+          "file": "18-论上停吉气.txt",
+          "title": "论上停吉气",
+          "chars": 1755
+        },
+        {
+          "file": "19-论中停吉气.txt",
+          "title": "论中停吉气",
+          "chars": 1528
+        },
+        {
+          "file": "20-论下停吉气.txt",
+          "title": "论下停吉气",
+          "chars": 362
+        },
+        {
+          "file": "21-论上停凶气.txt",
+          "title": "论上停凶气",
+          "chars": 1602
+        },
+        {
+          "file": "22-论中下停二凶气.txt",
+          "title": "论中下停二凶气",
+          "chars": 23065
+        }
+      ],
+      "total_chars": 88400,
+      "fetched_at": "2026-08-27T23:02:26+08:00"
     }
   ]
 }
