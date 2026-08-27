@@ -1,11 +1,15 @@
 # KGgraph
 
-`KGgraph` is a **deterministic judgment memory and reasoning discipline tool** for AI agents and humans.
+`KGgraph` is a **deterministic knowledge and memory layer for AI agents**: a Go knowledge graph with rule-based reasoning, provenance, conflict/mutual-exclusion checking, MCP integration, and deterministic decision gates.
 
 Use it to:
+- model rule-heavy domains as conditional relations (signal -> state -> action, with invalidation conditions)
+- give agents a memory that answers consistently, with every edge traceable to a source
 - freeze decisions as thesis, evidence, counter-evidence, failure conditions, and reviews
 - evaluate recorded decisions with deterministic rules, without calling an LLM
 - expand weighted multi-hop graph paths (`A -> B -> C`) when exploratory graph context is useful
+
+The demo domain is **周易 / 八字命理** (`knowledge/zhouyi`, 334 nodes / 491 edges): a symbolic rule system that LLMs handle poorly, which is exactly where a deterministic layer adds value. The same engine also ships decision-discipline tools (`record-decision` / `strict-ask` / `pre-trade-check`).
 
 It provides:
 - **CLI** (`kggraph ...`)
@@ -42,6 +46,10 @@ Each decision is frozen with supporting evidence, counter-evidence, failure cond
 Use `ingest-statement` (LLM-assisted extraction only) for low-risk claims, run `conflict-scan` before adding a claim that may contradict existing knowledge, attach evidence and verify edges as sources are checked, and `retire-edge` stale facts so reasoning reflects what is true now. `expand-reasoning` provides multi-hop context without giving the agent execution permission.
 
 For retrieval, `lookup-context` resolves a term by exact match first, then semantic match (when embeddings are configured), then weighted multi-hop expansion — the response includes the reached nodes, the edges on the paths, and their attached evidence. Without an embedder it degrades to exact + expansion, so it works fully offline.
+
+**3. Symbolic-domain knowledge base (周易 demo)**
+
+`knowledge/zhouyi` models the classic mechanisms (五行生克、干支冲合刑害、十神、四柱排盘、大运流年、六爻体用) as conditional relations, with schools and controversies labeled as low-confidence + `invalidates` edges. It demonstrates how a deterministic knowledge layer keeps a high-entropy domain consistent and auditable — try `kggraph lookup-context --term "身强"` or `kggraph conflict-scan --from-id "木" --to-id "火" --relation-type 相克`.
 
 Graphs are portable: `export-graph` writes nodes, edges, and evidence as one JSON payload, and `import-graph` loads it into another workspace, re-attaching evidence by edge identity instead of raw ids.
 

@@ -136,6 +136,39 @@ func TestConflictScanFindsIncreasesDecreasesAntonym(t *testing.T) {
 	}
 }
 
+func TestConflictScanFindsWuxingShengKeAntonym(t *testing.T) {
+	t.Parallel()
+	store := mustOpenTestStore(t)
+	defer store.Close()
+	svc, err := NewService(store, nil)
+	if err != nil {
+		t.Fatalf("new service: %v", err)
+	}
+	ctx := context.Background()
+	if _, err := svc.graph.UpsertEdge(ctx, EdgeUpsert{
+		FromID:       "木",
+		ToID:         "火",
+		GraphKind:    "knowledge",
+		RelationType: "相生",
+		Polarity:     1,
+		Confidence:   0.95,
+	}); err != nil {
+		t.Fatalf("upsert edge: %v", err)
+	}
+	out := conflictOut(t, svc, map[string]any{
+		"from_id":       "木",
+		"to_id":         "火",
+		"relation_type": "相克",
+		"polarity":      1,
+	})
+	if conflictCount(t, out) != 1 {
+		t.Fatalf("expected 1 conflict, got %#v", out)
+	}
+	if reason := firstConflictReason(t, out); reason != "antonym_relation" {
+		t.Fatalf("expected antonym_relation, got %q", reason)
+	}
+}
+
 func TestConflictScanFindsReverseContradictsEdge(t *testing.T) {
 	t.Parallel()
 	store := mustOpenTestStore(t)

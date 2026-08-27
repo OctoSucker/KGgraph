@@ -214,6 +214,14 @@ func oppositeRelation(relation string) string {
 		return "decreases"
 	case "decreases":
 		return "increases"
+	case "相生":
+		return "相克"
+	case "相克":
+		return "相生"
+	case "相冲":
+		return "相合"
+	case "相合":
+		return "相冲"
 	case "requires":
 		return "blocks"
 	case "blocks":
