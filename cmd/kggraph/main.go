@@ -89,6 +89,8 @@ func main() {
 		runServeMCP(ctx, args)
 	case "graph-view":
 		runGraphView(ctx, args)
+	case "source":
+		runSource(args)
 	case "-h", "--help", "help":
 		writeJSONAndExit(0, map[string]any{"usage": usage()})
 	default:
@@ -97,7 +99,7 @@ func main() {
 }
 
 func usage() string {
-	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, ingest-preview, ingest-confirm, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, decision-stats, attach-edge-evidence, verify-edge, retire-edge, reopen-edge, conflict-scan, decision-audit, lookup-context, export-graph, import-graph, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view"
+	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, ingest-preview, ingest-confirm, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, decision-stats, attach-edge-evidence, verify-edge, retire-edge, reopen-edge, conflict-scan, decision-audit, lookup-context, export-graph, import-graph, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view, source (init|add|search|fetch|list|verify|clean)"
 }
 
 func addCommonFlags(fs *flag.FlagSet, c *commonFlags) {

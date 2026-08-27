@@ -1,0 +1,239 @@
+{
+  "topic": "周易命理（八卦、六爻、八字、神煞、历法择吉）",
+  "output_dir": "gushu",
+  "books": [
+    {
+      "id": "zhouyi",
+      "title": "周易",
+      "provider": "wikisource",
+      "page": "周易"
+    },
+    {
+      "id": "zhouyi-zhengyi",
+      "title": "周易正义",
+      "provider": "wikisource",
+      "page": "周易正義"
+    },
+    {
+      "id": "zhouyi-benyi",
+      "title": "周易本义",
+      "provider": "ctext",
+      "res_id": "156827",
+      "chapters": [
+        {
+          "id": "228352",
+          "label": "四庫全書總目提要"
+        },
+        {
+          "id": "105314",
+          "label": "序"
+        },
+        {
+          "id": "234273",
+          "label": "第一卷"
+        },
+        {
+          "id": "214837",
+          "label": "第二卷"
+        },
+        {
+          "id": "85946",
+          "label": "第三卷"
+        },
+        {
+          "id": "304897",
+          "label": "第四卷"
+        }
+      ]
+    },
+    {
+      "id": "yixue-qimeng",
+      "title": "易学启蒙通释",
+      "provider": "ctext",
+      "res_id": "992254",
+      "chapters": [
+        {
+          "id": "88168",
+          "label": "提要"
+        },
+        {
+          "id": "886999",
+          "label": "原序"
+        },
+        {
+          "id": "109184",
+          "label": "姓氏"
+        },
+        {
+          "id": "429100",
+          "label": "卷上"
+        },
+        {
+          "id": "964654",
+          "label": "卷下"
+        },
+        {
+          "id": "622700",
+          "label": "跋"
+        }
+      ]
+    },
+    {
+      "id": "wuxing-dayi",
+      "title": "五行大义",
+      "provider": "wikisource",
+      "page": "五行大義"
+    },
+    {
+      "id": "yuanhai-zipping",
+      "title": "渊海子平",
+      "provider": "wikisource",
+      "page": "淵海子平"
+    },
+    {
+      "id": "sanming-tonghui",
+      "title": "三命通会（卷一至九，卷十至十二另见 ctext）",
+      "provider": "wikisource",
+      "page": "三命通會"
+    },
+    {
+      "id": "ditian-sui",
+      "title": "滴天髓（辑要）",
+      "provider": "wikisource",
+      "page": "滴天髓"
+    },
+    {
+      "id": "ziping-zhenquan",
+      "title": "子平真诠评注",
+      "provider": "ctext",
+      "res_id": "631975",
+      "chapters": [
+        {
+          "id": "974137",
+          "label": "全文"
+        }
+      ]
+    },
+    {
+      "id": "qiongtong-baojian",
+      "title": "穷通宝鉴",
+      "provider": "wikisource",
+      "page": "穷通宝鉴"
+    },
+    {
+      "id": "shenfeng-tongkao",
+      "title": "神峰通考",
+      "provider": "wikisource",
+      "page": "神峰通考"
+    },
+    {
+      "id": "xingping-huihai",
+      "title": "增补星平会海命学全书",
+      "provider": "ctext",
+      "res_id": "7077657",
+      "chapters": [
+        {
+          "id": "1287960",
+          "label": "一"
+        },
+        {
+          "id": "3271620",
+          "label": "二"
+        },
+        {
+          "id": "1800873",
+          "label": "三"
+        },
+        {
+          "id": "3759483",
+          "label": "四"
+        },
+        {
+          "id": "1978443",
+          "label": "五"
+        },
+        {
+          "id": "2179668",
+          "label": "六"
+        },
+        {
+          "id": "6114483",
+          "label": "七"
+        }
+      ]
+    },
+    {
+      "id": "meihua-yishu",
+      "title": "梅花易数",
+      "provider": "wikisource",
+      "page": "梅花易數"
+    },
+    {
+      "id": "zengshan-buyi",
+      "title": "增删卜易",
+      "provider": "wikisource",
+      "page": "增刪卜易"
+    },
+    {
+      "id": "bushi-zhengzong",
+      "title": "卜筮正宗",
+      "provider": "yihaiguanyao",
+      "site_book_id": "24",
+      "skip_translation": true
+    },
+    {
+      "id": "jiaoshi-yilin",
+      "title": "焦氏易林",
+      "provider": "ctext",
+      "res_id": "861394",
+      "chapters": [
+        {
+          "id": "108227",
+          "label": "提要"
+        },
+        {
+          "id": "136972",
+          "label": "原序"
+        },
+        {
+          "id": "101915",
+          "label": "較定易林原序"
+        },
+        {
+          "id": "379849",
+          "label": "卷一"
+        },
+        {
+          "id": "266247",
+          "label": "卷二"
+        },
+        {
+          "id": "105132",
+          "label": "卷三"
+        },
+        {
+          "id": "236785",
+          "label": "卷四"
+        }
+      ]
+    },
+    {
+      "id": "huangji-jingshi",
+      "title": "皇极经世",
+      "provider": "wikisource",
+      "page": "皇極經世"
+    },
+    {
+      "id": "jingshi-yizhuan",
+      "title": "京氏易传",
+      "provider": "wikisource",
+      "page": "京氏易傳"
+    },
+    {
+      "id": "xieji-bianfangshu",
+      "title": "钦定协纪辨方书（四库全书本）",
+      "provider": "wikisource",
+      "page": "欽定協紀辨方書 (四庫全書本)"
+    }
+  ]
+}
