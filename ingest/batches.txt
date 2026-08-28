@@ -8,3 +8,5 @@ ingest/meihua-yishu.json
 ingest/zhouyi.json
 ingest/jingshi-yizhuan.json
 ingest/yanbo-diaosou-ge.json
+ingest/ziwei-doushu.json
+ingest/xieji-bianfangshu.json
