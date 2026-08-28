@@ -20,3 +20,4 @@ ingest/wuxing-dayi-v45.json
 ingest/zhouyi-benyi.json
 ingest/yixue-qimeng.json
 ingest/zhouyi-jijie.json
+ingest/zhouyi-zhengyi.json
