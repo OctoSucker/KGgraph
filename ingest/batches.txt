@@ -21,3 +21,4 @@ ingest/zhouyi-benyi.json
 ingest/yixue-qimeng.json
 ingest/zhouyi-jijie.json
 ingest/zhouyi-zhengyi.json
+ingest/jiaoshi-yilin.json
