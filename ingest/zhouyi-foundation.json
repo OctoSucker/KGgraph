@@ -1,0 +1,7467 @@
+{
+  "edges": [
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "八卦",
+      "id": 1,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "周易"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "六十四卦",
+      "id": 2,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "周易"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "六十四卦序",
+      "id": 3,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "周易"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "木",
+      "id": 4,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "五行"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "火",
+      "id": 5,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "五行"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "土",
+      "id": 6,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "五行"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "金",
+      "id": 7,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "五行"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "水",
+      "id": 8,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "五行"
+    },
+    {
+      "condition_json": "{\"关系\":\"相生\"}",
+      "condition_text": "五行相生",
+      "confidence": 0.95,
+      "edge_kind": "matrix",
+      "from_id": "木",
+      "id": 9,
+      "polarity": 1,
+      "relation_type": "produces",
+      "to_id": "火"
+    },
+    {
+      "condition_json": "{\"关系\":\"相生\"}",
+      "condition_text": "五行相生",
+      "confidence": 0.95,
+      "edge_kind": "matrix",
+      "from_id": "火",
+      "id": 10,
+      "polarity": 1,
+      "relation_type": "produces",
+      "to_id": "土"
+    },
+    {
+      "condition_json": "{\"关系\":\"相生\"}",
+      "condition_text": "五行相生",
+      "confidence": 0.95,
+      "edge_kind": "matrix",
+      "from_id": "土",
+      "id": 11,
+      "polarity": 1,
+      "relation_type": "produces",
+      "to_id": "金"
+    },
+    {
+      "condition_json": "{\"关系\":\"相生\"}",
+      "condition_text": "五行相生",
+      "confidence": 0.95,
+      "edge_kind": "matrix",
+      "from_id": "金",
+      "id": 12,
+      "polarity": 1,
+      "relation_type": "produces",
+      "to_id": "水"
+    },
+    {
+      "condition_json": "{\"关系\":\"相生\"}",
+      "condition_text": "五行相生",
+      "confidence": 0.95,
+      "edge_kind": "matrix",
+      "from_id": "水",
+      "id": 13,
+      "polarity": 1,
+      "relation_type": "produces",
+      "to_id": "木"
+    },
+    {
+      "condition_json": "{\"关系\":\"相克\"}",
+      "condition_text": "五行相克",
+      "confidence": 0.95,
+      "edge_kind": "matrix",
+      "from_id": "木",
+      "id": 14,
+      "polarity": 1,
+      "relation_type": "overcomes",
+      "to_id": "土"
+    },
+    {
+      "condition_json": "{\"关系\":\"相克\"}",
+      "condition_text": "五行相克",
+      "confidence": 0.95,
+      "edge_kind": "matrix",
+      "from_id": "土",
+      "id": 15,
+      "polarity": 1,
+      "relation_type": "overcomes",
+      "to_id": "水"
+    },
+    {
+      "condition_json": "{\"关系\":\"相克\"}",
+      "condition_text": "五行相克",
+      "confidence": 0.95,
+      "edge_kind": "matrix",
+      "from_id": "水",
+      "id": 16,
+      "polarity": 1,
+      "relation_type": "overcomes",
+      "to_id": "火"
+    },
+    {
+      "condition_json": "{\"关系\":\"相克\"}",
+      "condition_text": "五行相克",
+      "confidence": 0.95,
+      "edge_kind": "matrix",
+      "from_id": "火",
+      "id": 17,
+      "polarity": 1,
+      "relation_type": "overcomes",
+      "to_id": "金"
+    },
+    {
+      "condition_json": "{\"关系\":\"相克\"}",
+      "condition_text": "五行相克",
+      "confidence": 0.95,
+      "edge_kind": "matrix",
+      "from_id": "金",
+      "id": 18,
+      "polarity": 1,
+      "relation_type": "overcomes",
+      "to_id": "木"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "八卦·乾",
+      "id": 19,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "八卦"
+    },
+    {
+      "condition_json": "{\"属性\":\"五行\"}",
+      "condition_text": "五行属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·乾",
+      "id": 20,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "金"
+    },
+    {
+      "condition_json": "{\"取象\":\"自然\"}",
+      "condition_text": "自然取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·乾",
+      "id": 21,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "天"
+    },
+    {
+      "condition_json": "{\"取象\":\"卦德\"}",
+      "condition_text": "卦德",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·乾",
+      "id": 22,
+      "polarity": 1,
+      "relation_type": "described_by",
+      "to_id": "健"
+    },
+    {
+      "condition_json": "{\"取象\":\"家庭\"}",
+      "condition_text": "家庭取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·乾",
+      "id": 23,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "父"
+    },
+    {
+      "condition_json": "{\"取象\":\"身体\"}",
+      "condition_text": "身体取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·乾",
+      "id": 24,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "首"
+    },
+    {
+      "condition_json": "{\"取象\":\"动物\"}",
+      "condition_text": "动物取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·乾",
+      "id": 25,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "马"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"后天\"}",
+      "condition_text": "后天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·乾",
+      "id": 26,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "西北"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"先天\"}",
+      "condition_text": "先天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·乾",
+      "id": 27,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "南"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"先天\",\"system\":\"先天八卦数\"}",
+      "condition_text": "先天八卦数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·乾",
+      "id": 28,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "一"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"后天\",\"system\":\"洛书九宫数\"}",
+      "condition_text": "洛书九宫数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·乾",
+      "id": 29,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "六"
+    },
+    {
+      "condition_json": "{\"属性\":\"阴阳\"}",
+      "condition_text": "阴阳属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·乾",
+      "id": 30,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "阳"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "八卦·兑",
+      "id": 31,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "八卦"
+    },
+    {
+      "condition_json": "{\"属性\":\"五行\"}",
+      "condition_text": "五行属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·兑",
+      "id": 32,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "金"
+    },
+    {
+      "condition_json": "{\"取象\":\"自然\"}",
+      "condition_text": "自然取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·兑",
+      "id": 33,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "泽"
+    },
+    {
+      "condition_json": "{\"取象\":\"卦德\"}",
+      "condition_text": "卦德",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·兑",
+      "id": 34,
+      "polarity": 1,
+      "relation_type": "described_by",
+      "to_id": "说"
+    },
+    {
+      "condition_json": "{\"取象\":\"家庭\"}",
+      "condition_text": "家庭取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·兑",
+      "id": 35,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "少女"
+    },
+    {
+      "condition_json": "{\"取象\":\"身体\"}",
+      "condition_text": "身体取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·兑",
+      "id": 36,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "口"
+    },
+    {
+      "condition_json": "{\"取象\":\"动物\"}",
+      "condition_text": "动物取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·兑",
+      "id": 37,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "羊"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"后天\"}",
+      "condition_text": "后天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·兑",
+      "id": 38,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "西"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"先天\"}",
+      "condition_text": "先天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·兑",
+      "id": 39,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "东南"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"先天\",\"system\":\"先天八卦数\"}",
+      "condition_text": "先天八卦数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·兑",
+      "id": 40,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "二"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"后天\",\"system\":\"洛书九宫数\"}",
+      "condition_text": "洛书九宫数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·兑",
+      "id": 41,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "七"
+    },
+    {
+      "condition_json": "{\"属性\":\"阴阳\"}",
+      "condition_text": "阴阳属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·兑",
+      "id": 42,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "阴"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "八卦·离",
+      "id": 43,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "八卦"
+    },
+    {
+      "condition_json": "{\"属性\":\"五行\"}",
+      "condition_text": "五行属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·离",
+      "id": 44,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "火"
+    },
+    {
+      "condition_json": "{\"取象\":\"自然\"}",
+      "condition_text": "自然取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·离",
+      "id": 45,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "火"
+    },
+    {
+      "condition_json": "{\"取象\":\"卦德\"}",
+      "condition_text": "卦德",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·离",
+      "id": 46,
+      "polarity": 1,
+      "relation_type": "described_by",
+      "to_id": "丽"
+    },
+    {
+      "condition_json": "{\"取象\":\"家庭\"}",
+      "condition_text": "家庭取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·离",
+      "id": 47,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "中女"
+    },
+    {
+      "condition_json": "{\"取象\":\"身体\"}",
+      "condition_text": "身体取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·离",
+      "id": 48,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "目"
+    },
+    {
+      "condition_json": "{\"取象\":\"动物\"}",
+      "condition_text": "动物取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·离",
+      "id": 49,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "雉"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"后天\"}",
+      "condition_text": "后天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·离",
+      "id": 50,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "南"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"先天\"}",
+      "condition_text": "先天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·离",
+      "id": 51,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "东"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"先天\",\"system\":\"先天八卦数\"}",
+      "condition_text": "先天八卦数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·离",
+      "id": 52,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "三"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"后天\",\"system\":\"洛书九宫数\"}",
+      "condition_text": "洛书九宫数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·离",
+      "id": 53,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "九"
+    },
+    {
+      "condition_json": "{\"属性\":\"阴阳\"}",
+      "condition_text": "阴阳属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·离",
+      "id": 54,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "阴"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "八卦·震",
+      "id": 55,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "八卦"
+    },
+    {
+      "condition_json": "{\"属性\":\"五行\"}",
+      "condition_text": "五行属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·震",
+      "id": 56,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "木"
+    },
+    {
+      "condition_json": "{\"取象\":\"自然\"}",
+      "condition_text": "自然取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·震",
+      "id": 57,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "雷"
+    },
+    {
+      "condition_json": "{\"取象\":\"卦德\"}",
+      "condition_text": "卦德",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·震",
+      "id": 58,
+      "polarity": 1,
+      "relation_type": "described_by",
+      "to_id": "动"
+    },
+    {
+      "condition_json": "{\"取象\":\"家庭\"}",
+      "condition_text": "家庭取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·震",
+      "id": 59,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "长男"
+    },
+    {
+      "condition_json": "{\"取象\":\"身体\"}",
+      "condition_text": "身体取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·震",
+      "id": 60,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "足"
+    },
+    {
+      "condition_json": "{\"取象\":\"动物\"}",
+      "condition_text": "动物取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·震",
+      "id": 61,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "龙"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"后天\"}",
+      "condition_text": "后天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·震",
+      "id": 62,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "东"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"先天\"}",
+      "condition_text": "先天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·震",
+      "id": 63,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "东北"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"先天\",\"system\":\"先天八卦数\"}",
+      "condition_text": "先天八卦数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·震",
+      "id": 64,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "四"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"后天\",\"system\":\"洛书九宫数\"}",
+      "condition_text": "洛书九宫数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·震",
+      "id": 65,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "三"
+    },
+    {
+      "condition_json": "{\"属性\":\"阴阳\"}",
+      "condition_text": "阴阳属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·震",
+      "id": 66,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "阳"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "八卦·巽",
+      "id": 67,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "八卦"
+    },
+    {
+      "condition_json": "{\"属性\":\"五行\"}",
+      "condition_text": "五行属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·巽",
+      "id": 68,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "木"
+    },
+    {
+      "condition_json": "{\"取象\":\"自然\"}",
+      "condition_text": "自然取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·巽",
+      "id": 69,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "风"
+    },
+    {
+      "condition_json": "{\"取象\":\"卦德\"}",
+      "condition_text": "卦德",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·巽",
+      "id": 70,
+      "polarity": 1,
+      "relation_type": "described_by",
+      "to_id": "入"
+    },
+    {
+      "condition_json": "{\"取象\":\"家庭\"}",
+      "condition_text": "家庭取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·巽",
+      "id": 71,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "长女"
+    },
+    {
+      "condition_json": "{\"取象\":\"身体\"}",
+      "condition_text": "身体取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·巽",
+      "id": 72,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "股"
+    },
+    {
+      "condition_json": "{\"取象\":\"动物\"}",
+      "condition_text": "动物取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·巽",
+      "id": 73,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "鸡"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"后天\"}",
+      "condition_text": "后天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·巽",
+      "id": 74,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "东南"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"先天\"}",
+      "condition_text": "先天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·巽",
+      "id": 75,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "西南"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"先天\",\"system\":\"先天八卦数\"}",
+      "condition_text": "先天八卦数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·巽",
+      "id": 76,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "五"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"后天\",\"system\":\"洛书九宫数\"}",
+      "condition_text": "洛书九宫数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·巽",
+      "id": 77,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "四"
+    },
+    {
+      "condition_json": "{\"属性\":\"阴阳\"}",
+      "condition_text": "阴阳属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·巽",
+      "id": 78,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "阴"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "八卦·坎",
+      "id": 79,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "八卦"
+    },
+    {
+      "condition_json": "{\"属性\":\"五行\"}",
+      "condition_text": "五行属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坎",
+      "id": 80,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "水"
+    },
+    {
+      "condition_json": "{\"取象\":\"自然\"}",
+      "condition_text": "自然取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坎",
+      "id": 81,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "水"
+    },
+    {
+      "condition_json": "{\"取象\":\"卦德\"}",
+      "condition_text": "卦德",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坎",
+      "id": 82,
+      "polarity": 1,
+      "relation_type": "described_by",
+      "to_id": "陷"
+    },
+    {
+      "condition_json": "{\"取象\":\"家庭\"}",
+      "condition_text": "家庭取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坎",
+      "id": 83,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "中男"
+    },
+    {
+      "condition_json": "{\"取象\":\"身体\"}",
+      "condition_text": "身体取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坎",
+      "id": 84,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "耳"
+    },
+    {
+      "condition_json": "{\"取象\":\"动物\"}",
+      "condition_text": "动物取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坎",
+      "id": 85,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "豕"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"后天\"}",
+      "condition_text": "后天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坎",
+      "id": 86,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "北"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"先天\"}",
+      "condition_text": "先天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坎",
+      "id": 87,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "西"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"先天\",\"system\":\"先天八卦数\"}",
+      "condition_text": "先天八卦数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坎",
+      "id": 88,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "六"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"后天\",\"system\":\"洛书九宫数\"}",
+      "condition_text": "洛书九宫数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坎",
+      "id": 89,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "一"
+    },
+    {
+      "condition_json": "{\"属性\":\"阴阳\"}",
+      "condition_text": "阴阳属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坎",
+      "id": 90,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "阳"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "八卦·艮",
+      "id": 91,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "八卦"
+    },
+    {
+      "condition_json": "{\"属性\":\"五行\"}",
+      "condition_text": "五行属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·艮",
+      "id": 92,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "土"
+    },
+    {
+      "condition_json": "{\"取象\":\"自然\"}",
+      "condition_text": "自然取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·艮",
+      "id": 93,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "山"
+    },
+    {
+      "condition_json": "{\"取象\":\"卦德\"}",
+      "condition_text": "卦德",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·艮",
+      "id": 94,
+      "polarity": 1,
+      "relation_type": "described_by",
+      "to_id": "止"
+    },
+    {
+      "condition_json": "{\"取象\":\"家庭\"}",
+      "condition_text": "家庭取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·艮",
+      "id": 95,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "少男"
+    },
+    {
+      "condition_json": "{\"取象\":\"身体\"}",
+      "condition_text": "身体取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·艮",
+      "id": 96,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "手"
+    },
+    {
+      "condition_json": "{\"取象\":\"动物\"}",
+      "condition_text": "动物取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·艮",
+      "id": 97,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "狗"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"后天\"}",
+      "condition_text": "后天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·艮",
+      "id": 98,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "东北"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"先天\"}",
+      "condition_text": "先天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·艮",
+      "id": 99,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "西北"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"先天\",\"system\":\"先天八卦数\"}",
+      "condition_text": "先天八卦数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·艮",
+      "id": 100,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "七"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"后天\",\"system\":\"洛书九宫数\"}",
+      "condition_text": "洛书九宫数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·艮",
+      "id": 101,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "八"
+    },
+    {
+      "condition_json": "{\"属性\":\"阴阳\"}",
+      "condition_text": "阴阳属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·艮",
+      "id": 102,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "阳"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "八卦·坤",
+      "id": 103,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "八卦"
+    },
+    {
+      "condition_json": "{\"属性\":\"五行\"}",
+      "condition_text": "五行属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坤",
+      "id": 104,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "土"
+    },
+    {
+      "condition_json": "{\"取象\":\"自然\"}",
+      "condition_text": "自然取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坤",
+      "id": 105,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "地"
+    },
+    {
+      "condition_json": "{\"取象\":\"卦德\"}",
+      "condition_text": "卦德",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坤",
+      "id": 106,
+      "polarity": 1,
+      "relation_type": "described_by",
+      "to_id": "顺"
+    },
+    {
+      "condition_json": "{\"取象\":\"家庭\"}",
+      "condition_text": "家庭取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坤",
+      "id": 107,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "母"
+    },
+    {
+      "condition_json": "{\"取象\":\"身体\"}",
+      "condition_text": "身体取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坤",
+      "id": 108,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "腹"
+    },
+    {
+      "condition_json": "{\"取象\":\"动物\"}",
+      "condition_text": "动物取象",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坤",
+      "id": 109,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "牛"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"后天\"}",
+      "condition_text": "后天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坤",
+      "id": 110,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "西南"
+    },
+    {
+      "condition_json": "{\"取象\":\"方位\",\"frame\":\"先天\"}",
+      "condition_text": "先天方位",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坤",
+      "id": 111,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "北"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"先天\",\"system\":\"先天八卦数\"}",
+      "condition_text": "先天八卦数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坤",
+      "id": 112,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "八"
+    },
+    {
+      "condition_json": "{\"取象\":\"数\",\"frame\":\"后天\",\"system\":\"洛书九宫数\"}",
+      "condition_text": "洛书九宫数",
+      "confidence": 0.85,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坤",
+      "id": 113,
+      "polarity": 1,
+      "relation_type": "maps_to",
+      "to_id": "二"
+    },
+    {
+      "condition_json": "{\"属性\":\"阴阳\"}",
+      "condition_text": "阴阳属性",
+      "confidence": 0.9,
+      "edge_kind": "attribution",
+      "from_id": "八卦·坤",
+      "id": 114,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "阴"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·乾为天",
+      "id": 115,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·乾为天",
+      "id": 116,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·乾为天",
+      "id": 117,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·1",
+      "id": 118,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·乾为天",
+      "id": 119,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·1"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·坤为地",
+      "id": 120,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·坤为地",
+      "id": 121,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·坤为地",
+      "id": 122,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·2",
+      "id": 123,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·坤为地",
+      "id": 124,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·2"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水雷屯",
+      "id": 125,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水雷屯",
+      "id": 126,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水雷屯",
+      "id": 127,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·3",
+      "id": 128,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水雷屯",
+      "id": 129,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·3"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山水蒙",
+      "id": 130,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山水蒙",
+      "id": 131,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山水蒙",
+      "id": 132,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·4",
+      "id": 133,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山水蒙",
+      "id": 134,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·4"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水天需",
+      "id": 135,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水天需",
+      "id": 136,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水天需",
+      "id": 137,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·5",
+      "id": 138,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水天需",
+      "id": 139,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·5"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天水讼",
+      "id": 140,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天水讼",
+      "id": 141,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天水讼",
+      "id": 142,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·6",
+      "id": 143,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天水讼",
+      "id": 144,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·6"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地水师",
+      "id": 145,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地水师",
+      "id": 146,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地水师",
+      "id": 147,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·7",
+      "id": 148,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地水师",
+      "id": 149,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·7"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水地比",
+      "id": 150,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水地比",
+      "id": 151,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水地比",
+      "id": 152,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·8",
+      "id": 153,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水地比",
+      "id": 154,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·8"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风天小畜",
+      "id": 155,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风天小畜",
+      "id": 156,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风天小畜",
+      "id": 157,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·9",
+      "id": 158,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风天小畜",
+      "id": 159,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·9"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天泽履",
+      "id": 160,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天泽履",
+      "id": 161,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天泽履",
+      "id": 162,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·10",
+      "id": 163,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天泽履",
+      "id": 164,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·10"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地天泰",
+      "id": 165,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地天泰",
+      "id": 166,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地天泰",
+      "id": 167,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·11",
+      "id": 168,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地天泰",
+      "id": 169,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·11"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天地否",
+      "id": 170,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天地否",
+      "id": 171,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天地否",
+      "id": 172,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·12",
+      "id": 173,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天地否",
+      "id": 174,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·12"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天火同人",
+      "id": 175,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天火同人",
+      "id": 176,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天火同人",
+      "id": 177,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·13",
+      "id": 178,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天火同人",
+      "id": 179,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·13"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火天大有",
+      "id": 180,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火天大有",
+      "id": 181,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火天大有",
+      "id": 182,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·14",
+      "id": 183,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火天大有",
+      "id": 184,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·14"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地山谦",
+      "id": 185,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地山谦",
+      "id": 186,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地山谦",
+      "id": 187,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·15",
+      "id": 188,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地山谦",
+      "id": 189,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·15"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷地豫",
+      "id": 190,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷地豫",
+      "id": 191,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷地豫",
+      "id": 192,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·16",
+      "id": 193,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷地豫",
+      "id": 194,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·16"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽雷随",
+      "id": 195,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽雷随",
+      "id": 196,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽雷随",
+      "id": 197,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·17",
+      "id": 198,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽雷随",
+      "id": 199,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·17"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山风蛊",
+      "id": 200,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山风蛊",
+      "id": 201,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山风蛊",
+      "id": 202,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·18",
+      "id": 203,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山风蛊",
+      "id": 204,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·18"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地泽临",
+      "id": 205,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地泽临",
+      "id": 206,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地泽临",
+      "id": 207,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·19",
+      "id": 208,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地泽临",
+      "id": 209,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·19"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风地观",
+      "id": 210,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风地观",
+      "id": 211,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风地观",
+      "id": 212,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·20",
+      "id": 213,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风地观",
+      "id": 214,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·20"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火雷噬嗑",
+      "id": 215,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火雷噬嗑",
+      "id": 216,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火雷噬嗑",
+      "id": 217,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·21",
+      "id": 218,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火雷噬嗑",
+      "id": 219,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·21"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山火贲",
+      "id": 220,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山火贲",
+      "id": 221,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山火贲",
+      "id": 222,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·22",
+      "id": 223,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山火贲",
+      "id": 224,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·22"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山地剥",
+      "id": 225,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山地剥",
+      "id": 226,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山地剥",
+      "id": 227,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·23",
+      "id": 228,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山地剥",
+      "id": 229,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·23"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地雷复",
+      "id": 230,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地雷复",
+      "id": 231,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地雷复",
+      "id": 232,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·24",
+      "id": 233,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地雷复",
+      "id": 234,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·24"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天雷无妄",
+      "id": 235,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天雷无妄",
+      "id": 236,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天雷无妄",
+      "id": 237,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·25",
+      "id": 238,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天雷无妄",
+      "id": 239,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·25"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山天大畜",
+      "id": 240,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山天大畜",
+      "id": 241,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山天大畜",
+      "id": 242,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·26",
+      "id": 243,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山天大畜",
+      "id": 244,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·26"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山雷颐",
+      "id": 245,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山雷颐",
+      "id": 246,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山雷颐",
+      "id": 247,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·27",
+      "id": 248,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山雷颐",
+      "id": 249,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·27"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽风大过",
+      "id": 250,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽风大过",
+      "id": 251,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽风大过",
+      "id": 252,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·28",
+      "id": 253,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽风大过",
+      "id": 254,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·28"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·坎为水",
+      "id": 255,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·坎为水",
+      "id": 256,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·坎为水",
+      "id": 257,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·29",
+      "id": 258,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·坎为水",
+      "id": 259,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·29"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·离为火",
+      "id": 260,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·离为火",
+      "id": 261,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·离为火",
+      "id": 262,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·30",
+      "id": 263,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·离为火",
+      "id": 264,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·30"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽山咸",
+      "id": 265,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽山咸",
+      "id": 266,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽山咸",
+      "id": 267,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·31",
+      "id": 268,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽山咸",
+      "id": 269,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·31"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷风恒",
+      "id": 270,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷风恒",
+      "id": 271,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷风恒",
+      "id": 272,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·32",
+      "id": 273,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷风恒",
+      "id": 274,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·32"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天山遁",
+      "id": 275,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天山遁",
+      "id": 276,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天山遁",
+      "id": 277,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·33",
+      "id": 278,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天山遁",
+      "id": 279,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·33"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷天大壮",
+      "id": 280,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷天大壮",
+      "id": 281,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷天大壮",
+      "id": 282,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·34",
+      "id": 283,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷天大壮",
+      "id": 284,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·34"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火地晋",
+      "id": 285,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火地晋",
+      "id": 286,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火地晋",
+      "id": 287,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·35",
+      "id": 288,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火地晋",
+      "id": 289,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·35"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地火明夷",
+      "id": 290,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地火明夷",
+      "id": 291,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地火明夷",
+      "id": 292,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·36",
+      "id": 293,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地火明夷",
+      "id": 294,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·36"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风火家人",
+      "id": 295,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风火家人",
+      "id": 296,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风火家人",
+      "id": 297,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·37",
+      "id": 298,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风火家人",
+      "id": 299,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·37"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火泽睽",
+      "id": 300,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火泽睽",
+      "id": 301,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火泽睽",
+      "id": 302,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·38",
+      "id": 303,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火泽睽",
+      "id": 304,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·38"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水山蹇",
+      "id": 305,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水山蹇",
+      "id": 306,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水山蹇",
+      "id": 307,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·39",
+      "id": 308,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水山蹇",
+      "id": 309,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·39"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷水解",
+      "id": 310,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷水解",
+      "id": 311,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷水解",
+      "id": 312,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·40",
+      "id": 313,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷水解",
+      "id": 314,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·40"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山泽损",
+      "id": 315,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山泽损",
+      "id": 316,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山泽损",
+      "id": 317,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·41",
+      "id": 318,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·山泽损",
+      "id": 319,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·41"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风雷益",
+      "id": 320,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风雷益",
+      "id": 321,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风雷益",
+      "id": 322,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·42",
+      "id": 323,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风雷益",
+      "id": 324,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·42"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽天夬",
+      "id": 325,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽天夬",
+      "id": 326,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽天夬",
+      "id": 327,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·43",
+      "id": 328,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽天夬",
+      "id": 329,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·43"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天风姤",
+      "id": 330,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天风姤",
+      "id": 331,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·乾"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天风姤",
+      "id": 332,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·44",
+      "id": 333,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·天风姤",
+      "id": 334,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·44"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽地萃",
+      "id": 335,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽地萃",
+      "id": 336,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽地萃",
+      "id": 337,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·45",
+      "id": 338,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽地萃",
+      "id": 339,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·45"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地风升",
+      "id": 340,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地风升",
+      "id": 341,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坤"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地风升",
+      "id": 342,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·46",
+      "id": 343,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·地风升",
+      "id": 344,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·46"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽水困",
+      "id": 345,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽水困",
+      "id": 346,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽水困",
+      "id": 347,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·47",
+      "id": 348,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽水困",
+      "id": 349,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·47"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水风井",
+      "id": 350,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水风井",
+      "id": 351,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水风井",
+      "id": 352,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·48",
+      "id": 353,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水风井",
+      "id": 354,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·48"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽火革",
+      "id": 355,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽火革",
+      "id": 356,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽火革",
+      "id": 357,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·49",
+      "id": 358,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·泽火革",
+      "id": 359,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·49"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火风鼎",
+      "id": 360,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火风鼎",
+      "id": 361,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火风鼎",
+      "id": 362,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·50",
+      "id": 363,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火风鼎",
+      "id": 364,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·50"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·震为雷",
+      "id": 365,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·震为雷",
+      "id": 366,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·震为雷",
+      "id": 367,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·51",
+      "id": 368,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·震为雷",
+      "id": 369,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·51"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·艮为山",
+      "id": 370,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·艮为山",
+      "id": 371,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·艮为山",
+      "id": 372,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·52",
+      "id": 373,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·艮为山",
+      "id": 374,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·52"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风山渐",
+      "id": 375,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风山渐",
+      "id": 376,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风山渐",
+      "id": 377,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·53",
+      "id": 378,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风山渐",
+      "id": 379,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·53"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷泽归妹",
+      "id": 380,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷泽归妹",
+      "id": 381,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷泽归妹",
+      "id": 382,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·54",
+      "id": 383,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷泽归妹",
+      "id": 384,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·54"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷火丰",
+      "id": 385,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷火丰",
+      "id": 386,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷火丰",
+      "id": 387,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·55",
+      "id": 388,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷火丰",
+      "id": 389,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·55"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火山旅",
+      "id": 390,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火山旅",
+      "id": 391,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火山旅",
+      "id": 392,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·56",
+      "id": 393,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火山旅",
+      "id": 394,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·56"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·巽为风",
+      "id": 395,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·巽为风",
+      "id": 396,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·巽为风",
+      "id": 397,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·57",
+      "id": 398,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·巽为风",
+      "id": 399,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·57"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·兑为泽",
+      "id": 400,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·兑为泽",
+      "id": 401,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·兑为泽",
+      "id": 402,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·58",
+      "id": 403,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·兑为泽",
+      "id": 404,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·58"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风水涣",
+      "id": 405,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风水涣",
+      "id": 406,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风水涣",
+      "id": 407,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·59",
+      "id": 408,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风水涣",
+      "id": 409,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·59"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水泽节",
+      "id": 410,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水泽节",
+      "id": 411,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水泽节",
+      "id": 412,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·60",
+      "id": 413,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水泽节",
+      "id": 414,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·60"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风泽中孚",
+      "id": 415,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风泽中孚",
+      "id": 416,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·巽"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风泽中孚",
+      "id": 417,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·兑"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·61",
+      "id": 418,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·风泽中孚",
+      "id": 419,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·61"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷山小过",
+      "id": 420,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷山小过",
+      "id": 421,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·震"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷山小过",
+      "id": 422,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·艮"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·62",
+      "id": 423,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·雷山小过",
+      "id": 424,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·62"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水火既济",
+      "id": 425,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水火既济",
+      "id": 426,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水火既济",
+      "id": 427,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·63",
+      "id": 428,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·水火既济",
+      "id": 429,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·63"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火水未济",
+      "id": 430,
+      "polarity": 1,
+      "relation_type": "part_of",
+      "to_id": "六十四卦"
+    },
+    {
+      "condition_json": "{\"role\":\"上卦\"}",
+      "condition_text": "上卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火水未济",
+      "id": 431,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·离"
+    },
+    {
+      "condition_json": "{\"role\":\"下卦\"}",
+      "condition_text": "下卦",
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火水未济",
+      "id": 432,
+      "polarity": 1,
+      "relation_type": "consists_of",
+      "to_id": "八卦·坎"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦序·64",
+      "id": 433,
+      "polarity": 1,
+      "relation_type": "belongs_to",
+      "to_id": "六十四卦序"
+    },
+    {
+      "confidence": 0.95,
+      "edge_kind": "structural",
+      "from_id": "卦·火水未济",
+      "id": 434,
+      "polarity": 1,
+      "relation_type": "ordered_at",
+      "to_id": "卦序·64"
+    }
+  ],
+  "evidence": [
+    {
+      "edge_id": 9,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "五行相生：木生火、火生土、土生金、金生水、水生木。",
+      "weight": 1
+    },
+    {
+      "edge_id": 14,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "五行相克：木克土、土克水、水克火、火克金、金克木。",
+      "weight": 1
+    },
+    {
+      "edge_id": 20,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·乾五行属金（后天配卦）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 21,
+      "snippet": "干为天、为圜、为君、为父、为玉、为金、为寒、为冰、为大赤、为良马、为老马、为瘠马、为驳马、为木果。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·乾取象为天。",
+      "weight": 1
+    },
+    {
+      "edge_id": 22,
+      "snippet": "干，健也。坤，顺也。震，动也。巽，入也。坎，陷也。离，丽也。艮，止也。兑，说也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "卦德：健。",
+      "weight": 1
+    },
+    {
+      "edge_id": 23,
+      "snippet": "干，天也，故称乎父；坤，地也，故称乎母；震一索而得男，故谓之长男；巽一索而得女，故谓之长女；坎再索而得男，故谓之中男；离再索而得女，故谓之中女；艮三索而得男，故谓之少男；兑三索而得女，故谓之少女。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·乾取象为父。",
+      "weight": 1
+    },
+    {
+      "edge_id": 24,
+      "snippet": "干为首，坤为腹，震为足，巽为股，坎为耳，离为目，艮为手，兑为口。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·乾取象为首。",
+      "weight": 1
+    },
+    {
+      "edge_id": 25,
+      "snippet": "干为马，坤为牛，震为龙，巽为鸡，坎为豕，离为雉，艮为狗，兑为羊。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·乾取象为马。",
+      "weight": 1
+    },
+    {
+      "edge_id": 26,
+      "snippet": "帝出乎震，齐乎巽，相见乎离，致役乎坤，说言乎兑，战乎干，劳乎坎，成言乎艮。万物出乎震，震，东方也。齐乎巽，巽，东南也，齐也者，言万物之洁齐也。离也者，明也，万物皆相见，南方之卦也。圣人南面而听天下，向明而治，盖取诸此也。坤也者，地也，万物皆致养焉，故曰致役乎坤。兑，正秋也。万物之所说也。故曰说；言乎兑。战乎干，干，西北之卦也。言阴阳相薄也。坎者，水也，正北方之卦也，劳卦也，万物之所归也，故曰劳乎坎。艮，东北之卦也，万物之所成，终而所成始也，故曰成言乎艮。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "后天八卦中，八卦·乾居西北方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 27,
+      "snippet": "天地定位，山泽通气，雷风相薄，水火不相射。八卦相错，数往者顺，知来者逆。是故易逆数也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "先天八卦中，八卦·乾居南方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 28,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "先天八卦数：八卦·乾为数一（邵雍）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 29,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "洛书九宫数：八卦·乾为数六。",
+      "weight": 1
+    },
+    {
+      "edge_id": 30,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·乾为阳卦。",
+      "weight": 1
+    },
+    {
+      "edge_id": 32,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·兑五行属金（后天配卦）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 33,
+      "snippet": "兑为泽、为少女、为巫、为口舌、为毁折、为附决。其于地也，为刚卤，为妾、为羊。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·兑取象为泽。",
+      "weight": 1
+    },
+    {
+      "edge_id": 34,
+      "snippet": "干，健也。坤，顺也。震，动也。巽，入也。坎，陷也。离，丽也。艮，止也。兑，说也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "卦德：说。",
+      "weight": 1
+    },
+    {
+      "edge_id": 35,
+      "snippet": "干，天也，故称乎父；坤，地也，故称乎母；震一索而得男，故谓之长男；巽一索而得女，故谓之长女；坎再索而得男，故谓之中男；离再索而得女，故谓之中女；艮三索而得男，故谓之少男；兑三索而得女，故谓之少女。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·兑取象为少女。",
+      "weight": 1
+    },
+    {
+      "edge_id": 36,
+      "snippet": "干为首，坤为腹，震为足，巽为股，坎为耳，离为目，艮为手，兑为口。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·兑取象为口。",
+      "weight": 1
+    },
+    {
+      "edge_id": 37,
+      "snippet": "干为马，坤为牛，震为龙，巽为鸡，坎为豕，离为雉，艮为狗，兑为羊。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·兑取象为羊。",
+      "weight": 1
+    },
+    {
+      "edge_id": 38,
+      "snippet": "帝出乎震，齐乎巽，相见乎离，致役乎坤，说言乎兑，战乎干，劳乎坎，成言乎艮。万物出乎震，震，东方也。齐乎巽，巽，东南也，齐也者，言万物之洁齐也。离也者，明也，万物皆相见，南方之卦也。圣人南面而听天下，向明而治，盖取诸此也。坤也者，地也，万物皆致养焉，故曰致役乎坤。兑，正秋也。万物之所说也。故曰说；言乎兑。战乎干，干，西北之卦也。言阴阳相薄也。坎者，水也，正北方之卦也，劳卦也，万物之所归也，故曰劳乎坎。艮，东北之卦也，万物之所成，终而所成始也，故曰成言乎艮。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "后天八卦中，八卦·兑居西方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 39,
+      "snippet": "天地定位，山泽通气，雷风相薄，水火不相射。八卦相错，数往者顺，知来者逆。是故易逆数也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "先天八卦中，八卦·兑居东南方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 40,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "先天八卦数：八卦·兑为数二（邵雍）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 41,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "洛书九宫数：八卦·兑为数七。",
+      "weight": 1
+    },
+    {
+      "edge_id": 42,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·兑为阴卦。",
+      "weight": 1
+    },
+    {
+      "edge_id": 44,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·离五行属火（后天配卦）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 45,
+      "snippet": "离为火、为日、为电、为中女、为甲胄、为戈兵。其于人也，为大腹、为乾卦、为鳖、为蟹、为蠃、为蚌、为龟。其于木也，为科上槁。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·离取象为火。",
+      "weight": 1
+    },
+    {
+      "edge_id": 46,
+      "snippet": "干，健也。坤，顺也。震，动也。巽，入也。坎，陷也。离，丽也。艮，止也。兑，说也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "卦德：丽。",
+      "weight": 1
+    },
+    {
+      "edge_id": 47,
+      "snippet": "干，天也，故称乎父；坤，地也，故称乎母；震一索而得男，故谓之长男；巽一索而得女，故谓之长女；坎再索而得男，故谓之中男；离再索而得女，故谓之中女；艮三索而得男，故谓之少男；兑三索而得女，故谓之少女。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·离取象为中女。",
+      "weight": 1
+    },
+    {
+      "edge_id": 48,
+      "snippet": "干为首，坤为腹，震为足，巽为股，坎为耳，离为目，艮为手，兑为口。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·离取象为目。",
+      "weight": 1
+    },
+    {
+      "edge_id": 49,
+      "snippet": "干为马，坤为牛，震为龙，巽为鸡，坎为豕，离为雉，艮为狗，兑为羊。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·离取象为雉。",
+      "weight": 1
+    },
+    {
+      "edge_id": 50,
+      "snippet": "帝出乎震，齐乎巽，相见乎离，致役乎坤，说言乎兑，战乎干，劳乎坎，成言乎艮。万物出乎震，震，东方也。齐乎巽，巽，东南也，齐也者，言万物之洁齐也。离也者，明也，万物皆相见，南方之卦也。圣人南面而听天下，向明而治，盖取诸此也。坤也者，地也，万物皆致养焉，故曰致役乎坤。兑，正秋也。万物之所说也。故曰说；言乎兑。战乎干，干，西北之卦也。言阴阳相薄也。坎者，水也，正北方之卦也，劳卦也，万物之所归也，故曰劳乎坎。艮，东北之卦也，万物之所成，终而所成始也，故曰成言乎艮。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "后天八卦中，八卦·离居南方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 51,
+      "snippet": "天地定位，山泽通气，雷风相薄，水火不相射。八卦相错，数往者顺，知来者逆。是故易逆数也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "先天八卦中，八卦·离居东方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 52,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "先天八卦数：八卦·离为数三（邵雍）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 53,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "洛书九宫数：八卦·离为数九。",
+      "weight": 1
+    },
+    {
+      "edge_id": 54,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·离为阴卦。",
+      "weight": 1
+    },
+    {
+      "edge_id": 56,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·震五行属木（后天配卦）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 57,
+      "snippet": "震为雷、为龙、为玄黄、为敷、为大涂、为长子、为决躁、为苍筤竹、为萑苇。其于马也，为善鸣、为馵足，为的颡。其于稼也，为反生。其究为健，为蕃鲜。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·震取象为雷。",
+      "weight": 1
+    },
+    {
+      "edge_id": 58,
+      "snippet": "干，健也。坤，顺也。震，动也。巽，入也。坎，陷也。离，丽也。艮，止也。兑，说也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "卦德：动。",
+      "weight": 1
+    },
+    {
+      "edge_id": 59,
+      "snippet": "干，天也，故称乎父；坤，地也，故称乎母；震一索而得男，故谓之长男；巽一索而得女，故谓之长女；坎再索而得男，故谓之中男；离再索而得女，故谓之中女；艮三索而得男，故谓之少男；兑三索而得女，故谓之少女。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·震取象为长男。",
+      "weight": 1
+    },
+    {
+      "edge_id": 60,
+      "snippet": "干为首，坤为腹，震为足，巽为股，坎为耳，离为目，艮为手，兑为口。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·震取象为足。",
+      "weight": 1
+    },
+    {
+      "edge_id": 61,
+      "snippet": "干为马，坤为牛，震为龙，巽为鸡，坎为豕，离为雉，艮为狗，兑为羊。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·震取象为龙。",
+      "weight": 1
+    },
+    {
+      "edge_id": 62,
+      "snippet": "帝出乎震，齐乎巽，相见乎离，致役乎坤，说言乎兑，战乎干，劳乎坎，成言乎艮。万物出乎震，震，东方也。齐乎巽，巽，东南也，齐也者，言万物之洁齐也。离也者，明也，万物皆相见，南方之卦也。圣人南面而听天下，向明而治，盖取诸此也。坤也者，地也，万物皆致养焉，故曰致役乎坤。兑，正秋也。万物之所说也。故曰说；言乎兑。战乎干，干，西北之卦也。言阴阳相薄也。坎者，水也，正北方之卦也，劳卦也，万物之所归也，故曰劳乎坎。艮，东北之卦也，万物之所成，终而所成始也，故曰成言乎艮。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "后天八卦中，八卦·震居东方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 63,
+      "snippet": "天地定位，山泽通气，雷风相薄，水火不相射。八卦相错，数往者顺，知来者逆。是故易逆数也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "先天八卦中，八卦·震居东北方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 64,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "先天八卦数：八卦·震为数四（邵雍）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 65,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "洛书九宫数：八卦·震为数三。",
+      "weight": 1
+    },
+    {
+      "edge_id": 66,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·震为阳卦。",
+      "weight": 1
+    },
+    {
+      "edge_id": 68,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·巽五行属木（后天配卦）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 69,
+      "snippet": "巽为木、为风、为长女、为绳直、为工、为白、为长、为高、为进退、为不果、为臭。其于人也，为寡发、为广颡、为多白眼、为近利市三倍。其究为躁卦。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·巽取象为风。",
+      "weight": 1
+    },
+    {
+      "edge_id": 70,
+      "snippet": "干，健也。坤，顺也。震，动也。巽，入也。坎，陷也。离，丽也。艮，止也。兑，说也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "卦德：入。",
+      "weight": 1
+    },
+    {
+      "edge_id": 71,
+      "snippet": "干，天也，故称乎父；坤，地也，故称乎母；震一索而得男，故谓之长男；巽一索而得女，故谓之长女；坎再索而得男，故谓之中男；离再索而得女，故谓之中女；艮三索而得男，故谓之少男；兑三索而得女，故谓之少女。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·巽取象为长女。",
+      "weight": 1
+    },
+    {
+      "edge_id": 72,
+      "snippet": "干为首，坤为腹，震为足，巽为股，坎为耳，离为目，艮为手，兑为口。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·巽取象为股。",
+      "weight": 1
+    },
+    {
+      "edge_id": 73,
+      "snippet": "干为马，坤为牛，震为龙，巽为鸡，坎为豕，离为雉，艮为狗，兑为羊。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·巽取象为鸡。",
+      "weight": 1
+    },
+    {
+      "edge_id": 74,
+      "snippet": "帝出乎震，齐乎巽，相见乎离，致役乎坤，说言乎兑，战乎干，劳乎坎，成言乎艮。万物出乎震，震，东方也。齐乎巽，巽，东南也，齐也者，言万物之洁齐也。离也者，明也，万物皆相见，南方之卦也。圣人南面而听天下，向明而治，盖取诸此也。坤也者，地也，万物皆致养焉，故曰致役乎坤。兑，正秋也。万物之所说也。故曰说；言乎兑。战乎干，干，西北之卦也。言阴阳相薄也。坎者，水也，正北方之卦也，劳卦也，万物之所归也，故曰劳乎坎。艮，东北之卦也，万物之所成，终而所成始也，故曰成言乎艮。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "后天八卦中，八卦·巽居东南方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 75,
+      "snippet": "天地定位，山泽通气，雷风相薄，水火不相射。八卦相错，数往者顺，知来者逆。是故易逆数也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "先天八卦中，八卦·巽居西南方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 76,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "先天八卦数：八卦·巽为数五（邵雍）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 77,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "洛书九宫数：八卦·巽为数四。",
+      "weight": 1
+    },
+    {
+      "edge_id": 78,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·巽为阴卦。",
+      "weight": 1
+    },
+    {
+      "edge_id": 80,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·坎五行属水（后天配卦）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 81,
+      "snippet": "坎为水、为沟渎、为隐伏、为矫𫐓、为弓轮。其于人也，为加忧、为心病、为耳痛、为血卦、为赤。其于马也，为美脊、为亟心、为下首、为薄蹄、为曳。其于舆也，为多眚、为通、为月、为盗。其于木也，为坚多心。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·坎取象为水。",
+      "weight": 1
+    },
+    {
+      "edge_id": 82,
+      "snippet": "干，健也。坤，顺也。震，动也。巽，入也。坎，陷也。离，丽也。艮，止也。兑，说也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "卦德：陷。",
+      "weight": 1
+    },
+    {
+      "edge_id": 83,
+      "snippet": "干，天也，故称乎父；坤，地也，故称乎母；震一索而得男，故谓之长男；巽一索而得女，故谓之长女；坎再索而得男，故谓之中男；离再索而得女，故谓之中女；艮三索而得男，故谓之少男；兑三索而得女，故谓之少女。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·坎取象为中男。",
+      "weight": 1
+    },
+    {
+      "edge_id": 84,
+      "snippet": "干为首，坤为腹，震为足，巽为股，坎为耳，离为目，艮为手，兑为口。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·坎取象为耳。",
+      "weight": 1
+    },
+    {
+      "edge_id": 85,
+      "snippet": "干为马，坤为牛，震为龙，巽为鸡，坎为豕，离为雉，艮为狗，兑为羊。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·坎取象为豕。",
+      "weight": 1
+    },
+    {
+      "edge_id": 86,
+      "snippet": "帝出乎震，齐乎巽，相见乎离，致役乎坤，说言乎兑，战乎干，劳乎坎，成言乎艮。万物出乎震，震，东方也。齐乎巽，巽，东南也，齐也者，言万物之洁齐也。离也者，明也，万物皆相见，南方之卦也。圣人南面而听天下，向明而治，盖取诸此也。坤也者，地也，万物皆致养焉，故曰致役乎坤。兑，正秋也。万物之所说也。故曰说；言乎兑。战乎干，干，西北之卦也。言阴阳相薄也。坎者，水也，正北方之卦也，劳卦也，万物之所归也，故曰劳乎坎。艮，东北之卦也，万物之所成，终而所成始也，故曰成言乎艮。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "后天八卦中，八卦·坎居北方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 87,
+      "snippet": "天地定位，山泽通气，雷风相薄，水火不相射。八卦相错，数往者顺，知来者逆。是故易逆数也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "先天八卦中，八卦·坎居西方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 88,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "先天八卦数：八卦·坎为数六（邵雍）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 89,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "洛书九宫数：八卦·坎为数一。",
+      "weight": 1
+    },
+    {
+      "edge_id": 90,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·坎为阳卦。",
+      "weight": 1
+    },
+    {
+      "edge_id": 92,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·艮五行属土（后天配卦）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 93,
+      "snippet": "艮为山、为径路、为小石、为门阙、为果蓏、为阍寺、为指、为狗、为鼠、为黔喙之属。其于木也，为坚多节。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·艮取象为山。",
+      "weight": 1
+    },
+    {
+      "edge_id": 94,
+      "snippet": "干，健也。坤，顺也。震，动也。巽，入也。坎，陷也。离，丽也。艮，止也。兑，说也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "卦德：止。",
+      "weight": 1
+    },
+    {
+      "edge_id": 95,
+      "snippet": "干，天也，故称乎父；坤，地也，故称乎母；震一索而得男，故谓之长男；巽一索而得女，故谓之长女；坎再索而得男，故谓之中男；离再索而得女，故谓之中女；艮三索而得男，故谓之少男；兑三索而得女，故谓之少女。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·艮取象为少男。",
+      "weight": 1
+    },
+    {
+      "edge_id": 96,
+      "snippet": "干为首，坤为腹，震为足，巽为股，坎为耳，离为目，艮为手，兑为口。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·艮取象为手。",
+      "weight": 1
+    },
+    {
+      "edge_id": 97,
+      "snippet": "干为马，坤为牛，震为龙，巽为鸡，坎为豕，离为雉，艮为狗，兑为羊。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·艮取象为狗。",
+      "weight": 1
+    },
+    {
+      "edge_id": 98,
+      "snippet": "帝出乎震，齐乎巽，相见乎离，致役乎坤，说言乎兑，战乎干，劳乎坎，成言乎艮。万物出乎震，震，东方也。齐乎巽，巽，东南也，齐也者，言万物之洁齐也。离也者，明也，万物皆相见，南方之卦也。圣人南面而听天下，向明而治，盖取诸此也。坤也者，地也，万物皆致养焉，故曰致役乎坤。兑，正秋也。万物之所说也。故曰说；言乎兑。战乎干，干，西北之卦也。言阴阳相薄也。坎者，水也，正北方之卦也，劳卦也，万物之所归也，故曰劳乎坎。艮，东北之卦也，万物之所成，终而所成始也，故曰成言乎艮。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "后天八卦中，八卦·艮居东北方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 99,
+      "snippet": "天地定位，山泽通气，雷风相薄，水火不相射。八卦相错，数往者顺，知来者逆。是故易逆数也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "先天八卦中，八卦·艮居西北方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 100,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "先天八卦数：八卦·艮为数七（邵雍）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 101,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "洛书九宫数：八卦·艮为数八。",
+      "weight": 1
+    },
+    {
+      "edge_id": 102,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·艮为阳卦。",
+      "weight": 1
+    },
+    {
+      "edge_id": 104,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·坤五行属土（后天配卦）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 105,
+      "snippet": "坤为地、为母、为布、为釜、为吝啬、为均、为子母牛、为大舆、为文、为众、为柄。其于地也为黑。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·坤取象为地。",
+      "weight": 1
+    },
+    {
+      "edge_id": 106,
+      "snippet": "干，健也。坤，顺也。震，动也。巽，入也。坎，陷也。离，丽也。艮，止也。兑，说也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "卦德：顺。",
+      "weight": 1
+    },
+    {
+      "edge_id": 107,
+      "snippet": "干，天也，故称乎父；坤，地也，故称乎母；震一索而得男，故谓之长男；巽一索而得女，故谓之长女；坎再索而得男，故谓之中男；离再索而得女，故谓之中女；艮三索而得男，故谓之少男；兑三索而得女，故谓之少女。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·坤取象为母。",
+      "weight": 1
+    },
+    {
+      "edge_id": 108,
+      "snippet": "干为首，坤为腹，震为足，巽为股，坎为耳，离为目，艮为手，兑为口。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·坤取象为腹。",
+      "weight": 1
+    },
+    {
+      "edge_id": 109,
+      "snippet": "干为马，坤为牛，震为龙，巽为鸡，坎为豕，离为雉，艮为狗，兑为羊。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "八卦·坤取象为牛。",
+      "weight": 1
+    },
+    {
+      "edge_id": 110,
+      "snippet": "帝出乎震，齐乎巽，相见乎离，致役乎坤，说言乎兑，战乎干，劳乎坎，成言乎艮。万物出乎震，震，东方也。齐乎巽，巽，东南也，齐也者，言万物之洁齐也。离也者，明也，万物皆相见，南方之卦也。圣人南面而听天下，向明而治，盖取诸此也。坤也者，地也，万物皆致养焉，故曰致役乎坤。兑，正秋也。万物之所说也。故曰说；言乎兑。战乎干，干，西北之卦也。言阴阳相薄也。坎者，水也，正北方之卦也，劳卦也，万物之所归也，故曰劳乎坎。艮，东北之卦也，万物之所成，终而所成始也，故曰成言乎艮。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "后天八卦中，八卦·坤居西南方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 111,
+      "snippet": "天地定位，山泽通气，雷风相薄，水火不相射。八卦相错，数往者顺，知来者逆。是故易逆数也。",
+      "source_ref": "zhouyi-v2/gushu/zhouyi/說卦",
+      "source_type": "corpus_extracted",
+      "supports": true,
+      "translation": "先天八卦中，八卦·坤居北方。",
+      "weight": 1
+    },
+    {
+      "edge_id": 112,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "先天八卦数：八卦·坤为数八（邵雍）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 113,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "洛书九宫数：八卦·坤为数二。",
+      "weight": 1
+    },
+    {
+      "edge_id": 114,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "八卦·坤为阴卦。",
+      "weight": 1
+    },
+    {
+      "edge_id": 119,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第1卦：乾为天（上乾下乾）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 124,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第2卦：坤为地（上坤下坤）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 129,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第3卦：水雷屯（上坎下震）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 134,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第4卦：山水蒙（上艮下坎）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 139,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第5卦：水天需（上坎下乾）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 144,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第6卦：天水讼（上乾下坎）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 149,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第7卦：地水师（上坤下坎）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 154,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第8卦：水地比（上坎下坤）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 159,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第9卦：风天小畜（上巽下乾）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 164,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第10卦：天泽履（上乾下兑）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 169,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第11卦：地天泰（上坤下乾）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 174,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第12卦：天地否（上乾下坤）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 179,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第13卦：天火同人（上乾下离）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 184,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第14卦：火天大有（上离下乾）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 189,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第15卦：地山谦（上坤下艮）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 194,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第16卦：雷地豫（上震下坤）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 199,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第17卦：泽雷随（上兑下震）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 204,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第18卦：山风蛊（上艮下巽）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 209,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第19卦：地泽临（上坤下兑）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 214,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第20卦：风地观（上巽下坤）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 219,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第21卦：火雷噬嗑（上离下震）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 224,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第22卦：山火贲（上艮下离）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 229,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第23卦：山地剥（上艮下坤）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 234,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第24卦：地雷复（上坤下震）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 239,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第25卦：天雷无妄（上乾下震）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 244,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第26卦：山天大畜（上艮下乾）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 249,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第27卦：山雷颐（上艮下震）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 254,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第28卦：泽风大过（上兑下巽）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 259,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第29卦：坎为水（上坎下坎）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 264,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第30卦：离为火（上离下离）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 269,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第31卦：泽山咸（上兑下艮）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 274,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第32卦：雷风恒（上震下巽）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 279,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第33卦：天山遁（上乾下艮）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 284,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第34卦：雷天大壮（上震下乾）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 289,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第35卦：火地晋（上离下坤）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 294,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第36卦：地火明夷（上坤下离）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 299,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第37卦：风火家人（上巽下离）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 304,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第38卦：火泽睽（上离下兑）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 309,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第39卦：水山蹇（上坎下艮）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 314,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第40卦：雷水解（上震下坎）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 319,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第41卦：山泽损（上艮下兑）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 324,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第42卦：风雷益（上巽下震）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 329,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第43卦：泽天夬（上兑下乾）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 334,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第44卦：天风姤（上乾下巽）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 339,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第45卦：泽地萃（上兑下坤）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 344,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第46卦：地风升（上坤下巽）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 349,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第47卦：泽水困（上兑下坎）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 354,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第48卦：水风井（上坎下巽）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 359,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第49卦：泽火革（上兑下离）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 364,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第50卦：火风鼎（上离下巽）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 369,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第51卦：震为雷（上震下震）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 374,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第52卦：艮为山（上艮下艮）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 379,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第53卦：风山渐（上巽下艮）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 384,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第54卦：雷泽归妹（上震下兑）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 389,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第55卦：雷火丰（上震下离）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 394,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第56卦：火山旅（上离下艮）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 399,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第57卦：巽为风（上巽下巽）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 404,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第58卦：兑为泽（上兑下兑）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 409,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第59卦：风水涣（上巽下坎）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 414,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第60卦：水泽节（上坎下兑）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 419,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第61卦：风泽中孚（上巽下兑）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 424,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第62卦：雷山小过（上震下艮）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 429,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第63卦：水火既济（上坎下离）。",
+      "weight": 1
+    },
+    {
+      "edge_id": 434,
+      "source_ref": "zhouyi-v2/gushu/zhouyi/周易",
+      "source_type": "corpus_summary",
+      "supports": true,
+      "translation": "周易六十四卦第64卦：火水未济（上离下坎）。",
+      "weight": 1
+    }
+  ],
+  "mode": "import_graph",
+  "nodes": [
+    {
+      "aliases": [
+        "易经",
+        "易"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "周易",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "经卦",
+        "三爻卦"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "八卦",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "别卦",
+        "重卦"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "六十四卦",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "周易卦序"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "六十四卦序",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "阴阳",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "五行",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "木",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "火",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "土",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "金",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "水",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "阳",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "阴",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "乾",
+        "乾三连"
+      ],
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "八卦·乾",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "兑",
+        "兑上缺"
+      ],
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "八卦·兑",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "离",
+        "离中虚"
+      ],
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "八卦·离",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "震",
+        "震仰盂"
+      ],
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "八卦·震",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "巽",
+        "巽下断"
+      ],
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "八卦·巽",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "坎",
+        "坎中满"
+      ],
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "八卦·坎",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "艮",
+        "艮覆碗"
+      ],
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "八卦·艮",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "坤",
+        "坤六断"
+      ],
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "八卦·坤",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "天",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "泽",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "雷",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "风",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "山",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "地",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "父",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "母",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "长男",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "长女",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "中男",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "中女",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "少男",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "少女",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "首",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "腹",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "足",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "股",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "耳",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "目",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "手",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "口",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "马",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "牛",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "龙",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "鸡",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "豕",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "雉",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "狗",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "羊",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "健",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "顺",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "动",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "入",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "陷",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "丽",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "止",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "说",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "南",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "北",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "东",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "西",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "东南",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "西北",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "东北",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易",
+        "易学基础"
+      ],
+      "id": "西南",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "一",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "二",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "三",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "四",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "五",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "六",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "七",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "八",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "易学基础"
+      ],
+      "id": "九",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "乾为天"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·乾为天",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·1",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "坤为地"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·坤为地",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·2",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "水雷屯"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·水雷屯",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·3",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "山水蒙"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·山水蒙",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·4",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "水天需"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·水天需",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·5",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "天水讼"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·天水讼",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·6",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "地水师"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·地水师",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·7",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "水地比"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·水地比",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·8",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "风天小畜"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·风天小畜",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·9",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "天泽履"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·天泽履",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·10",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "地天泰"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·地天泰",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·11",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "天地否"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·天地否",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·12",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "天火同人"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·天火同人",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·13",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "火天大有"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·火天大有",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·14",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "地山谦"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·地山谦",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·15",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "雷地豫"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·雷地豫",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·16",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "泽雷随"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·泽雷随",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·17",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "山风蛊"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·山风蛊",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·18",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "地泽临"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·地泽临",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·19",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "风地观"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·风地观",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·20",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "火雷噬嗑"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·火雷噬嗑",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·21",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "山火贲"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·山火贲",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·22",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "山地剥"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·山地剥",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·23",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "地雷复"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·地雷复",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·24",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "天雷无妄"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·天雷无妄",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·25",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "山天大畜"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·山天大畜",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·26",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "山雷颐"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·山雷颐",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·27",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "泽风大过"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·泽风大过",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·28",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "坎为水"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·坎为水",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·29",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "离为火"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·离为火",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·30",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "泽山咸"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·泽山咸",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·31",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "雷风恒"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·雷风恒",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·32",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "天山遁"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·天山遁",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·33",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "雷天大壮"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·雷天大壮",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·34",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "火地晋"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·火地晋",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·35",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "地火明夷"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·地火明夷",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·36",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "风火家人"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·风火家人",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·37",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "火泽睽"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·火泽睽",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·38",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "水山蹇"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·水山蹇",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·39",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "雷水解"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·雷水解",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·40",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "山泽损"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·山泽损",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·41",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "风雷益"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·风雷益",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·42",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "泽天夬"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·泽天夬",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·43",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "天风姤"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·天风姤",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·44",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "泽地萃"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·泽地萃",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·45",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "地风升"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·地风升",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·46",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "泽水困"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·泽水困",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·47",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "水风井"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·水风井",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·48",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "泽火革"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·泽火革",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·49",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "火风鼎"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·火风鼎",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·50",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "震为雷"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·震为雷",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·51",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "艮为山"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·艮为山",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·52",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "风山渐"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·风山渐",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·53",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "雷泽归妹"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·雷泽归妹",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·54",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "雷火丰"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·雷火丰",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·55",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "火山旅"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·火山旅",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·56",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "巽为风"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·巽为风",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·57",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "兑为泽"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·兑为泽",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·58",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "风水涣"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·风水涣",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·59",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "水泽节"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·水泽节",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·60",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "风泽中孚"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·风泽中孚",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·61",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "雷山小过"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·雷山小过",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·62",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "水火既济"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·水火既济",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·63",
+      "node_type": "concept"
+    },
+    {
+      "aliases": [
+        "火水未济"
+      ],
+      "domain": [
+        "周易"
+      ],
+      "id": "卦·火水未济",
+      "node_type": "concept"
+    },
+    {
+      "aliases": null,
+      "domain": [
+        "周易"
+      ],
+      "id": "卦序·64",
+      "node_type": "concept"
+    }
+  ],
+  "schema_version": 1
+}

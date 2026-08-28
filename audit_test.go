@@ -171,7 +171,7 @@ func TestListEvidenceToolReturnsAttachedEvidence(t *testing.T) {
 	if err != nil {
 		t.Fatalf("upsert edge: %v", err)
 	}
-	if err := svc.graph.AttachEdgeEvidence(edgeID, "research", "doc-1", "snippet", true, 1.0, nil); err != nil {
+	if err := svc.graph.AttachEdgeEvidence(edgeID, "research", "doc-1", "snippet", "", true, 1.0, nil); err != nil {
 		t.Fatalf("attach evidence: %v", err)
 	}
 	out, err := svc.Call(ctx, ToolListEvidence, map[string]any{})

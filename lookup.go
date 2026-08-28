@@ -108,6 +108,7 @@ func (s *Service) LookupContext(ctx context.Context, in LookupContextInput) (map
 			item["status"] = row.Status
 			if row.AliasesJSON != "" && row.AliasesJSON != "[]" {
 				item["aliases_json"] = row.AliasesJSON
+				item["domain_json"] = row.DomainJSON
 			}
 		}
 		resolvedOut = append(resolvedOut, item)
@@ -265,6 +266,8 @@ func edgeDetailMap(s *Service, row EdgeRow, asOf time.Time, direction string) (m
 		"source_type":         row.SourceType,
 		"source_ref":          row.SourceRef,
 		"condition_text":      row.ConditionText,
+		"edge_kind":           row.EdgeKind,
+		"condition_json":      row.ConditionJSON,
 		"evidence_count":      row.EvidenceCount,
 		"failed_count":        row.FailedCount,
 		"direction":           direction,

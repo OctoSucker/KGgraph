@@ -22,10 +22,10 @@ func TestStoreEdgeUpsertAndSelect(t *testing.T) {
 	t.Parallel()
 	s := mustOpenTestStore(t)
 	defer s.Close()
-	if err := s.NodeUpsert("a", "entity", "[]", "active", nil); err != nil {
+	if err := s.NodeUpsert("a", "entity", "[]", "[]", "active", nil); err != nil {
 		t.Fatalf("upsert node a: %v", err)
 	}
-	if err := s.NodeUpsert("b", "entity", "[]", "active", nil); err != nil {
+	if err := s.NodeUpsert("b", "entity", "[]", "[]", "active", nil); err != nil {
 		t.Fatalf("upsert node b: %v", err)
 	}
 	edgeID, err := s.EdgeUpsert(EdgeInput{

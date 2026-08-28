@@ -469,6 +469,7 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 		sourceType, _ := parseOptionalString(arguments, "source_type", "")
 		sourceRef, _ := parseOptionalString(arguments, "source_ref", "")
 		snippet, _ := parseOptionalString(arguments, "snippet", "")
+		translation, _ := parseOptionalString(arguments, "translation", "")
 		supports, err := parseRequiredBool(arguments, tool, "supports")
 		if err != nil {
 			return nil, err
@@ -480,7 +481,7 @@ func (s *Service) Call(ctx context.Context, tool string, arguments map[string]an
 		} else if ok {
 			observedAt = &at
 		}
-		if err := s.graph.AttachEdgeEvidence(edgeID, sourceType, sourceRef, snippet, supports, weight, observedAt); err != nil {
+		if err := s.graph.AttachEdgeEvidence(edgeID, sourceType, sourceRef, snippet, translation, supports, weight, observedAt); err != nil {
 			return nil, err
 		}
 		return map[string]any{"edge_id": edgeID, "supports": supports, "weight": weight}, nil
@@ -731,6 +732,8 @@ func edgeRowToMap(e EdgeRow) map[string]any {
 		"polarity":             e.Polarity,
 		"confidence":           e.Confidence,
 		"condition_text":       e.ConditionText,
+		"edge_kind":            e.EdgeKind,
+		"condition_json":       e.ConditionJSON,
 		"source_type":          e.SourceType,
 		"source_ref":           e.SourceRef,
 		"created_at":           e.CreatedAt.Format(time.RFC3339),
@@ -1178,6 +1181,8 @@ func parseEdgeInput(args map[string]any, tool, graphKind string) (EdgeUpsert, er
 	}
 	polarity, _ := parseOptionalInt(args, "polarity", 1)
 	conditionText, _ := parseOptionalString(args, "condition_text", "")
+	edgeKind, _ := parseOptionalString(args, "edge_kind", "")
+	conditionJSON, _ := parseOptionalString(args, "condition_json", "")
 	sourceType, _ := parseOptionalString(args, "source_type", "")
 	sourceRef, _ := parseOptionalString(args, "source_ref", "")
 	var observedAt *time.Time
@@ -1213,6 +1218,8 @@ func parseEdgeInput(args map[string]any, tool, graphKind string) (EdgeUpsert, er
 		Polarity:          polarity,
 		Confidence:        confidence,
 		ConditionText:     conditionText,
+		EdgeKind:          edgeKind,
+		ConditionJSON:     conditionJSON,
 		SourceType:        sourceType,
 		SourceRef:         sourceRef,
 		ObservedAt:        observedAt,

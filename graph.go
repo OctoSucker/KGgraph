@@ -51,6 +51,7 @@ type NodeUpsert struct {
 	ID       string
 	NodeType string
 	Aliases  []string
+	Domain   []string
 	Status   string
 }
 
@@ -72,6 +73,10 @@ func (g *Graph) UpsertNode(ctx context.Context, in NodeUpsert) error {
 	if err != nil {
 		return fmt.Errorf("knowledgegraph: upsert node aliases: %w", err)
 	}
+	domainJSON, err := encodeStringListJSON(in.Domain)
+	if err != nil {
+		return fmt.Errorf("knowledgegraph: upsert node domain: %w", err)
+	}
 	var blob []byte
 	if g.embedder != nil {
 		vec, err := g.embedder.Embed(ctx, id)
@@ -86,7 +91,7 @@ func (g *Graph) UpsertNode(ctx context.Context, in NodeUpsert) error {
 		g.embedCache[id] = vec
 		g.embedMu.Unlock()
 	}
-	if err := g.store.NodeUpsert(id, nodeType, aliasesJSON, status, blob); err != nil {
+	if err := g.store.NodeUpsert(id, nodeType, aliasesJSON, domainJSON, status, blob); err != nil {
 		return fmt.Errorf("knowledgegraph: upsert node: %w", err)
 	}
 	return nil
@@ -115,6 +120,8 @@ type EdgeUpsert struct {
 	Polarity          int
 	Confidence        float64
 	ConditionText     string
+	EdgeKind          string
+	ConditionJSON     string
 	SourceType        string
 	SourceRef         string
 	ObservedAt        *time.Time
@@ -148,6 +155,8 @@ func (g *Graph) UpsertEdge(ctx context.Context, in EdgeUpsert) (int64, error) {
 		Polarity:          in.Polarity,
 		Confidence:        in.Confidence,
 		ConditionText:     in.ConditionText,
+		EdgeKind:          in.EdgeKind,
+		ConditionJSON:     in.ConditionJSON,
 		SourceType:        in.SourceType,
 		SourceRef:         in.SourceRef,
 		ObservedAt:        observedAt,
@@ -349,15 +358,16 @@ func depthMinScore(base float64, depth int) float64 {
 	return base * (1 + 0.35*float64(depth-1))
 }
 
-func (g *Graph) AttachEdgeEvidence(edgeID int64, sourceType, sourceRef, snippet string, supports bool, weight float64, observedAt *time.Time) error {
+func (g *Graph) AttachEdgeEvidence(edgeID int64, sourceType, sourceRef, snippet, translation string, supports bool, weight float64, observedAt *time.Time) error {
 	return g.store.EdgeEvidenceInsert(EdgeEvidenceInput{
-		EdgeID:     edgeID,
-		SourceType: sourceType,
-		SourceRef:  sourceRef,
-		Snippet:    snippet,
-		ObservedAt: observedAt,
-		Supports:   supports,
-		Weight:     weight,
+		EdgeID:      edgeID,
+		SourceType:  sourceType,
+		SourceRef:   sourceRef,
+		Snippet:     snippet,
+		Translation: translation,
+		ObservedAt:  observedAt,
+		Supports:    supports,
+		Weight:      weight,
 	})
 }
 

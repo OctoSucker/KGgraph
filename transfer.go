@@ -39,6 +39,7 @@ func (s *Service) ExportGraph(ctx context.Context) (map[string]any, error) {
 			"id":           n.ID,
 			"node_type":    n.NodeType,
 			"aliases_json": n.AliasesJSON,
+			"domain_json":  n.DomainJSON,
 			"status":       n.Status,
 			"updated_at":   n.UpdatedAt.UTC().Format(time.RFC3339),
 		})
@@ -55,6 +56,7 @@ func (s *Service) ExportGraph(ctx context.Context) (map[string]any, error) {
 			"source_type": ev.SourceType,
 			"source_ref":  ev.SourceRef,
 			"snippet":     ev.Snippet,
+			"translation": ev.Translation,
 			"observed_at": ev.ObservedAt.UTC().Format(time.RFC3339),
 			"supports":    ev.Supports,
 			"weight":      ev.Weight,
@@ -114,7 +116,19 @@ func (s *Service) ImportGraph(ctx context.Context, payload map[string]any) (map[
 				}
 			}
 		}
-		if err := s.graph.UpsertNode(ctx, NodeUpsert{ID: id, NodeType: nodeType, Aliases: aliases, Status: status}); err != nil {
+		var domain []string
+		if raw, ok := n["domain_json"].(string); ok && strings.TrimSpace(raw) != "" && strings.TrimSpace(raw) != "[]" {
+			if err := json.Unmarshal([]byte(raw), &domain); err != nil {
+				return nil, fmt.Errorf("knowledgegraph: import graph: node %q domain_json: %w", id, err)
+			}
+		} else if rawDomain, ok := n["domain"].([]any); ok {
+			for _, d := range rawDomain {
+				if s, ok := d.(string); ok && strings.TrimSpace(s) != "" {
+					domain = append(domain, strings.TrimSpace(s))
+				}
+			}
+		}
+		if err := s.graph.UpsertNode(ctx, NodeUpsert{ID: id, NodeType: nodeType, Aliases: aliases, Domain: domain, Status: status}); err != nil {
 			return nil, err
 		}
 		nodeCount++
@@ -136,6 +150,8 @@ func (s *Service) ImportGraph(ctx context.Context, payload map[string]any) (map[
 		polarity := intFromAny(e["polarity"], 1)
 		confidence := floatFromAny(e["confidence"], 0.6)
 		conditionText, _ := e["condition_text"].(string)
+		edgeKind, _ := e["edge_kind"].(string)
+		conditionJSON, _ := e["condition_json"].(string)
 		sourceType, _ := e["source_type"].(string)
 		sourceRef, _ := e["source_ref"].(string)
 		decay := intFromAny(e["decay_half_life_days"], 30)
@@ -165,6 +181,8 @@ func (s *Service) ImportGraph(ctx context.Context, payload map[string]any) (map[
 			Polarity:          polarity,
 			Confidence:        confidence,
 			ConditionText:     conditionText,
+			EdgeKind:          edgeKind,
+			ConditionJSON:     conditionJSON,
 			SourceType:        sourceType,
 			SourceRef:         sourceRef,
 			ObservedAt:        observedAt,
@@ -196,13 +214,14 @@ func (s *Service) ImportGraph(ctx context.Context, payload map[string]any) (map[
 		sourceType, _ := ev["source_type"].(string)
 		sourceRef, _ := ev["source_ref"].(string)
 		snippet, _ := ev["snippet"].(string)
+		translation, _ := ev["translation"].(string)
 		supports := boolFromAny(ev["supports"], true)
 		weight := floatFromAny(ev["weight"], 1.0)
 		observedAt, err := exportTime(ev["observed_at"])
 		if err != nil {
 			return nil, fmt.Errorf("knowledgegraph: import graph: evidence observed_at: %w", err)
 		}
-		if err := s.graph.AttachEdgeEvidence(newEdgeID, sourceType, sourceRef, snippet, supports, weight, observedAt); err != nil {
+		if err := s.graph.AttachEdgeEvidence(newEdgeID, sourceType, sourceRef, snippet, translation, supports, weight, observedAt); err != nil {
 			return nil, err
 		}
 		evidenceCount++

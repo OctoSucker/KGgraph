@@ -30,7 +30,7 @@ func TestExportImportGraphRoundTrip(t *testing.T) {
 	if err != nil {
 		t.Fatalf("upsert edge: %v", err)
 	}
-	if err := svc1.graph.AttachEdgeEvidence(edgeID, "research", "doc-2026-08", "evidence snippet", true, 1.0, nil); err != nil {
+	if err := svc1.graph.AttachEdgeEvidence(edgeID, "research", "doc-2026-08", "evidence snippet", "", true, 1.0, nil); err != nil {
 		t.Fatalf("attach evidence: %v", err)
 	}
 	export, err := svc1.Call(ctx, ToolExportGraph, map[string]any{})

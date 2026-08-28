@@ -23,6 +23,7 @@ type NodeRow struct {
 	ID          string    `json:"id"`
 	NodeType    string    `json:"node_type"`
 	AliasesJSON string    `json:"aliases_json"`
+	DomainJSON  string    `json:"domain_json"`
 	Status      string    `json:"status"`
 	UpdatedAt   time.Time `json:"updated_at"`
 	Embedding   []byte    `json:"-"`
@@ -37,6 +38,8 @@ type EdgeRow struct {
 	Polarity          int        `json:"polarity"`
 	Confidence        float64    `json:"confidence"`
 	ConditionText     string     `json:"condition_text"`
+	EdgeKind          string     `json:"edge_kind"`
+	ConditionJSON     string     `json:"condition_json"`
 	SourceType        string     `json:"source_type"`
 	SourceRef         string     `json:"source_ref"`
 	EvidenceCount     int        `json:"evidence_count"`
@@ -61,6 +64,8 @@ type EdgeInput struct {
 	Polarity          int
 	Confidence        float64
 	ConditionText     string
+	EdgeKind          string
+	ConditionJSON     string
 	SourceType        string
 	SourceRef         string
 	ObservedAt        *time.Time
@@ -73,13 +78,14 @@ type EdgeInput struct {
 }
 
 type EdgeEvidenceInput struct {
-	EdgeID     int64
-	SourceType string
-	SourceRef  string
-	Snippet    string
-	ObservedAt *time.Time
-	Supports   bool
-	Weight     float64
+	EdgeID      int64
+	SourceType  string
+	SourceRef   string
+	Snippet     string
+	Translation string
+	ObservedAt  *time.Time
+	Supports    bool
+	Weight      float64
 }
 
 type Store struct {
@@ -204,6 +210,7 @@ func (s *Store) migrate() error {
 			id TEXT NOT NULL PRIMARY KEY,
 			node_type TEXT NOT NULL DEFAULT 'entity',
 			aliases_json TEXT NOT NULL DEFAULT '[]',
+			domain_json TEXT NOT NULL DEFAULT '[]',
 			status TEXT NOT NULL DEFAULT 'active',
 			updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 			embedding BLOB
@@ -217,6 +224,8 @@ func (s *Store) migrate() error {
 			polarity INTEGER NOT NULL,
 			confidence REAL NOT NULL,
 			condition_text TEXT NOT NULL DEFAULT '',
+			edge_kind TEXT NOT NULL DEFAULT '',
+			condition_json TEXT NOT NULL DEFAULT '',
 			source_type TEXT NOT NULL DEFAULT '',
 			source_ref TEXT NOT NULL DEFAULT '',
 			created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -241,6 +250,7 @@ func (s *Store) migrate() error {
 			source_type TEXT NOT NULL DEFAULT '',
 			source_ref TEXT NOT NULL DEFAULT '',
 			snippet TEXT NOT NULL DEFAULT '',
+			translation TEXT NOT NULL DEFAULT '',
 			observed_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 			supports INTEGER NOT NULL,
 			weight REAL NOT NULL DEFAULT 1.0,
@@ -267,7 +277,7 @@ func (s *Store) NodeExists(id string) (bool, error) {
 	return true, nil
 }
 
-func (s *Store) NodeUpsert(id, nodeType, aliasesJSON, status string, embedding []byte) error {
+func (s *Store) NodeUpsert(id, nodeType, aliasesJSON, domainJSON, status string, embedding []byte) error {
 	if id == "" {
 		return fmt.Errorf("knowledgegraph: upsert node: empty id")
 	}
@@ -280,21 +290,25 @@ func (s *Store) NodeUpsert(id, nodeType, aliasesJSON, status string, embedding [
 	if strings.TrimSpace(aliasesJSON) == "" {
 		aliasesJSON = "[]"
 	}
+	if strings.TrimSpace(domainJSON) == "" {
+		domainJSON = "[]"
+	}
 	_, err := s.conn.Exec(fmt.Sprintf(`
-		INSERT INTO %s (id, node_type, aliases_json, status, embedding)
-		VALUES (?, ?, ?, ?, ?)
+		INSERT INTO %s (id, node_type, aliases_json, domain_json, status, embedding)
+		VALUES (?, ?, ?, ?, ?, ?)
 		ON CONFLICT(id) DO UPDATE SET
 			node_type = excluded.node_type,
 			aliases_json = excluded.aliases_json,
+			domain_json = excluded.domain_json,
 			status = excluded.status,
 			updated_at = CURRENT_TIMESTAMP,
 			embedding = COALESCE(excluded.embedding, %s.embedding)
-	`, tableNodes, tableNodes), id, nodeType, aliasesJSON, status, embedding)
+	`, tableNodes, tableNodes), id, nodeType, aliasesJSON, domainJSON, status, embedding)
 	return err
 }
 
 func (s *Store) NodesSelectAll() ([]NodeRow, error) {
-	rows, err := s.conn.Query(fmt.Sprintf(`SELECT id, node_type, aliases_json, status, updated_at, embedding FROM %s`, tableNodes))
+	rows, err := s.conn.Query(fmt.Sprintf(`SELECT id, node_type, aliases_json, domain_json, status, updated_at, embedding FROM %s`, tableNodes))
 	if err != nil {
 		return nil, err
 	}
@@ -302,7 +316,7 @@ func (s *Store) NodesSelectAll() ([]NodeRow, error) {
 	var out []NodeRow
 	for rows.Next() {
 		var r NodeRow
-		if err := rows.Scan(&r.ID, &r.NodeType, &r.AliasesJSON, &r.Status, &r.UpdatedAt, &r.Embedding); err != nil {
+		if err := rows.Scan(&r.ID, &r.NodeType, &r.AliasesJSON, &r.DomainJSON, &r.Status, &r.UpdatedAt, &r.Embedding); err != nil {
 			return nil, err
 		}
 		out = append(out, r)
@@ -332,13 +346,15 @@ func (s *Store) EdgeUpsert(in EdgeInput) (int64, error) {
 	}
 	_, err := s.conn.Exec(fmt.Sprintf(`
 		INSERT INTO %s (
-			from_id, to_id, graph_kind, relation_type, polarity, confidence, condition_text,
+			from_id, to_id, graph_kind, relation_type, polarity, confidence, condition_text, edge_kind, condition_json,
 			source_type, source_ref, observed_at, valid_from, valid_until,
 			decay_half_life_days, expires_at, is_executable, activation_rule
-		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 		ON CONFLICT(from_id, to_id, graph_kind, relation_type, condition_text) DO UPDATE SET
 			polarity = excluded.polarity,
 			confidence = excluded.confidence,
+			edge_kind = excluded.edge_kind,
+			condition_json = excluded.condition_json,
 			source_type = excluded.source_type,
 			source_ref = excluded.source_ref,
 			observed_at = excluded.observed_at,
@@ -349,7 +365,7 @@ func (s *Store) EdgeUpsert(in EdgeInput) (int64, error) {
 			is_executable = excluded.is_executable,
 			activation_rule = excluded.activation_rule,
 			updated_at = CURRENT_TIMESTAMP
-	`, tableEdges), in.FromID, in.ToID, in.GraphKind, in.RelationType, in.Polarity, in.Confidence, in.ConditionText,
+	`, tableEdges), in.FromID, in.ToID, in.GraphKind, in.RelationType, in.Polarity, in.Confidence, in.ConditionText, in.EdgeKind, in.ConditionJSON,
 		in.SourceType, in.SourceRef, in.ObservedAt, in.ValidFrom, in.ValidUntil,
 		in.DecayHalfLifeDays, in.ExpiresAt, isExec, in.ActivationRule)
 	if err != nil {
@@ -382,9 +398,9 @@ func (s *Store) EdgeEvidenceInsert(in EdgeEvidenceInput) error {
 		in.Weight = 1
 	}
 	_, err := s.conn.Exec(`
-		INSERT INTO kg_edge_evidence (edge_id, source_type, source_ref, snippet, observed_at, supports, weight)
-		VALUES (?, ?, ?, ?, ?, ?, ?)
-	`, in.EdgeID, in.SourceType, in.SourceRef, in.Snippet, observedAt, supports, in.Weight)
+		INSERT INTO kg_edge_evidence (edge_id, source_type, source_ref, snippet, translation, observed_at, supports, weight)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+	`, in.EdgeID, in.SourceType, in.SourceRef, in.Snippet, in.Translation, observedAt, supports, in.Weight)
 	if err != nil {
 		return err
 	}
@@ -433,7 +449,7 @@ func (s *Store) EdgeByID(edgeID int64) (EdgeRow, error) {
 		return EdgeRow{}, fmt.Errorf("knowledgegraph: edge by id: edge_id must be > 0")
 	}
 	row := s.conn.QueryRow(fmt.Sprintf(`
-		SELECT id, from_id, to_id, graph_kind, relation_type, polarity, confidence, condition_text,
+		SELECT id, from_id, to_id, graph_kind, relation_type, polarity, confidence, condition_text, edge_kind, condition_json,
 		       source_type, source_ref, created_at, observed_at, valid_from, valid_until,
 			   evidence_count, failed_count, last_verified_at,
 			   decay_half_life_days, expires_at, is_executable, activation_rule, updated_at
@@ -515,14 +531,15 @@ func (s *Store) EdgeReopen(edgeID int64, asOf time.Time, openEnded bool) (EdgeRo
 }
 
 type EdgeEvidenceRow struct {
-	ID         int64
-	EdgeID     int64
-	SourceType string
-	SourceRef  string
-	Snippet    string
-	ObservedAt time.Time
-	Supports   bool
-	Weight     float64
+	ID          int64
+	EdgeID      int64
+	SourceType  string
+	SourceRef   string
+	Snippet     string
+	Translation string
+	ObservedAt  time.Time
+	Supports    bool
+	Weight      float64
 }
 
 func (s *Store) EdgeEvidenceList(edgeID int64) ([]EdgeEvidenceRow, error) {
@@ -530,7 +547,7 @@ func (s *Store) EdgeEvidenceList(edgeID int64) ([]EdgeEvidenceRow, error) {
 		return nil, fmt.Errorf("knowledgegraph: edge evidence list: edge_id must be > 0")
 	}
 	rows, err := s.conn.Query(`
-		SELECT id, edge_id, source_type, source_ref, snippet, observed_at, supports, weight
+		SELECT id, edge_id, source_type, source_ref, snippet, translation, observed_at, supports, weight
 		FROM kg_edge_evidence
 		WHERE edge_id = ?
 		ORDER BY id
@@ -543,7 +560,7 @@ func (s *Store) EdgeEvidenceList(edgeID int64) ([]EdgeEvidenceRow, error) {
 	for rows.Next() {
 		var r EdgeEvidenceRow
 		var supports int
-		if err := rows.Scan(&r.ID, &r.EdgeID, &r.SourceType, &r.SourceRef, &r.Snippet, &r.ObservedAt, &supports, &r.Weight); err != nil {
+		if err := rows.Scan(&r.ID, &r.EdgeID, &r.SourceType, &r.SourceRef, &r.Snippet, &r.Translation, &r.ObservedAt, &supports, &r.Weight); err != nil {
 			return nil, err
 		}
 		r.Supports = supports != 0
@@ -554,7 +571,7 @@ func (s *Store) EdgeEvidenceList(edgeID int64) ([]EdgeEvidenceRow, error) {
 
 func (s *Store) EvidenceSelectAll() ([]EdgeEvidenceRow, error) {
 	rows, err := s.conn.Query(`
-		SELECT id, edge_id, source_type, source_ref, snippet, observed_at, supports, weight
+		SELECT id, edge_id, source_type, source_ref, snippet, translation, observed_at, supports, weight
 		FROM kg_edge_evidence
 		ORDER BY id
 	`)
@@ -566,7 +583,7 @@ func (s *Store) EvidenceSelectAll() ([]EdgeEvidenceRow, error) {
 	for rows.Next() {
 		var r EdgeEvidenceRow
 		var supports int
-		if err := rows.Scan(&r.ID, &r.EdgeID, &r.SourceType, &r.SourceRef, &r.Snippet, &r.ObservedAt, &supports, &r.Weight); err != nil {
+		if err := rows.Scan(&r.ID, &r.EdgeID, &r.SourceType, &r.SourceRef, &r.Snippet, &r.Translation, &r.ObservedAt, &supports, &r.Weight); err != nil {
 			return nil, err
 		}
 		r.Supports = supports != 0
@@ -588,7 +605,7 @@ func scanEdgeRow(row edgeScanner) (EdgeRow, error) {
 	var expiresAt sql.NullTime
 	var isExecutable int
 	if err := row.Scan(
-		&r.ID, &r.FromID, &r.ToID, &r.GraphKind, &r.RelationType, &r.Polarity, &r.Confidence, &r.ConditionText,
+		&r.ID, &r.FromID, &r.ToID, &r.GraphKind, &r.RelationType, &r.Polarity, &r.Confidence, &r.ConditionText, &r.EdgeKind, &r.ConditionJSON,
 		&r.SourceType, &r.SourceRef, &r.CreatedAt, &observedAt, &validFrom, &validUntil,
 		&r.EvidenceCount, &r.FailedCount, &lastVerifiedAt,
 		&r.DecayHalfLifeDays, &expiresAt, &isExecutable, &r.ActivationRule, &r.UpdatedAt,
@@ -621,10 +638,10 @@ func scanEdgeRow(row edgeScanner) (EdgeRow, error) {
 
 func (s *Store) EdgesSelectAll() ([]EdgeRow, error) {
 	rows, err := s.conn.Query(fmt.Sprintf(`
-		SELECT id, from_id, to_id, graph_kind, relation_type, polarity, confidence, condition_text,
+		SELECT id, from_id, to_id, graph_kind, relation_type, polarity, confidence, condition_text, edge_kind, condition_json,
 		       source_type, source_ref, created_at, observed_at, valid_from, valid_until,
-			   evidence_count, failed_count, last_verified_at,
-			   decay_half_life_days, expires_at, is_executable, activation_rule, updated_at
+		       evidence_count, failed_count, last_verified_at,
+		       decay_half_life_days, expires_at, is_executable, activation_rule, updated_at
 		FROM %s
 	`, tableEdges))
 	if err != nil {

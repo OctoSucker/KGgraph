@@ -73,6 +73,8 @@ func main() {
 		runExportGraph(ctx, args)
 	case "import-graph":
 		runImportGraph(ctx, args)
+	case "seed-foundation":
+		runSeedFoundation(ctx, args)
 	case "expand-reasoning":
 		runExpandReasoning(ctx, args)
 	case "lookup-node-exact":
@@ -99,7 +101,7 @@ func main() {
 }
 
 func usage() string {
-	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, ingest-preview, ingest-confirm, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, decision-stats, attach-edge-evidence, verify-edge, retire-edge, reopen-edge, conflict-scan, decision-audit, lookup-context, export-graph, import-graph, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view, source (init|add|search|fetch|list|verify|clean)"
+	return "commands: upsert-node, add-fact-edge, add-skill-edge, ingest-statement, ingest-preview, ingest-confirm, record-decision, review-decision, evaluate-decision, strict-ask, pre-trade-check, decision-status, decision-stats, attach-edge-evidence, verify-edge, retire-edge, reopen-edge, conflict-scan, decision-audit, lookup-context, export-graph, import-graph, seed-foundation, expand-reasoning, lookup-node-exact, lookup-node-semantic, list-nodes, list-edges, call, serve-mcp, graph-view, source (init|add|search|fetch|list|verify|clean)"
 }
 
 func addCommonFlags(fs *flag.FlagSet, c *commonFlags) {
@@ -551,13 +553,14 @@ func runAttachEdgeEvidence(ctx context.Context, argv []string) {
 	var cfg commonFlags
 	addCommonFlags(fs, &cfg)
 	var edgeID int64
-	var sourceType, sourceRef, snippet, observedAt string
+	var sourceType, sourceRef, snippet, translation, observedAt string
 	var supports bool
 	var weight float64
 	fs.Int64Var(&edgeID, "edge-id", 0, "edge id")
 	fs.StringVar(&sourceType, "source-type", "", "source type")
 	fs.StringVar(&sourceRef, "source-ref", "", "source ref")
 	fs.StringVar(&snippet, "snippet", "", "evidence snippet")
+	fs.StringVar(&translation, "translation", "", "modern-Chinese translation of the snippet")
 	fs.Func("supports", "whether evidence supports the edge (true/false)", func(v string) error {
 		b, err := strconv.ParseBool(v)
 		if err != nil {
@@ -574,6 +577,7 @@ func runAttachEdgeEvidence(ctx context.Context, argv []string) {
 		"source_type": sourceType,
 		"source_ref":  sourceRef,
 		"snippet":     snippet,
+		"translation": translation,
 		"supports":    supports,
 		"weight":      weight,
 	}
