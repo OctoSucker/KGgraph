@@ -1,0 +1,870 @@
+{
+ "mode": "import_graph",
+ "schema_version": 1,
+ "nodes": [
+  {
+   "id": "七月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "三传课体",
+   "node_type": "rule",
+   "aliases": [
+    "九宗门发用课体"
+   ]
+  },
+  {
+   "id": "三月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "九月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "二月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "五月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "从魁",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "传送",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "八月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "六壬",
+   "node_type": "concept",
+   "aliases": [
+    "大六壬",
+    "三式之一"
+   ]
+  },
+  {
+   "id": "六壬指南",
+   "node_type": "concept",
+   "aliases": [
+    "陈公献",
+    "心印赋",
+    "指掌赋"
+   ]
+  },
+  {
+   "id": "六壬指掌总纲",
+   "node_type": "rule",
+   "aliases": [
+    "六壬通万变之机，大为国而小为家，日为人而辰为事"
+   ]
+  },
+  {
+   "id": "六月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "功曹",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "十一月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "十二天将",
+   "node_type": "concept",
+   "aliases": [
+    "登明河魁从魁传送小吉胜光太乙天罡太冲功曹大吉神后"
+   ]
+  },
+  {
+   "id": "十二月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "十月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "四月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "四课",
+   "node_type": "rule",
+   "aliases": [
+    "干上阳神第一课，干上阴神第二课，支上阳神第三课，支上阴神第四课"
+   ]
+  },
+  {
+   "id": "地盘天盘",
+   "node_type": "rule",
+   "aliases": [
+    "月将加占时之上，顺布十二宫辰为天盘，地支方位为地盘"
+   ]
+  },
+  {
+   "id": "大吉",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "天罡",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "太乙",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "太冲",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "小吉",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "日辰根本",
+   "node_type": "rule",
+   "aliases": [
+    "日尊为天干，辰卑为地支，日辰为六壬根本"
+   ]
+  },
+  {
+   "id": "正月",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "河魁",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "登明",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "神后",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "胜光",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "课·元首课",
+   "node_type": "rule",
+   "aliases": [
+    "四课中并无下克，唯一上神克下，取而为用"
+   ]
+  },
+  {
+   "id": "课·察微课",
+   "node_type": "rule",
+   "aliases": [
+    "仲季，事未萌而预计"
+   ]
+  },
+  {
+   "id": "课·弹射课",
+   "node_type": "rule",
+   "aliases": [
+    "日遥克神"
+   ]
+  },
+  {
+   "id": "课·昴星课",
+   "node_type": "rule",
+   "aliases": [
+    "如虎对立，视俯仰以定远近"
+   ]
+  },
+  {
+   "id": "课·涉害课",
+   "node_type": "rule",
+   "aliases": [
+    "克贼重重，用辰主外灾害己，用日主我祸延人"
+   ]
+  },
+  {
+   "id": "课·知一课",
+   "node_type": "rule",
+   "aliases": [
+    "二三克贼，看克处与本干有益无益"
+   ]
+  },
+  {
+   "id": "课·蒿矢课",
+   "node_type": "rule",
+   "aliases": [
+    "神遥克日"
+   ]
+  },
+  {
+   "id": "课·见机课",
+   "node_type": "rule",
+   "aliases": [
+    "用孟，当因时以致宜"
+   ]
+  },
+  {
+   "id": "课·重审课",
+   "node_type": "rule",
+   "aliases": [
+    "一下克其上神者取用"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "id": 1,
+   "from_id": "六壬指南",
+   "to_id": "六壬",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/序"
+  },
+  {
+   "id": 2,
+   "from_id": "日辰根本",
+   "to_id": "六壬",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 3,
+   "from_id": "地盘天盘",
+   "to_id": "六壬",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 4,
+   "from_id": "登明",
+   "to_id": "正月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 5,
+   "from_id": "登明",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 6,
+   "from_id": "河魁",
+   "to_id": "二月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 7,
+   "from_id": "河魁",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 8,
+   "from_id": "从魁",
+   "to_id": "三月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 9,
+   "from_id": "从魁",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 10,
+   "from_id": "传送",
+   "to_id": "四月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 11,
+   "from_id": "传送",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 12,
+   "from_id": "小吉",
+   "to_id": "五月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 13,
+   "from_id": "小吉",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 14,
+   "from_id": "胜光",
+   "to_id": "六月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 15,
+   "from_id": "胜光",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 16,
+   "from_id": "太乙",
+   "to_id": "七月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 17,
+   "from_id": "太乙",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 18,
+   "from_id": "天罡",
+   "to_id": "八月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 19,
+   "from_id": "天罡",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 20,
+   "from_id": "太冲",
+   "to_id": "九月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 21,
+   "from_id": "太冲",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 22,
+   "from_id": "功曹",
+   "to_id": "十月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 23,
+   "from_id": "功曹",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 24,
+   "from_id": "大吉",
+   "to_id": "十一月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 25,
+   "from_id": "大吉",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 26,
+   "from_id": "神后",
+   "to_id": "十二月",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 27,
+   "from_id": "神后",
+   "to_id": "十二天将",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 28,
+   "from_id": "四课",
+   "to_id": "六壬",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 29,
+   "from_id": "课·元首课",
+   "to_id": "三传课体",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 30,
+   "from_id": "课·重审课",
+   "to_id": "三传课体",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 31,
+   "from_id": "课·知一课",
+   "to_id": "三传课体",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 32,
+   "from_id": "课·见机课",
+   "to_id": "三传课体",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 33,
+   "from_id": "课·察微课",
+   "to_id": "三传课体",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 34,
+   "from_id": "课·涉害课",
+   "to_id": "三传课体",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 35,
+   "from_id": "课·蒿矢课",
+   "to_id": "三传课体",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 36,
+   "from_id": "课·弹射课",
+   "to_id": "三传课体",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 37,
+   "from_id": "课·昴星课",
+   "to_id": "三传课体",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一"
+  },
+  {
+   "id": 38,
+   "from_id": "六壬指掌总纲",
+   "to_id": "六壬指南",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷二"
+  }
+ ],
+ "evidence": [
+  {
+   "edge_id": 2,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "六壬如人，先明日辰。日尊故曰天干，辰卑故曰地支。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 3,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "以月將加占時之上，順布十二宮辰，即天盤也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 4,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "正月雨水後日躔娵訾之次入亥宮，乃登明將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 6,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "二月春分後日躔降婁之次入戌宮，乃河魁將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 8,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "三月穀雨後日躔大梁之次入酉宮，乃從魁將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 10,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "四月小滿後日躔實沈之次入申宮，乃傳送將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 12,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "五月夏至後日躔鶉首之次入未宮，乃小吉將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 14,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "六月大暑後日躔鶉火之次入午宮，乃勝光將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 16,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "七月處暑後日躔鶉尾之次入巳宮，乃太乙將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 18,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "八月秋分後日躔壽星之次入辰宮，乃天罡將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 20,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "九月霜降後日躔大火之次入卯宮，乃太沖將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 22,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "十月小雪後日躔析木之次入寅宮，乃功曹將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 24,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "十一月冬至後日躔星紀之次入丑宮，乃大吉將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 26,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "十二月大寒後日躔玄枵之次入子宮，乃神後將也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 28,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "干上陽神為第一課，乃陽中之陽也；干上陰神為第二課，乃陽中之陰也；支上陽神為第三課，乃陰中之陽也；支上陰神為第四課，乃陰中之陰也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 29,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "若四課中並無下克，唯一上神克下，取而用之名曰元首課。上克為元首，理順成而百事咸宜。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 30,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "若有一下克其上神者，雖有二三之上克下不論矣，名曰重審課。下賊為重審，人事逆而謀為不利。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 31,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "二三克賊，知一總名。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 32,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "用孟名曰見機，當因時以致宜。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 33,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "仲季號為察微，事未萌而預計。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 34,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "克賊重重比涉害，用辰主外灾害己，用日主我禍延人。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 35,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "蒿矢神遙克日，二克主兩事而合為一事。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 36,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "彈射日遙克神，一克主一端而分作兩端。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 37,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷一",
+   "snippet": "昴星如虎對立，視俯仰以定遠近之憂危。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 38,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/liuren-zhinan/卷二",
+   "snippet": "六壬通萬變之機，大為國而小為家。日辰定動靜之位，日為人而辰為事。",
+   "supports": true,
+   "weight": 1.0
+  }
+ ]
+}

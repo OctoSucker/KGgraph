@@ -10,3 +10,6 @@ ingest/jingshi-yizhuan.json
 ingest/yanbo-diaosou-ge.json
 ingest/ziwei-doushu.json
 ingest/xieji-bianfangshu.json
+ingest/zengshan-buyi.json
+ingest/liuren-zhinan.json
+ingest/yijing-qiankun-zaodu.json
