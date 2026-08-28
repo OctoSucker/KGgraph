@@ -1,0 +1,123 @@
+{
+ "mode": "import_graph",
+ "schema_version": 1,
+ "nodes": [
+  {
+   "id": "乾坤交泰",
+   "node_type": "rule",
+   "aliases": [
+    "乾坤定位，震巽一交，兑离坎艮再交；否泰为乾坤之交"
+   ]
+  },
+  {
+   "id": "乾坤策数",
+   "node_type": "rule",
+   "aliases": [
+    "干一爻三十六策，六爻二百一十六；坤一爻二十四策，六爻百四十四；二篇之策万有一千五百二十"
+   ]
+  },
+  {
+   "id": "元会运世",
+   "node_type": "rule",
+   "aliases": [
+    "一元十二会，一会三十运，一运十二世，一世三十年；一元十二万九千六百年"
+   ]
+  },
+  {
+   "id": "加一倍法",
+   "node_type": "rule",
+   "aliases": [
+    "一分为二，二分为四，四分为八，八分为十六，十六分为三十二，三十二分为六十四"
+   ]
+  },
+  {
+   "id": "皇极经世",
+   "node_type": "concept",
+   "aliases": [
+    "邵雍",
+    "元会运世",
+    "先天学"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "id": 1,
+   "from_id": "元会运世",
+   "to_id": "皇极经世",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "观物篇以元经会推步之表",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huangji-jingshi/卷一上"
+  },
+  {
+   "id": 2,
+   "from_id": "加一倍法",
+   "to_id": "皇极经世",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huangji-jingshi/卷十三"
+  },
+  {
+   "id": 3,
+   "from_id": "乾坤策数",
+   "to_id": "皇极经世",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huangji-jingshi/卷十三"
+  },
+  {
+   "id": 4,
+   "from_id": "乾坤交泰",
+   "to_id": "皇极经世",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huangji-jingshi/卷十三"
+  }
+ ],
+ "evidence": [
+  {
+   "edge_id": 1,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huangji-jingshi/卷一上",
+   "snippet": "日甲一月卯四星甲九十一辰子一千八十一",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 2,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huangji-jingshi/卷十三",
+   "snippet": "太极既分，两仪立矣。阳下交于阴，阴上交于阳，四象生矣。是故一分为二，二分为四，四分为八，八分为十六，十六分为三十二，三十二分为六十四。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 3,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huangji-jingshi/卷十三",
+   "snippet": "六其六得三十六，为干一爻之数也。积六爻之策，共得二百一十有六，为干之策。六其四得二十四，为坤一爻之策。积六爻之数，共得一百四十有四，为坤之策。积二篇之策，乃万有一千五百二十也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 4,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huangji-jingshi/卷十三",
+   "snippet": "乾坤定位也，震、巽一交也，兑、离、坎、艮再交也。诸卦不交于乾坤者，则生于否泰。否泰，乾坤之交也。乾坤起自奇偶，奇偶生自太极。",
+   "supports": true,
+   "weight": 1.0
+  }
+ ]
+}
