@@ -1,0 +1,46 @@
+==《十翼》==
+〈彖辭〉上
+〈彖辭〉下
+〈象辭〉上
+〈象辭〉下
+〈文言〉
+〈繫辭〉上
+〈繫辭〉下
+〈說卦〉
+〈序卦〉
+〈雜卦〉
+
+==《易經》六十四卦列表==
+
+{| class="toccolours wikitable" style="margin: auto; table-layout: fixed; text-align: center"
+|-
+!colspan="6" style="background: #ccccff"|周易六十四卦
+|-
+!colspan="6"|上經三十卦
+|- style="background: LightCyan"
+|01. 乾　 ䷀||02. 坤　 ䷁||03. 屯　 ䷂||04. 蒙　 ䷃||05. 需　 ䷄||06. 訟　 ䷅
+|- style="background: LightCyan"
+|07. 師　 ䷆||08. 比　 ䷇||09. 小畜 ䷈||10. 履　 ䷉||11. 泰　 ䷊||12. 否　 ䷋
+|- style="background: LightCyan"
+|13. 同人 ䷌||14. 大有 ䷍||15. 謙　 ䷎||16. 豫　 ䷏||17. 隨　 ䷐||18. 蠱　 ䷑
+|- style="background: LightCyan"
+|19. 臨　 ䷒||20. 觀　 ䷓||21. 噬嗑 ䷔||22. 賁　 ䷕||23. 剝　 ䷖||24. 復　 ䷗
+|- style="background: LightCyan"
+|25. 无妄 ䷘ ||26. 大畜 ䷙||27. 頤　 ䷚ ||28. 大過 ䷛||29. 坎　 ䷜||30. 離　 ䷝
+|-
+!colspan="6"|下經三十四卦
+|- style="background: SeaShell"
+|31. 咸　 ䷞||32. 恆　 ䷟||33. 遯　 ䷠||34. 大壯 ䷡||35. 晉　 ䷢||36. 明夷 ䷣
+|- style="background: SeaShell"
+|37. 家人 ䷤||38. 睽　 ䷥||39. 蹇　 ䷦||40. 解　 ䷧||41. 損　 ䷨||42. 益　 ䷩
+|- style="background: SeaShell"
+|43. 夬　 ䷪||44. 姤　 ䷫||45. 萃　 ䷬||46. 升　 ䷭||47. 困　 ䷮||48. 井　 ䷯
+|- style="background: SeaShell"
+|49. 革　 ䷰||50. 鼎　 ䷱||51. 震　 ䷲||52. 艮　 ䷳||53. 漸　 ䷴||54. 歸妹 ䷵
+|- style="background: SeaShell"
+|55. 豐　 ䷶||56. 旅　 ䷷||57. 巽　 ䷸||58. 兌　 ䷹||59. 渙　 ䷺||60. 節　 ䷻
+|- style="background: SeaShell"
+|61. 中孚 ䷼||62. 小過 ䷽||63. 既濟 ䷾||64. 未濟 ䷿
+|}
+
+Category:易

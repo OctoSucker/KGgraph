@@ -1,0 +1,1634 @@
+{
+ "mode": "import_graph",
+ "schema_version": 1,
+ "nodes": [
+  {
+   "id": "世应五等",
+   "node_type": "rule",
+   "aliases": [
+    "元士大夫三公诸侯天子为世，宗庙为应"
+   ]
+  },
+  {
+   "id": "中孚",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "乾",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "乾宫五行配位",
+   "node_type": "rule",
+   "aliases": [
+    "水为福德，木为宝贝，土为父母，火为相敌，金为比和"
+   ]
+  },
+  {
+   "id": "井",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "京房八宫",
+   "node_type": "rule",
+   "aliases": [
+    "八纯卦各领七变卦，分八宫"
+   ]
+  },
+  {
+   "id": "京氏易传",
+   "node_type": "concept",
+   "aliases": [
+    "京房",
+    "纳甲筮法源头"
+   ]
+  },
+  {
+   "id": "兌",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "剝",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "升",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "同人",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "君父",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "否",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "咸",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "噬嗑",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "困",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "坎",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "坤",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "大壯",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "大有",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "大畜",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "大過",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "夬",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "姤",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "宫·乾",
+   "node_type": "rule",
+   "aliases": [
+    "乾宫八卦"
+   ]
+  },
+  {
+   "id": "宫·兌",
+   "node_type": "rule",
+   "aliases": [
+    "兌宫八卦"
+   ]
+  },
+  {
+   "id": "宫·坎",
+   "node_type": "rule",
+   "aliases": [
+    "坎宫八卦"
+   ]
+  },
+  {
+   "id": "宫·坤",
+   "node_type": "rule",
+   "aliases": [
+    "坤宫八卦"
+   ]
+  },
+  {
+   "id": "宫·巽",
+   "node_type": "rule",
+   "aliases": [
+    "巽宫八卦"
+   ]
+  },
+  {
+   "id": "宫·艮",
+   "node_type": "rule",
+   "aliases": [
+    "艮宫八卦"
+   ]
+  },
+  {
+   "id": "宫·離",
+   "node_type": "rule",
+   "aliases": [
+    "離宫八卦"
+   ]
+  },
+  {
+   "id": "宫·震",
+   "node_type": "rule",
+   "aliases": [
+    "震宫八卦"
+   ]
+  },
+  {
+   "id": "家人",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "小畜",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "小過",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "履",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "屯",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "巽",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "師",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "復",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "恆",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "損",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "旅",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "既濟",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "明夷",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "晉",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "未濟",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "歸妹",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "母",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "比",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "泰",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "渙",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "漸",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "無妄",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "甲壬",
+   "node_type": "concept",
+   "aliases": [
+    "乾纳甲壬"
+   ]
+  },
+  {
+   "id": "益",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "睽",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "积算",
+   "node_type": "rule",
+   "aliases": [
+    "京房积算推吉凶"
+   ]
+  },
+  {
+   "id": "節",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "纳甲",
+   "node_type": "rule",
+   "aliases": [
+    "八纯卦纳甲"
+   ]
+  },
+  {
+   "id": "臨",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "艮",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "萃",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "蒙",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "蠱",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "觀",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "解",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "訟",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "謙",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "豐",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "豫",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "賁",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "蹇",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "遁",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "阳极阴生",
+   "node_type": "rule",
+   "aliases": [
+    "阳极则阴生"
+   ]
+  },
+  {
+   "id": "隨",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "離",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "需",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "震",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "革",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "頤",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "飞伏对宫",
+   "node_type": "rule",
+   "aliases": [
+    "乾坤震巽坎离艮兑互为飞伏"
+   ]
+  },
+  {
+   "id": "马",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "鼎",
+   "node_type": "concept",
+   "aliases": []
+  }
+ ],
+ "edges": [
+  {
+   "id": 1,
+   "from_id": "宫·乾",
+   "to_id": "京房八宫",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 2,
+   "from_id": "乾",
+   "to_id": "宫·乾",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 3,
+   "from_id": "姤",
+   "to_id": "宫·乾",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 4,
+   "from_id": "遁",
+   "to_id": "宫·乾",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 5,
+   "from_id": "否",
+   "to_id": "宫·乾",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 6,
+   "from_id": "觀",
+   "to_id": "宫·乾",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 7,
+   "from_id": "剝",
+   "to_id": "宫·乾",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 8,
+   "from_id": "晉",
+   "to_id": "宫·乾",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 9,
+   "from_id": "大有",
+   "to_id": "宫·乾",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 10,
+   "from_id": "宫·震",
+   "to_id": "京房八宫",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 11,
+   "from_id": "震",
+   "to_id": "宫·震",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 12,
+   "from_id": "豫",
+   "to_id": "宫·震",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 13,
+   "from_id": "解",
+   "to_id": "宫·震",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 14,
+   "from_id": "恆",
+   "to_id": "宫·震",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 15,
+   "from_id": "升",
+   "to_id": "宫·震",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 16,
+   "from_id": "井",
+   "to_id": "宫·震",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 17,
+   "from_id": "大過",
+   "to_id": "宫·震",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 18,
+   "from_id": "隨",
+   "to_id": "宫·震",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 19,
+   "from_id": "宫·坎",
+   "to_id": "京房八宫",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 20,
+   "from_id": "坎",
+   "to_id": "宫·坎",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 21,
+   "from_id": "節",
+   "to_id": "宫·坎",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 22,
+   "from_id": "屯",
+   "to_id": "宫·坎",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 23,
+   "from_id": "既濟",
+   "to_id": "宫·坎",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 24,
+   "from_id": "革",
+   "to_id": "宫·坎",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 25,
+   "from_id": "豐",
+   "to_id": "宫·坎",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 26,
+   "from_id": "明夷",
+   "to_id": "宫·坎",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 27,
+   "from_id": "師",
+   "to_id": "宫·坎",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 28,
+   "from_id": "宫·艮",
+   "to_id": "京房八宫",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 29,
+   "from_id": "艮",
+   "to_id": "宫·艮",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 30,
+   "from_id": "賁",
+   "to_id": "宫·艮",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 31,
+   "from_id": "大畜",
+   "to_id": "宫·艮",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 32,
+   "from_id": "損",
+   "to_id": "宫·艮",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 33,
+   "from_id": "睽",
+   "to_id": "宫·艮",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 34,
+   "from_id": "履",
+   "to_id": "宫·艮",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 35,
+   "from_id": "中孚",
+   "to_id": "宫·艮",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 36,
+   "from_id": "漸",
+   "to_id": "宫·艮",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 37,
+   "from_id": "宫·坤",
+   "to_id": "京房八宫",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 38,
+   "from_id": "坤",
+   "to_id": "宫·坤",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 39,
+   "from_id": "復",
+   "to_id": "宫·坤",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 40,
+   "from_id": "臨",
+   "to_id": "宫·坤",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 41,
+   "from_id": "泰",
+   "to_id": "宫·坤",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 42,
+   "from_id": "大壯",
+   "to_id": "宫·坤",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 43,
+   "from_id": "夬",
+   "to_id": "宫·坤",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 44,
+   "from_id": "需",
+   "to_id": "宫·坤",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 45,
+   "from_id": "比",
+   "to_id": "宫·坤",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 46,
+   "from_id": "宫·巽",
+   "to_id": "京房八宫",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 47,
+   "from_id": "巽",
+   "to_id": "宫·巽",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 48,
+   "from_id": "小畜",
+   "to_id": "宫·巽",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 49,
+   "from_id": "家人",
+   "to_id": "宫·巽",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 50,
+   "from_id": "益",
+   "to_id": "宫·巽",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 51,
+   "from_id": "無妄",
+   "to_id": "宫·巽",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 52,
+   "from_id": "噬嗑",
+   "to_id": "宫·巽",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 53,
+   "from_id": "頤",
+   "to_id": "宫·巽",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 54,
+   "from_id": "蠱",
+   "to_id": "宫·巽",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 55,
+   "from_id": "宫·離",
+   "to_id": "京房八宫",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 56,
+   "from_id": "離",
+   "to_id": "宫·離",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 57,
+   "from_id": "旅",
+   "to_id": "宫·離",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 58,
+   "from_id": "鼎",
+   "to_id": "宫·離",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 59,
+   "from_id": "未濟",
+   "to_id": "宫·離",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 60,
+   "from_id": "蒙",
+   "to_id": "宫·離",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 61,
+   "from_id": "渙",
+   "to_id": "宫·離",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 62,
+   "from_id": "訟",
+   "to_id": "宫·離",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 63,
+   "from_id": "同人",
+   "to_id": "宫·離",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 64,
+   "from_id": "宫·兌",
+   "to_id": "京房八宫",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 65,
+   "from_id": "兌",
+   "to_id": "宫·兌",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 66,
+   "from_id": "困",
+   "to_id": "宫·兌",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 67,
+   "from_id": "萃",
+   "to_id": "宫·兌",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 68,
+   "from_id": "咸",
+   "to_id": "宫·兌",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 69,
+   "from_id": "蹇",
+   "to_id": "宫·兌",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 70,
+   "from_id": "謙",
+   "to_id": "宫·兌",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 71,
+   "from_id": "小過",
+   "to_id": "宫·兌",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 72,
+   "from_id": "歸妹",
+   "to_id": "宫·兌",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 73,
+   "from_id": "乾",
+   "to_id": "坤",
+   "relation_type": "pairs_with",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 74,
+   "from_id": "乾",
+   "to_id": "飞伏对宫",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 75,
+   "from_id": "震",
+   "to_id": "巽",
+   "relation_type": "pairs_with",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 76,
+   "from_id": "震",
+   "to_id": "飞伏对宫",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 77,
+   "from_id": "坎",
+   "to_id": "離",
+   "relation_type": "pairs_with",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 78,
+   "from_id": "坎",
+   "to_id": "飞伏对宫",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 79,
+   "from_id": "艮",
+   "to_id": "兌",
+   "relation_type": "pairs_with",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 80,
+   "from_id": "艮",
+   "to_id": "飞伏对宫",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 81,
+   "from_id": "乾",
+   "to_id": "甲壬",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 82,
+   "from_id": "乾",
+   "to_id": "金",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 83,
+   "from_id": "坤",
+   "to_id": "土",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 84,
+   "from_id": "乾",
+   "to_id": "纳甲",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 85,
+   "from_id": "乾宫五行配位",
+   "to_id": "京房八宫",
+   "relation_type": "describes",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 86,
+   "from_id": "世应五等",
+   "to_id": "京房八宫",
+   "relation_type": "describes",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 87,
+   "from_id": "阳极阴生",
+   "to_id": "京氏易传",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 88,
+   "from_id": "乾",
+   "to_id": "积算",
+   "relation_type": "described_by",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 89,
+   "from_id": "乾",
+   "to_id": "马",
+   "relation_type": "represents",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 90,
+   "from_id": "乾",
+   "to_id": "君父",
+   "relation_type": "represents",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  },
+  {
+   "id": 91,
+   "from_id": "坤",
+   "to_id": "母",
+   "relation_type": "represents",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上"
+  }
+ ],
+ "evidence": [
+  {
+   "edge_id": 1,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "乾宫：乾 姤 遁 否 觀 剝 晉 大有",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 10,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "震宫：震 豫 解 恆 升 井 大過 隨",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 19,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "坎宫：坎 節 屯 既濟 革 豐 明夷 師",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 28,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "艮宫：艮 賁 大畜 損 睽 履 中孚 漸",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 37,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "坤宫：坤 復 臨 泰 大壯 夬 需 比",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 46,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "巽宫：巽 小畜 家人 益 無妄 噬嗑 頤 蠱",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 55,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "離宫：離 旅 鼎 未濟 蒙 渙 訟 同人",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 64,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "兌宫：兌 困 萃 咸 蹇 謙 小過 歸妹",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 73,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "與坤為飛伏，居世。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 75,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "與巽為飛伏。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 77,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "分北方之卦也，與離為飛伏。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 79,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "上艮下艮二象，土木分氣候，與兌為飛伏。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 81,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "甲壬配外內二象。象配天，屬金。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 82,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "象配天，屬金。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 83,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "純陰用事，象配地，屬土。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 85,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "水配位為褔德，木入金鄉居寶貝，土臨內象為父母，火來四上嫌相敵，金入金鄉木漸微。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 86,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "九三，三公為應。元士居世。大夫居世。諸侯居世。宗廟居世。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 87,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "六位純陽，陰象在中。陽極陰生。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 88,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "積算起己巳火，至戊辰土，周而復始。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 89,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "於類：為馬，為龍。配於人事：為首，為君父。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 91,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/jingshi-yizhuan/卷上",
+   "snippet": "配於人事：為腹，為母。于類為馬。",
+   "supports": true,
+   "weight": 1.0
+  }
+ ]
+}

@@ -5,3 +5,6 @@ ingest/qiongtong-baojian.json
 ingest/huozhulin.json
 ingest/ziping-zhenquan.json
 ingest/meihua-yishu.json
+ingest/zhouyi.json
+ingest/jingshi-yizhuan.json
+ingest/yanbo-diaosou-ge.json

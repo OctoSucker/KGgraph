@@ -312,6 +312,13 @@
       "site_book_id": "27",
       "skip_translation": true,
       "chapter_pattern": "^论[一-龥]{1,8}$"
+    },
+    {
+      "id": "zhouyi-shiyi",
+      "title": "易傳",
+      "provider": "wikisource",
+      "page": "易傳",
+      "prefix": "易傳/"
     }
   ]
 }

@@ -2417,6 +2417,46 @@
       ],
       "total_chars": 88400,
       "fetched_at": "2026-08-27T23:02:26+08:00"
+    },
+    {
+      "slug": "zhouyi-shiyi",
+      "title": "易傳",
+      "provider": "wikisource",
+      "source": "https://zh.wikisource.org/wiki/%E6%98%93%E5%82%B3",
+      "chapters": [
+        {
+          "file": "易傳.txt",
+          "title": "易傳",
+          "chars": 1285
+        },
+        {
+          "file": "序卦.txt",
+          "title": "序卦",
+          "chars": 1165
+        },
+        {
+          "file": "繫辭上.txt",
+          "title": "繫辭上",
+          "chars": 2991
+        },
+        {
+          "file": "繫辭下.txt",
+          "title": "繫辭下",
+          "chars": 2826
+        },
+        {
+          "file": "說卦.txt",
+          "title": "說卦",
+          "chars": 1402
+        },
+        {
+          "file": "雜卦.txt",
+          "title": "雜卦",
+          "chars": 709
+        }
+      ],
+      "total_chars": 10378,
+      "fetched_at": "2026-08-28T09:30:23+08:00"
     }
   ]
 }
