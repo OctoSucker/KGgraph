@@ -26,3 +26,4 @@ ingest/huangji-jingshi.json
 ingest/sanming-tonghui.json
 ingest/zhangguo-xingzong.json
 ingest/liuren-daquan.json
+ingest/xingxue-dacheng.json
