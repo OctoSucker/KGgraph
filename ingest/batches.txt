@@ -4,3 +4,4 @@ ingest/yuanhai-zipping.json
 ingest/qiongtong-baojian.json
 ingest/huozhulin.json
 ingest/ziping-zhenquan.json
+ingest/meihua-yishu.json

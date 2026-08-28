@@ -1,0 +1,1119 @@
+{
+ "mode": "import_graph",
+ "schema_version": 1,
+ "nodes": [
+  {
+   "id": "乾",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "互卦起例",
+   "node_type": "rule",
+   "aliases": [
+    "互卦取中爻"
+   ]
+  },
+  {
+   "id": "体克用",
+   "node_type": "rule",
+   "aliases": []
+  },
+  {
+   "id": "体生用",
+   "node_type": "rule",
+   "aliases": [
+    "体生用有耗失之患"
+   ]
+  },
+  {
+   "id": "体用",
+   "node_type": "rule",
+   "aliases": [
+    "体卦为主，用卦为事，互卦为事之中间，变卦为事之终"
+   ]
+  },
+  {
+   "id": "先天卦数",
+   "node_type": "rule",
+   "aliases": [
+    "乾一兑二离三震四巽五坎六艮七坤八"
+   ]
+  },
+  {
+   "id": "先天卦断吉凶",
+   "node_type": "rule",
+   "aliases": [
+    "先天止以卦论"
+   ]
+  },
+  {
+   "id": "先天后天",
+   "node_type": "rule",
+   "aliases": [
+    "先天以卦断，后天用爻辞兼卦辞"
+   ]
+  },
+  {
+   "id": "克应",
+   "node_type": "rule",
+   "aliases": [
+    "闻吉说见吉兆则吉，见圆物事易成"
+   ]
+  },
+  {
+   "id": "兑",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "八宫五行",
+   "node_type": "rule",
+   "aliases": []
+  },
+  {
+   "id": "卦以八除",
+   "node_type": "rule",
+   "aliases": [
+    "起卦过八数以八除余数为卦"
+   ]
+  },
+  {
+   "id": "后天定爻加时",
+   "node_type": "rule",
+   "aliases": []
+  },
+  {
+   "id": "坎",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "坤",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "巽",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "年月日时起例",
+   "node_type": "rule",
+   "aliases": [
+    "年月日时数起卦"
+   ]
+  },
+  {
+   "id": "数一",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "数七",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "数三",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "数二",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "数五",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "数八",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "数六",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "数四",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "断卦次序",
+   "node_type": "rule",
+   "aliases": [
+    "先看周易爻辞，次看体用五行生克，又次看克应，复验己身动静"
+   ]
+  },
+  {
+   "id": "晴",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "梅花易数",
+   "node_type": "concept",
+   "aliases": [
+    "邵雍",
+    "心易",
+    "观梅数"
+   ]
+  },
+  {
+   "id": "比和",
+   "node_type": "rule",
+   "aliases": [
+    "体用比和谋为吉利"
+   ]
+  },
+  {
+   "id": "爻以六除",
+   "node_type": "rule",
+   "aliases": [
+    "动爻数以六除余数为动爻"
+   ]
+  },
+  {
+   "id": "用克体",
+   "node_type": "rule",
+   "aliases": [
+    "用克体不宜"
+   ]
+  },
+  {
+   "id": "用生体",
+   "node_type": "rule",
+   "aliases": [
+    "用生体有进益之喜"
+   ]
+  },
+  {
+   "id": "艮",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "離",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "雨",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "雷",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "震",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "风",
+   "node_type": "concept",
+   "aliases": []
+  }
+ ],
+ "edges": [
+  {
+   "id": 1,
+   "from_id": "乾",
+   "to_id": "数一",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 2,
+   "from_id": "乾",
+   "to_id": "先天卦数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 3,
+   "from_id": "兑",
+   "to_id": "数二",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 4,
+   "from_id": "兑",
+   "to_id": "先天卦数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 5,
+   "from_id": "離",
+   "to_id": "数三",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 6,
+   "from_id": "離",
+   "to_id": "先天卦数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 7,
+   "from_id": "震",
+   "to_id": "数四",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 8,
+   "from_id": "震",
+   "to_id": "先天卦数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 9,
+   "from_id": "巽",
+   "to_id": "数五",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 10,
+   "from_id": "巽",
+   "to_id": "先天卦数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 11,
+   "from_id": "坎",
+   "to_id": "数六",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 12,
+   "from_id": "坎",
+   "to_id": "先天卦数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 13,
+   "from_id": "艮",
+   "to_id": "数七",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 14,
+   "from_id": "艮",
+   "to_id": "先天卦数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 15,
+   "from_id": "坤",
+   "to_id": "数八",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 16,
+   "from_id": "坤",
+   "to_id": "先天卦数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 17,
+   "from_id": "乾",
+   "to_id": "金",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 18,
+   "from_id": "乾",
+   "to_id": "八宫五行",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 19,
+   "from_id": "兑",
+   "to_id": "金",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 20,
+   "from_id": "兑",
+   "to_id": "八宫五行",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 21,
+   "from_id": "坤",
+   "to_id": "土",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 22,
+   "from_id": "坤",
+   "to_id": "八宫五行",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 23,
+   "from_id": "艮",
+   "to_id": "土",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 24,
+   "from_id": "艮",
+   "to_id": "八宫五行",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 25,
+   "from_id": "震",
+   "to_id": "木",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 26,
+   "from_id": "震",
+   "to_id": "八宫五行",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 27,
+   "from_id": "巽",
+   "to_id": "木",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 28,
+   "from_id": "巽",
+   "to_id": "八宫五行",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 29,
+   "from_id": "坎",
+   "to_id": "水",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 30,
+   "from_id": "坎",
+   "to_id": "八宫五行",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 31,
+   "from_id": "離",
+   "to_id": "火",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 32,
+   "from_id": "離",
+   "to_id": "八宫五行",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 33,
+   "from_id": "震",
+   "to_id": "春",
+   "relation_type": "climaxes_in",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 34,
+   "from_id": "離",
+   "to_id": "夏",
+   "relation_type": "climaxes_in",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 35,
+   "from_id": "兑",
+   "to_id": "秋",
+   "relation_type": "climaxes_in",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 36,
+   "from_id": "坎",
+   "to_id": "冬",
+   "relation_type": "climaxes_in",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 37,
+   "from_id": "体用",
+   "to_id": "用生体",
+   "relation_type": "entails",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 38,
+   "from_id": "体用",
+   "to_id": "体生用",
+   "relation_type": "entails",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 39,
+   "from_id": "体用",
+   "to_id": "用克体",
+   "relation_type": "entails",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 40,
+   "from_id": "体用",
+   "to_id": "体克用",
+   "relation_type": "entails",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 41,
+   "from_id": "体用",
+   "to_id": "比和",
+   "relation_type": "entails",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 42,
+   "from_id": "断卦次序",
+   "to_id": "梅花易数",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 43,
+   "from_id": "克应",
+   "to_id": "断卦次序",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 44,
+   "from_id": "卦以八除",
+   "to_id": "梅花易数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 45,
+   "from_id": "爻以六除",
+   "to_id": "梅花易数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 46,
+   "from_id": "年月日时起例",
+   "to_id": "梅花易数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 47,
+   "from_id": "互卦起例",
+   "to_id": "梅花易数",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一"
+  },
+  {
+   "id": 48,
+   "from_id": "先天后天",
+   "to_id": "先天卦断吉凶",
+   "relation_type": "entails",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 49,
+   "from_id": "先天后天",
+   "to_id": "后天定爻加时",
+   "relation_type": "entails",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 50,
+   "from_id": "離",
+   "to_id": "晴",
+   "relation_type": "signals",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 51,
+   "from_id": "坎",
+   "to_id": "雨",
+   "relation_type": "signals",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 52,
+   "from_id": "震",
+   "to_id": "雷",
+   "relation_type": "signals",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  },
+  {
+   "id": 53,
+   "from_id": "巽",
+   "to_id": "风",
+   "relation_type": "signals",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二"
+  }
+ ],
+ "evidence": [
+  {
+   "edge_id": 1,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾，一；",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 2,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾，一；兌，二；離，三；震，四；巽，五；坎，六；艮，七；坤，八。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 3,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "兑，二；",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 4,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾，一；兌，二；離，三；震，四；巽，五；坎，六；艮，七；坤，八。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 5,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "離，三；",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 6,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾，一；兌，二；離，三；震，四；巽，五；坎，六；艮，七；坤，八。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 7,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "震，四；",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 8,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾，一；兌，二；離，三；震，四；巽，五；坎，六；艮，七；坤，八。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 9,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "巽，五；",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 10,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾，一；兌，二；離，三；震，四；巽，五；坎，六；艮，七；坤，八。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 11,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "坎，六；",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 12,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾，一；兌，二；離，三；震，四；巽，五；坎，六；艮，七；坤，八。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 13,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "艮，七；",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 14,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾，一；兌，二；離，三；震，四；巽，五；坎，六；艮，七；坤，八。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 15,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "坤，八；",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 16,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾，一；兌，二；離，三；震，四；巽，五；坎，六；艮，七；坤，八。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 17,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾、兌，金；坤、艮，土；震、巽，木；坎，水；離，火。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 19,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾、兌，金；坤、艮，土；震、巽，木；坎，水；離，火。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 21,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾、兌，金；坤、艮，土；震、巽，木；坎，水；離，火。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 23,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾、兌，金；坤、艮，土；震、巽，木；坎，水；離，火。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 25,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾、兌，金；坤、艮，土；震、巽，木；坎，水；離，火。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 27,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾、兌，金；坤、艮，土；震、巽，木；坎，水；離，火。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 29,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾、兌，金；坤、艮，土；震、巽，木；坎，水；離，火。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 31,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "乾、兌，金；坤、艮，土；震、巽，木；坎，水；離，火。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 33,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "震、巽木旺於春，離火旺于夏，乾、兌金旺於秋，坎水旺於冬，坤、艮土旺於辰戌丑未月。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 37,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二",
+   "snippet": "應用生及比和，則吉；體生用及克體，則不吉。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 38,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二",
+   "snippet": "體生用有耗失之患。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 39,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二",
+   "snippet": "用克體不宜，體克用則吉。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 40,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二",
+   "snippet": "體克用則吉。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 41,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二",
+   "snippet": "體用比和，謀為吉利。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 42,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二",
+   "snippet": "大抵占卜之法，成卦之後先看《周易》爻辭，以斷吉凶。次看卦之體用，以論五行生克。又次看克應。複驗己身之動靜。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 43,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二",
+   "snippet": "如聞吉說見吉兆，則吉；聞凶說見凶兆，則凶。見圓物，事易成；見缺物，事終毀之類。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 44,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "凡起卦不問數多少，即以此數作卦數，過八數即以八數遞除。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 45,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "爻以六除。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 46,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷一",
+   "snippet": "年月日時起例。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 48,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二",
+   "snippet": "先天卦斷吉凶，止以卦論，不甚用《易》之爻辭。後天則用爻辭，兼用卦辭。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 49,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二",
+   "snippet": "後天起卦定爻必加時而後可。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 50,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/meihua-yishu/卷二",
+   "snippet": "離多主晴，坎多主雨，坤乃陰晦，乾主晴明，震多則春夏雷轟，巽多則四時風烈，艮多則久雨必晴，兌多則不雨亦陰。",
+   "supports": true,
+   "weight": 1.0
+  }
+ ]
+}
