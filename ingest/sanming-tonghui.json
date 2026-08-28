@@ -1,0 +1,123 @@
+{
+ "mode": "import_graph",
+ "schema_version": 1,
+ "nodes": [
+  {
+   "id": "三命通会",
+   "node_type": "concept",
+   "aliases": [
+    "万民英",
+    "八字命理",
+    "集大成"
+   ]
+  },
+  {
+   "id": "五行生克总纲",
+   "node_type": "rule",
+   "aliases": [
+    "十干十二支、五运六气、岁月日时皆自此立，形气相感而化生万物"
+   ]
+  },
+  {
+   "id": "五行生成",
+   "node_type": "rule",
+   "aliases": [
+    "水一火二木三金四土五，以阴阳奇偶配数；水生于一，太一者水之尊号"
+   ]
+  },
+  {
+   "id": "木主东春",
+   "node_type": "rule",
+   "aliases": [
+    "木主于东应春，木之为言触也，阳气触动冒地而生"
+   ]
+  },
+  {
+   "id": "火主南夏",
+   "node_type": "rule",
+   "aliases": [
+    "火主于南应夏，火之为言化也毁也，钻木取火木所生"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "id": 1,
+   "from_id": "五行生成",
+   "to_id": "三命通会",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/sanming-tonghui/卷一"
+  },
+  {
+   "id": 2,
+   "from_id": "五行生克总纲",
+   "to_id": "三命通会",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/sanming-tonghui/卷一"
+  },
+  {
+   "id": 3,
+   "from_id": "木主东春",
+   "to_id": "三命通会",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/sanming-tonghui/卷一"
+  },
+  {
+   "id": 4,
+   "from_id": "火主南夏",
+   "to_id": "三命通会",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/sanming-tonghui/卷一"
+  }
+ ],
+ "evidence": [
+  {
+   "edge_id": 1,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/sanming-tonghui/卷一",
+   "snippet": "一曰水，二曰火，三曰木，四曰金，五曰土者，咸有所自也。水，北方子之位也，子者，阳之初一，阳数也，故水曰一。水生于一。天地未分，万物未成之初，莫不先见于水，故《灵枢经》曰：太一者，水之尊号。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 2,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/sanming-tonghui/卷一",
+   "snippet": "五行相生相克，其理昭然。十干十二支、五运六气、岁月日时皆自此立，更相为用，在天则为气：寒、暑、燥、湿、风；在地则成形：金、木、水、火、土。形气相感而化生万物，此造化生成之大纪也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 3,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/sanming-tonghui/卷一",
+   "snippet": "木主于东；应春。木之为言触也，阳气触动，冒地而生也。水流趋东以生木也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 4,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/sanming-tonghui/卷一",
+   "snippet": "火主于南，应夏。火之为言化也，毁也，阳在上，阴在下；毁然盛而变化万物也。钻木取火，木所生也。",
+   "supports": true,
+   "weight": 1.0
+  }
+ ]
+}
