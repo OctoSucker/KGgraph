@@ -2,3 +2,5 @@ ingest/wuxing-dayi.json
 ingest/ditian-sui.json
 ingest/yuanhai-zipping.json
 ingest/qiongtong-baojian.json
+ingest/huozhulin.json
+ingest/ziping-zhenquan.json

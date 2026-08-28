@@ -1,0 +1,653 @@
+{
+ "mode": "import_graph",
+ "schema_version": 1,
+ "nodes": [
+  {
+   "id": "世应",
+   "node_type": "rule",
+   "aliases": [
+    "占财要财爻持世，占官要官爻持世"
+   ]
+  },
+  {
+   "id": "伏断·财伏兄弟",
+   "node_type": "rule",
+   "aliases": [
+    "用财伏兄，口舌相侵；若在世下，旺相可成。"
+   ]
+  },
+  {
+   "id": "伏断·财伏子孙",
+   "node_type": "rule",
+   "aliases": [
+    "财伏子孙，有气必满。"
+   ]
+  },
+  {
+   "id": "伏断·财伏父母",
+   "node_type": "rule",
+   "aliases": [
+    "财伏父母，旺相得半。"
+   ]
+  },
+  {
+   "id": "伏断·财伏鬼乡",
+   "node_type": "rule",
+   "aliases": [
+    "财伏鬼乡，买卖遭伤；日辰福德，方始荣昌。"
+   ]
+  },
+  {
+   "id": "伏断·鬼伏兄弟",
+   "node_type": "rule",
+   "aliases": [
+    "用鬼伏兄，同类欺凌；若不虚诈，人不一心。"
+   ]
+  },
+  {
+   "id": "兄弟",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "六亲",
+   "node_type": "concept",
+   "aliases": [
+    "父母兄弟妻财子孙官鬼"
+   ]
+  },
+  {
+   "id": "六爻",
+   "node_type": "concept",
+   "aliases": [
+    "六爻预测",
+    "纳甲筮法"
+   ]
+  },
+  {
+   "id": "六爻伏神断",
+   "node_type": "rule",
+   "aliases": [
+    "财官伏于六亲之下的吉凶断法"
+   ]
+  },
+  {
+   "id": "六爻旺相",
+   "node_type": "rule",
+   "aliases": [
+    "春木旺火相水休金囚土死之属"
+   ]
+  },
+  {
+   "id": "出现伏藏",
+   "node_type": "rule",
+   "aliases": [
+    "出现旺相为久为远，伏藏有气只利暂时"
+   ]
+  },
+  {
+   "id": "卦身",
+   "node_type": "rule",
+   "aliases": [
+    "阳世从子月起，阴世还当午月生"
+   ]
+  },
+  {
+   "id": "妻财",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "子孙",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "官用取官",
+   "node_type": "rule",
+   "aliases": [
+    "官用取官，私用取财"
+   ]
+  },
+  {
+   "id": "官鬼",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "旺相·冬",
+   "node_type": "rule",
+   "aliases": [
+    "冬水旺木相"
+   ]
+  },
+  {
+   "id": "旺相·夏",
+   "node_type": "rule",
+   "aliases": [
+    "夏火旺土相"
+   ]
+  },
+  {
+   "id": "旺相·春",
+   "node_type": "rule",
+   "aliases": [
+    "春木旺火相"
+   ]
+  },
+  {
+   "id": "旺相·秋",
+   "node_type": "rule",
+   "aliases": [
+    "秋金旺水相"
+   ]
+  },
+  {
+   "id": "火珠林",
+   "node_type": "concept",
+   "aliases": [
+    "六爻纳甲",
+    "京房纳甲"
+   ]
+  },
+  {
+   "id": "父母",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "用神取法",
+   "node_type": "rule",
+   "aliases": [
+    "乱动之卦只取旺爻，旺爻即用神；伏爻要旺相，动爻要生世"
+   ]
+  },
+  {
+   "id": "私用取财",
+   "node_type": "rule",
+   "aliases": [
+    "占财看财爻"
+   ]
+  },
+  {
+   "id": "纳音三才",
+   "node_type": "rule",
+   "aliases": [
+    "天干管天文，地支管人事，纳音管地理"
+   ]
+  },
+  {
+   "id": "财官辅助",
+   "node_type": "rule",
+   "aliases": [
+    "用有辅助，类可忖量"
+   ]
+  },
+  {
+   "id": "辅爻",
+   "node_type": "rule",
+   "aliases": [
+    "财以子孙为辅，官以父母为辅"
+   ]
+  },
+  {
+   "id": "飞伏神",
+   "node_type": "rule",
+   "aliases": [
+    "本宫六亲在飞象之下为伏神"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "id": 1,
+   "from_id": "火珠林",
+   "to_id": "六爻",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/易中明义"
+  },
+  {
+   "id": 2,
+   "from_id": "六亲",
+   "to_id": "六爻",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/六亲根源"
+  },
+  {
+   "id": 3,
+   "from_id": "卦身",
+   "to_id": "六亲",
+   "relation_type": "belongs_to",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/六亲根源"
+  },
+  {
+   "id": 4,
+   "from_id": "卦身",
+   "to_id": "六爻",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/六亲根源"
+  },
+  {
+   "id": 5,
+   "from_id": "飞伏神",
+   "to_id": "六爻",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/六亲根源"
+  },
+  {
+   "id": 6,
+   "from_id": "出现伏藏",
+   "to_id": "飞伏神",
+   "relation_type": "describes",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/出现伏藏"
+  },
+  {
+   "id": 7,
+   "from_id": "用神取法",
+   "to_id": "六爻",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/独发乱动"
+  },
+  {
+   "id": 8,
+   "from_id": "官用取官",
+   "to_id": "用神取法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/公私用事"
+  },
+  {
+   "id": 9,
+   "from_id": "私用取财",
+   "to_id": "用神取法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/公私用事"
+  },
+  {
+   "id": 10,
+   "from_id": "世应",
+   "to_id": "六爻",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/世应相克"
+  },
+  {
+   "id": 11,
+   "from_id": "辅爻",
+   "to_id": "财官辅助",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财官辅助"
+  },
+  {
+   "id": 12,
+   "from_id": "财官辅助",
+   "to_id": "六爻",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财官辅助"
+  },
+  {
+   "id": 13,
+   "from_id": "官鬼",
+   "to_id": "父母",
+   "relation_type": "requires",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/公私用事"
+  },
+  {
+   "id": 14,
+   "from_id": "妻财",
+   "to_id": "子孙",
+   "relation_type": "requires",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/公私用事"
+  },
+  {
+   "id": 15,
+   "from_id": "纳音三才",
+   "to_id": "六爻",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/易中明义"
+  },
+  {
+   "id": 16,
+   "from_id": "旺相·春",
+   "to_id": "六爻旺相",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财官辅助"
+  },
+  {
+   "id": 17,
+   "from_id": "旺相·夏",
+   "to_id": "六爻旺相",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财官辅助"
+  },
+  {
+   "id": 18,
+   "from_id": "旺相·秋",
+   "to_id": "六爻旺相",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财官辅助"
+  },
+  {
+   "id": 19,
+   "from_id": "旺相·冬",
+   "to_id": "六爻旺相",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财官辅助"
+  },
+  {
+   "id": 20,
+   "from_id": "伏断·财伏鬼乡",
+   "to_id": "六爻伏神断",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财伏鬼乡"
+  },
+  {
+   "id": 21,
+   "from_id": "伏断·财伏兄弟",
+   "to_id": "六爻伏神断",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财伏兄弟"
+  },
+  {
+   "id": 22,
+   "from_id": "伏断·财伏父母",
+   "to_id": "六爻伏神断",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财伏父母"
+  },
+  {
+   "id": 23,
+   "from_id": "伏断·财伏子孙",
+   "to_id": "六爻伏神断",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财伏子孙"
+  },
+  {
+   "id": 24,
+   "from_id": "伏断·鬼伏兄弟",
+   "to_id": "六爻伏神断",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/鬼伏兄弟"
+  }
+ ],
+ "evidence": [
+  {
+   "edge_id": 1,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/易中明义",
+   "snippet": "四营成易，八卦为体；三才变化，六爻为义。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 2,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/六亲根源",
+   "snippet": "卦定根源，六亲为主；又究旁通，五行而取。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 3,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/六亲根源",
+   "snippet": "父母、兄弟、妻财、子孙、官鬼，只有五件，而曰六亲何也？答曰：卦身当一亲。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 4,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/六亲根源",
+   "snippet": "阳世则从子月起，阴世还当午月生，此即卦身也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 5,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/六亲根源",
+   "snippet": "本宫之六亲在飞象之下，为之亲王，为之伏神。旁宫之飞象加伏神之上，为飞象。知飞伏二爻之来历，然后可与言八卦、六亲矣。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 6,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/出现伏藏",
+   "snippet": "出现旺相，为久为远；伏藏有气，只利暂时。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 7,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/独发乱动",
+   "snippet": "乱动之卦只取旺爻，旺爻即用神也。生克吉凶皆在此爻。若伏藏安静要旺相，若发动，却要生世之爻为用神。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 8,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/公私用事",
+   "snippet": "官用取官，私用取财。占病鬼祟，占失看贼，占求官事，占官词讼，占婚问夫，以上皆看官爻。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 9,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/公私用事",
+   "snippet": "占买卖财，占家事，占婚婢事，占求财事，占婚姻事，以上皆看财爻。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 10,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/世应相克",
+   "snippet": "占财要财爻持世，占官要官爻持世，若应又是世之墓，动又是世之墓，皆不中矣。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 12,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财官辅助",
+   "snippet": "财官异路，可辨五乡；用有辅助，类可忖量。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 13,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/公私用事",
+   "snippet": "占官必用父母，占财必用子孙。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 14,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/公私用事",
+   "snippet": "占官必用父母，占财必用子孙。兄弟是破财之人，不为主、不为辅。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 15,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/易中明义",
+   "snippet": "六十甲子生成，变化而行鬼神，是故天干管天文，地支管人事，纳音管地理。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 16,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财官辅助",
+   "snippet": "春，寅卯木旺，巳午火相，亥子水休，申酉金囚，辰戌丑未土死。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 17,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财官辅助",
+   "snippet": "夏，巳午火旺，辰戌丑未土相，寅卯木休，亥子水囚，申酉金死。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 18,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财官辅助",
+   "snippet": "秋，申酉金旺，亥子水相，辰戌丑未土休，巳午火囚，寅卯木死。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 19,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财官辅助",
+   "snippet": "冬，亥子水旺，寅卯木相，申酉金休，辰戌丑未土囚，巳午火死。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 20,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财伏鬼乡",
+   "snippet": "财伏鬼乡，买卖遭伤；日辰福德，方始荣昌。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 21,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财伏兄弟",
+   "snippet": "用财伏兄，口舌相侵；若在世下，旺相可成。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 22,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财伏父母",
+   "snippet": "财伏父母，旺相得半。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 23,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/财伏子孙",
+   "snippet": "财伏子孙，有气必满。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 24,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/huozhulin/鬼伏兄弟",
+   "snippet": "用鬼伏兄，同类欺凌；若不虚诈，人不一心。",
+   "supports": true,
+   "weight": 1.0
+  }
+ ]
+}

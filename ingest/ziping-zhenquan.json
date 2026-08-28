@@ -1,0 +1,706 @@
+{
+ "mode": "import_graph",
+ "schema_version": 1,
+ "nodes": [
+  {
+   "id": "伤官格",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "偏官格",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "八格成败",
+   "node_type": "rule",
+   "aliases": [
+    "用神成败救应"
+   ]
+  },
+  {
+   "id": "印绶格",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "子平·刑冲解刑",
+   "node_type": "rule",
+   "aliases": [
+    "刑衝俱不為美，而刑衝用神，尤為破格，不如"
+   ]
+  },
+  {
+   "id": "子平·四凶神成格",
+   "node_type": "rule",
+   "aliases": [
+    "四凶神能成格（煞伤劫刃逆用，制化得宜则成"
+   ]
+  },
+  {
+   "id": "子平·四吉神破格",
+   "node_type": "rule",
+   "aliases": [
+    "四吉神能破格（财官印食顺用，逢忌神则破）"
+   ]
+  },
+  {
+   "id": "子平·四柱有根",
+   "node_type": "rule",
+   "aliases": [
+    "十干不論月令休囚，只要四柱有根，便能受財"
+   ]
+  },
+  {
+   "id": "子平·建禄月劫另取",
+   "node_type": "rule",
+   "aliases": [
+    "木生寅卯，日與月同，本身不可為用，必看四"
+   ]
+  },
+  {
+   "id": "子平·扶抑取用",
+   "node_type": "rule",
+   "aliases": [
+    "日元強者抑之，日元弱者扶之，此以扶抑為用"
+   ]
+  },
+  {
+   "id": "子平·日主不必旺",
+   "node_type": "rule",
+   "aliases": [
+    "人之日主，不必生逢祿旺，即月令休囚，而年"
+   ]
+  },
+  {
+   "id": "子平·根之轻重",
+   "node_type": "rule",
+   "aliases": [
+    "長生祿旺，根之重者也；墓庫餘氣，根之輕者"
+   ]
+  },
+  {
+   "id": "子平·用神专求月令",
+   "node_type": "rule",
+   "aliases": [
+    "八字用神，專求月令，以日乾配月令地支，而"
+   ]
+  },
+  {
+   "id": "子平·病药取用",
+   "node_type": "rule",
+   "aliases": [
+    "以扶為喜，則以傷其扶者為病；以抑為喜，則"
+   ]
+  },
+  {
+   "id": "子平·相神紧要",
+   "node_type": "rule",
+   "aliases": [
+    "用神之情，不向日主，或日主之情，不向用神"
+   ]
+  },
+  {
+   "id": "子平·调候取用",
+   "node_type": "rule",
+   "aliases": [
+    "金水生於冬令，木火生於夏令，氣候太寒太燥"
+   ]
+  },
+  {
+   "id": "子平·顺用逆用",
+   "node_type": "rule",
+   "aliases": [
+    "財官印食，此用神之善而順用之者也；煞傷劫"
+   ]
+  },
+  {
+   "id": "子平真诠",
+   "node_type": "concept",
+   "aliases": [
+    "沈孝瞻",
+    "格局法"
+   ]
+  },
+  {
+   "id": "建禄月劫格",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "格局法",
+   "node_type": "rule",
+   "aliases": [
+    "八字用神专求月令"
+   ]
+  },
+  {
+   "id": "格成·伤官格成",
+   "node_type": "rule",
+   "aliases": [
+    "傷官生財，或傷官佩印而傷官旺、印有根"
+   ]
+  },
+  {
+   "id": "格成·印格成",
+   "node_type": "rule",
+   "aliases": [
+    "印輕逢煞，或官印雙全，或身印兩旺而用"
+   ]
+  },
+  {
+   "id": "格成·官格成",
+   "node_type": "rule",
+   "aliases": [
+    "官逢財印，又無刑衝破害，官格成也。"
+   ]
+  },
+  {
+   "id": "格成·建禄格成",
+   "node_type": "rule",
+   "aliases": [
+    "建祿月劫，透官而逢財印，透財而逢食傷"
+   ]
+  },
+  {
+   "id": "格成·煞格成",
+   "node_type": "rule",
+   "aliases": [
+    "身強七煞逢制，煞格成也。"
+   ]
+  },
+  {
+   "id": "格成·财格成",
+   "node_type": "rule",
+   "aliases": [
+    "財生官旺，或財逢食生而身強帶比，或財"
+   ]
+  },
+  {
+   "id": "格成·阳刃格成",
+   "node_type": "rule",
+   "aliases": [
+    "陽刃透官煞而露財印，不見傷官，陽刃格"
+   ]
+  },
+  {
+   "id": "格成·食神格成",
+   "node_type": "rule",
+   "aliases": [
+    "食神生財，或食帶煞而無財，棄食就煞而"
+   ]
+  },
+  {
+   "id": "正官格",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "财格",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "阳刃格",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "食神格",
+   "node_type": "concept",
+   "aliases": []
+  }
+ ],
+ "edges": [
+  {
+   "id": 1,
+   "from_id": "子平·用神专求月令",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.95,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 2,
+   "from_id": "子平·顺用逆用",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 3,
+   "from_id": "子平·扶抑取用",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 4,
+   "from_id": "子平·病药取用",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 5,
+   "from_id": "子平·调候取用",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 6,
+   "from_id": "子平·建禄月劫另取",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 7,
+   "from_id": "子平·四柱有根",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 8,
+   "from_id": "子平·根之轻重",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 9,
+   "from_id": "子平·日主不必旺",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 10,
+   "from_id": "子平·刑冲解刑",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 11,
+   "from_id": "子平·相神紧要",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 12,
+   "from_id": "子平·四吉神破格",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.75,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 13,
+   "from_id": "子平·四凶神成格",
+   "to_id": "格局法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.75,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神"
+  },
+  {
+   "id": 14,
+   "from_id": "格成·官格成",
+   "to_id": "八格成败",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应"
+  },
+  {
+   "id": 15,
+   "from_id": "格成·财格成",
+   "to_id": "八格成败",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应"
+  },
+  {
+   "id": 16,
+   "from_id": "格成·印格成",
+   "to_id": "八格成败",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应"
+  },
+  {
+   "id": 17,
+   "from_id": "格成·食神格成",
+   "to_id": "八格成败",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应"
+  },
+  {
+   "id": 18,
+   "from_id": "格成·煞格成",
+   "to_id": "八格成败",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应"
+  },
+  {
+   "id": 19,
+   "from_id": "格成·伤官格成",
+   "to_id": "八格成败",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应"
+  },
+  {
+   "id": 20,
+   "from_id": "格成·阳刃格成",
+   "to_id": "八格成败",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应"
+  },
+  {
+   "id": 21,
+   "from_id": "格成·建禄格成",
+   "to_id": "八格成败",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应"
+  },
+  {
+   "id": 22,
+   "from_id": "正官格",
+   "to_id": "八格成败",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论正官"
+  },
+  {
+   "id": 23,
+   "from_id": "财格",
+   "to_id": "八格成败",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论正官"
+  },
+  {
+   "id": 24,
+   "from_id": "印绶格",
+   "to_id": "八格成败",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论正官"
+  },
+  {
+   "id": 25,
+   "from_id": "食神格",
+   "to_id": "八格成败",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论正官"
+  },
+  {
+   "id": 26,
+   "from_id": "偏官格",
+   "to_id": "八格成败",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论正官"
+  },
+  {
+   "id": 27,
+   "from_id": "伤官格",
+   "to_id": "八格成败",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论正官"
+  },
+  {
+   "id": 28,
+   "from_id": "阳刃格",
+   "to_id": "八格成败",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论正官"
+  },
+  {
+   "id": 29,
+   "from_id": "建禄月劫格",
+   "to_id": "八格成败",
+   "relation_type": "part_of",
+   "polarity": 1,
+   "confidence": 0.8,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论正官"
+  }
+ ],
+ "evidence": [
+  {
+   "edge_id": 1,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "八字用神，專求月令，以日乾配月令地支，而生克不同，格局分焉。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 2,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "財官印食，此用神之善而順用之者也；煞傷劫刃，用神之不善而逆用之者也。當順而順，當逆而逆，配合得宜，皆為貴格。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 3,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "日元強者抑之，日元弱者扶之，此以扶抑為用神也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 4,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "以扶為喜，則以傷其扶者為病；以抑為喜，則以去其抑者為病。除其病神，即謂之藥。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 5,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "金水生於冬令，木火生於夏令，氣候太寒太燥，以調和氣候為急。此以調候為用神也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 6,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "木生寅卯，日與月同，本身不可為用，必看四柱有無財官煞食透幹會支，另取用神；然終以月令為主。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 7,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "十干不論月令休囚，只要四柱有根，便能受財官食神而當傷官七煞。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 8,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "長生祿旺，根之重者也；墓庫餘氣，根之輕者也。天乾得一比肩，不如得支中一墓庫。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 9,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "人之日主，不必生逢祿旺，即月令休囚，而年日時中得長祿旺，便不為弱，就使逢庫，亦為有根。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 10,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "刑衝俱不為美，而刑衝用神，尤為破格，不如以另位之刑衝，解月令之刑衝。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 11,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "用神之情，不向日主，或日主之情，不向用神，皆非美朕也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 12,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "四吉神能破格（财官印食顺用，逢忌神则破）。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 13,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神",
+   "snippet": "四凶神能成格（煞伤劫刃逆用，制化得宜则成）。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 14,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应",
+   "snippet": "官逢財印，又無刑衝破害，官格成也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 15,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应",
+   "snippet": "財生官旺，或財逢食生而身強帶比，或財格透印而位置妥貼，兩不相克，財格成也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 16,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应",
+   "snippet": "印輕逢煞，或官印雙全，或身印兩旺而用食傷洩氣，或印多逢財而財透根輕，印格成也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 17,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应",
+   "snippet": "食神生財，或食帶煞而無財，棄食就煞而透印，食格成也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 18,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应",
+   "snippet": "身強七煞逢制，煞格成也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 19,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应",
+   "snippet": "傷官生財，或傷官佩印而傷官旺、印有根，或傷官帶煞而無財，傷官格成也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 20,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应",
+   "snippet": "陽刃透官煞而露財印，不見傷官，陽刃格成也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 21,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/ziping-zhenquan/论用神成败救应",
+   "snippet": "建祿月劫，透官而逢財印，透財而逢食傷，透煞而遇制伏，建祿月劫之格成也。",
+   "supports": true,
+   "weight": 1.0
+  }
+ ]
+}
