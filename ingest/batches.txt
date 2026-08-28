@@ -16,3 +16,5 @@ ingest/yijing-qiankun-zaodu.json
 ingest/shenfeng-tongkao.json
 ingest/mayi-xiangfa.json
 ingest/bushi-zhengzong.json
+ingest/wuxing-dayi-v45.json
+ingest/zhouyi-benyi.json

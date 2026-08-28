@@ -1,0 +1,252 @@
+{
+ "mode": "import_graph",
+ "schema_version": 1,
+ "nodes": [
+  {
+   "id": "七八九六",
+   "node_type": "rule",
+   "aliases": [
+    "余三奇则九为太阳，二奇一偶则八为少阴，二偶一奇则七为少阳，三偶则六为老阴"
+   ]
+  },
+  {
+   "id": "乾为健",
+   "node_type": "rule",
+   "aliases": [
+    "乾者健也，阳之性也"
+   ]
+  },
+  {
+   "id": "伏羲画卦",
+   "node_type": "rule",
+   "aliases": [
+    "一奇象阳，一耦象阴，再倍而三成八卦，三倍成六十四卦"
+   ]
+  },
+  {
+   "id": "周易本义",
+   "node_type": "concept",
+   "aliases": [
+    "朱熹",
+    "易学"
+   ]
+  },
+  {
+   "id": "大衍筮法",
+   "node_type": "rule",
+   "aliases": [
+    "大衍之数五十其用四十有九，分二挂一揲四归奇，三变成爻十八变成卦"
+   ]
+  },
+  {
+   "id": "太极两仪四象八卦",
+   "node_type": "rule",
+   "aliases": [
+    "易有太极是生两仪，两仪生四象，四象生八卦；太极为理，两仪阴阳"
+   ]
+  },
+  {
+   "id": "易名之义",
+   "node_type": "rule",
+   "aliases": [
+    "易有交易、变易之义"
+   ]
+  },
+  {
+   "id": "易道四用",
+   "node_type": "rule",
+   "aliases": [
+    "以言者尚其辞，以动者尚其变，以制器者尚其象，以卜筮者尚其占"
+   ]
+  },
+  {
+   "id": "河图数",
+   "node_type": "rule",
+   "aliases": [
+    "一六居下，二七居上，三八居左，四九居右，五十居中"
+   ]
+  },
+  {
+   "id": "生生之谓易",
+   "node_type": "rule",
+   "aliases": [
+    "阴生阳，阳生阴，其变无穷"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "id": 1,
+   "from_id": "易名之义",
+   "to_id": "周易本义",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第一卷"
+  },
+  {
+   "id": 2,
+   "from_id": "伏羲画卦",
+   "to_id": "周易本义",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第一卷"
+  },
+  {
+   "id": 3,
+   "from_id": "乾为健",
+   "to_id": "周易本义",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第一卷"
+  },
+  {
+   "id": 4,
+   "from_id": "大衍筮法",
+   "to_id": "周易本义",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷"
+  },
+  {
+   "id": 5,
+   "from_id": "七八九六",
+   "to_id": "大衍筮法",
+   "relation_type": "describes",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷"
+  },
+  {
+   "id": 6,
+   "from_id": "河图数",
+   "to_id": "周易本义",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷"
+  },
+  {
+   "id": 7,
+   "from_id": "太极两仪四象八卦",
+   "to_id": "周易本义",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷"
+  },
+  {
+   "id": 8,
+   "from_id": "易道四用",
+   "to_id": "周易本义",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷"
+  },
+  {
+   "id": 9,
+   "from_id": "生生之谓易",
+   "to_id": "周易本义",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷"
+  }
+ ],
+ "evidence": [
+  {
+   "edge_id": 1,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第一卷",
+   "snippet": "易，書名也。其卦本伏羲所畫，有交易、變易之義，故謂之易。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 2,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第一卷",
+   "snippet": "見陰陽有奇耦之數，故畫一奇以象陽，畫一耦以象陰。見一陰一陽有各生一陰一陽之象，故自下而上，再倍而三，以成八卦。三畫已具，八卦已成，則又三倍其畫，以成六畫，而於八卦之上，各加八卦，以成六十四卦也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 3,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第一卷",
+   "snippet": "乾者，健也，陽之性也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 4,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷",
+   "snippet": "大衍之數五十，其用四十有九，分而爲二，以象兩，掛一以象三，揲之以四以象四時，歸奇於扐以象閏。四營而成易，十有八變而成卦。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 5,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷",
+   "snippet": "餘三奇則九，而其揲亦九，策亦四九三十六，是爲居一之太陽。餘二奇一偶則八，是爲居二之少陰。二偶一奇則七，是爲居三之少陽。三偶則六，是爲居四之老陰。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 6,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷",
+   "snippet": "其位一、六居下，二、七居上，三、八居左，四、九居右，五、十居中。就此章而言之，則中五爲衍母，次十爲衍子。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 7,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷",
+   "snippet": "易有大極，是生兩儀。大極者，其理也。兩儀者，始爲一畫以分陰陽。四象者，次爲二畫以分大少。八卦者，次爲三畫而三才之象始備。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 8,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷",
+   "snippet": "易有聖人之道四焉：以言者尚其辭，以動者尚其變，以制器者尚其象，以卜筮者尚其占。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 9,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhouyi-benyi/第三卷",
+   "snippet": "生生之謂易，陰生陽，陽生陰，其變無窮，理與書皆然也。",
+   "supports": true,
+   "weight": 1.0
+  }
+ ]
+}
