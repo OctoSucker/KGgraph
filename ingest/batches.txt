@@ -1,0 +1,2 @@
+ingest/wuxing-dayi.json
+ingest/ditian-sui.json

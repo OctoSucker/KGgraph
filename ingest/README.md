@@ -17,11 +17,24 @@
 
 ```bash
 kggraph import-graph --db data/kggraph.sqlite --file ingest/<slug>.json
-kggraph conflict-scan --db data/kggraph.sqlite
+```
+
+注意：重复导入同一批次会重复附加证据；如需重导，先清库再按
+`ingest/batches.txt` 的顺序全量重导。
+
+## 已导入批次
+
+```bash
+# 全量重导（清库后按顺序执行）
+rm -f data/kggraph.sqlite data/kggraph.sqlite-wal data/kggraph.sqlite-shm
+for f in $(cat ingest/batches.txt); do
+  kggraph import-graph --db data/kggraph.sqlite --file "$f"
+done
 ```
 
 ## 进度
 
-| 批次 | 书 | 状态 |
-| --- | --- | --- |
-| 01 | 五行大义 | 待抽取 |
+| 批次 | 书 | 节点/边/证据 | 状态 |
+| --- | --- | --- | --- |
+| 01 | 五行大义 | 153 / 198 / 146 | 已入库 |
+| 02 | 滴天髓阐微 | 114 / 103 / 102 | 已入库 |
