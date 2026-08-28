@@ -28,3 +28,4 @@ ingest/zhangguo-xingzong.json
 ingest/liuren-daquan.json
 ingest/xingxue-dacheng.json
 ingest/xingping-huihai.json
+ingest/ditian-sui-jvyao.json
