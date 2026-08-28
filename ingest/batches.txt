@@ -25,3 +25,4 @@ ingest/jiaoshi-yilin.json
 ingest/huangji-jingshi.json
 ingest/sanming-tonghui.json
 ingest/zhangguo-xingzong.json
+ingest/liuren-daquan.json
