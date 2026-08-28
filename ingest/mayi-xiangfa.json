@@ -1,0 +1,365 @@
+{
+ "mode": "import_graph",
+ "schema_version": 1,
+ "nodes": [
+  {
+   "id": "三停",
+   "node_type": "rule",
+   "aliases": [
+    "上停主少年，中停主中年，下停主晚年"
+   ]
+  },
+  {
+   "id": "口舌争讼",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "命短",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "声相",
+   "node_type": "rule",
+   "aliases": [
+    "器大声宏，器小声短；贵人声出丹田，清而圆竖而亮"
+   ]
+  },
+  {
+   "id": "官禄之宫",
+   "node_type": "concept",
+   "aliases": [
+    "额头主官禄"
+   ]
+  },
+  {
+   "id": "形神气血",
+   "node_type": "rule",
+   "aliases": [
+    "形养血，血养气，气养神；形全则血全，血全则气全，气全则神全"
+   ]
+  },
+  {
+   "id": "忧惊",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "气相",
+   "node_type": "rule",
+   "aliases": [
+    "神完则气宽，神安则气静，重厚有福"
+   ]
+  },
+  {
+   "id": "气色赤",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "气色青",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "气色黑",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "牢狱死亡",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "相法总纲",
+   "node_type": "rule",
+   "aliases": [
+    "头象天，足象地，眼象日月，声音象雷霆，血脉象江河"
+   ]
+  },
+  {
+   "id": "眉相",
+   "node_type": "rule",
+   "aliases": [
+    "眉是人伦紫气星，宜细平阔秀长，主聪明"
+   ]
+  },
+  {
+   "id": "眼明神清",
+   "node_type": "rule",
+   "aliases": [
+    "眼明神清则贵，眼昏神浊则贱"
+   ]
+  },
+  {
+   "id": "贵",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "面相总断",
+   "node_type": "rule",
+   "aliases": [
+    "五岳四渎相朝，三停丰满为富贵之基"
+   ]
+  },
+  {
+   "id": "面赤如火",
+   "node_type": "rule",
+   "aliases": [
+    "面色赤爆如火主命短卒亡"
+   ]
+  },
+  {
+   "id": "额",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "麻衣相法",
+   "node_type": "concept",
+   "aliases": [
+    "麻衣",
+    "相学",
+    "人相"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "id": 1,
+   "from_id": "相法总纲",
+   "to_id": "麻衣相法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论形"
+  },
+  {
+   "id": 2,
+   "from_id": "形神气血",
+   "to_id": "麻衣相法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论神"
+  },
+  {
+   "id": 3,
+   "from_id": "眼明神清",
+   "to_id": "贵",
+   "relation_type": "signals",
+   "polarity": 1,
+   "confidence": 0.75,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论神"
+  },
+  {
+   "id": 4,
+   "from_id": "声相",
+   "to_id": "麻衣相法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论声"
+  },
+  {
+   "id": 5,
+   "from_id": "气相",
+   "to_id": "麻衣相法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论气"
+  },
+  {
+   "id": 6,
+   "from_id": "面相总断",
+   "to_id": "麻衣相法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论面"
+  },
+  {
+   "id": 7,
+   "from_id": "面赤如火",
+   "to_id": "命短",
+   "relation_type": "signals",
+   "polarity": -1,
+   "confidence": 0.7,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论面"
+  },
+  {
+   "id": 8,
+   "from_id": "眉相",
+   "to_id": "麻衣相法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论眉"
+  },
+  {
+   "id": 9,
+   "from_id": "三停",
+   "to_id": "麻衣相法",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论上停吉气"
+  },
+  {
+   "id": 10,
+   "from_id": "额",
+   "to_id": "官禄之宫",
+   "relation_type": "maps_to",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论上停吉气"
+  },
+  {
+   "id": 11,
+   "from_id": "气色青",
+   "to_id": "忧惊",
+   "relation_type": "signals",
+   "polarity": -1,
+   "confidence": 0.7,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论上停吉气"
+  },
+  {
+   "id": 12,
+   "from_id": "气色赤",
+   "to_id": "口舌争讼",
+   "relation_type": "signals",
+   "polarity": -1,
+   "confidence": 0.7,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论上停吉气"
+  },
+  {
+   "id": 13,
+   "from_id": "气色黑",
+   "to_id": "牢狱死亡",
+   "relation_type": "signals",
+   "polarity": -1,
+   "confidence": 0.7,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论上停吉气"
+  }
+ ],
+ "evidence": [
+  {
+   "edge_id": 1,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论形",
+   "snippet": "人秉陰陽之氣，肖天地之形，受五行之資，為萬物之靈者也。故頭象天，足象地，眼象日月，聲音象雷霆，血脈象江河，骨節象金石，鼻額象山岳，毫發象草木。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 2,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论神",
+   "snippet": "夫形以養血，血以養氣，氣以養神，故形全則血全，血全則氣全，氣全則神全。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 3,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论神",
+   "snippet": "眼明則神清，眼昏則神濁。清則貴，濁則賤。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 4,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论声",
+   "snippet": "器大則聲宏，器小則聲短。神清則氣和、氣和則聲潤，深而圓暢也。貴人之聲，多出於丹田之中。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 5,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论气",
+   "snippet": "神完則氣寬，神安則氣靜。得失不足以暴其氣，喜怒不足以驚其神。則於德為有容，於量為有度，乃重厚有福之人也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 6,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论面",
+   "snippet": "故五岳四瀆欲得相朝，三停諸部欲得豐滿也，貌端神靜氣和者乃富貴之基也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 7,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论面",
+   "snippet": "若面色赤爆如火者，命短卒亡。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 8,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论眉",
+   "snippet": "眉是人倫紫氣星，稜高疏淡秀兼清。眉毛適宜長得又細又平又闊，眉毛長得秀氣而長的，主其人聰明。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 9,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论上停吉气",
+   "snippet": "三停諸部欲得豐滿。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 10,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论上停吉气",
+   "snippet": "離位為官祿之宮，橫連坤巽，宜高廣而有角。額為南方離位。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 11,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/mayi-xiangfa/论上停吉气",
+   "snippet": "赤主口舌爭訟，白主喪服折傷，青主憂驚，黑主牢獄死亡。",
+   "supports": true,
+   "weight": 1.0
+  }
+ ]
+}
