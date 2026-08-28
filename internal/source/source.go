@@ -47,6 +47,8 @@ func Run(argv []string) {
 		runList(args)
 	case "verify":
 		runVerify(args)
+	case "verify-evidence":
+		runVerifyEvidence(args)
 	case "clean":
 		runClean(args)
 	case "-h", "--help", "help":
@@ -57,7 +59,7 @@ func Run(argv []string) {
 }
 
 func subUsage() string {
-	return "source subcommands: init, add, search, fetch, list, verify, clean"
+	return "source subcommands: init, add, search, fetch, list, verify, verify-evidence, clean"
 }
 
 func fail(code int, payload map[string]any) {
