@@ -18,3 +18,5 @@ ingest/mayi-xiangfa.json
 ingest/bushi-zhengzong.json
 ingest/wuxing-dayi-v45.json
 ingest/zhouyi-benyi.json
+ingest/yixue-qimeng.json
+ingest/zhouyi-jijie.json

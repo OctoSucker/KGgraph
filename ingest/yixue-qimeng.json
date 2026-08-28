@@ -1,0 +1,185 @@
+{
+ "mode": "import_graph",
+ "schema_version": 1,
+ "nodes": [
+  {
+   "id": "九畴",
+   "node_type": "concept",
+   "aliases": [
+    "洪范九畴"
+   ]
+  },
+  {
+   "id": "五为数宗",
+   "node_type": "rule",
+   "aliases": [
+    "天地之数不过五，五者数之祖，于五常为信"
+   ]
+  },
+  {
+   "id": "八卦",
+   "node_type": "concept",
+   "aliases": []
+  },
+  {
+   "id": "八卦九章",
+   "node_type": "rule",
+   "aliases": []
+  },
+  {
+   "id": "大衍五十",
+   "node_type": "rule",
+   "aliases": [
+    "河图洛书中数皆五，衍之各极其数以合五十"
+   ]
+  },
+  {
+   "id": "易学启蒙",
+   "node_type": "concept",
+   "aliases": [
+    "朱熹",
+    "象数",
+    "本图书原卦画明蓍策考变占"
+   ]
+  },
+  {
+   "id": "河图",
+   "node_type": "concept",
+   "aliases": [
+    "五十有五之数"
+   ]
+  },
+  {
+   "id": "河图洛书",
+   "node_type": "rule",
+   "aliases": [
+    "河出图，洛出书，圣人则之；河图载五十有五之数，洛书具九畴之数"
+   ]
+  },
+  {
+   "id": "洛书",
+   "node_type": "concept",
+   "aliases": [
+    "九畴之数"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "id": 1,
+   "from_id": "河图洛书",
+   "to_id": "易学启蒙",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷上"
+  },
+  {
+   "id": 2,
+   "from_id": "河图",
+   "to_id": "八卦",
+   "relation_type": "generates",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷上"
+  },
+  {
+   "id": 3,
+   "from_id": "洛书",
+   "to_id": "九畴",
+   "relation_type": "generates",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷上"
+  },
+  {
+   "id": 4,
+   "from_id": "河图洛书",
+   "to_id": "八卦九章",
+   "relation_type": "relates_to",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷上"
+  },
+  {
+   "id": 5,
+   "from_id": "大衍五十",
+   "to_id": "易学启蒙",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷下"
+  },
+  {
+   "id": 6,
+   "from_id": "五为数宗",
+   "to_id": "大衍五十",
+   "relation_type": "describes",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷下"
+  }
+ ],
+ "evidence": [
+  {
+   "edge_id": 1,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷上",
+   "snippet": "河出圖洛出書聖人則之。河圖與易之天一地十者合而載天地五十有五之數，則固易之所自生也。洛書與洪範之初一至次九者合而具九疇之數，則固範之所自出也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 2,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷上",
+   "snippet": "伏羲氏繼天而王受河圖而畫之八卦是也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 3,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷上",
+   "snippet": "禹治洪水賜洛書法而陳之九疇是也。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 4,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷上",
+   "snippet": "河圖洛書相為經緯，八卦九章相為表裏。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 5,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷下",
+   "snippet": "河圖洛書之中數皆五，衍之而各極其數以至於十，則合為五十矣。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 6,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/yixue-qimeng/卷下",
+   "snippet": "天地之數不過五而已，五者數之祖也。河圖洛書皆五居中而為數祖宗。此五也於五行為土，於五常為信，水火木金不得土不能各成一器。",
+   "supports": true,
+   "weight": 1.0
+  }
+ ]
+}
