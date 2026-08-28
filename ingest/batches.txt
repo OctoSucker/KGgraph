@@ -15,3 +15,4 @@ ingest/liuren-zhinan.json
 ingest/yijing-qiankun-zaodu.json
 ingest/shenfeng-tongkao.json
 ingest/mayi-xiangfa.json
+ingest/bushi-zhengzong.json
