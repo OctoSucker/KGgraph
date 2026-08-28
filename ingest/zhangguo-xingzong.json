@@ -1,0 +1,149 @@
+{
+ "mode": "import_graph",
+ "schema_version": 1,
+ "nodes": [
+  {
+   "id": "七政四余",
+   "node_type": "rule",
+   "aliases": [
+    "以日月五星（七政）加四余排星盘断命"
+   ]
+  },
+  {
+   "id": "变曜配宫",
+   "node_type": "rule",
+   "aliases": [
+    "天禄管官禄，天暗属相貌，天福属财帛福德迁移，天耗属兄弟，天荫属妻妾"
+   ]
+  },
+  {
+   "id": "周天度数",
+   "node_type": "rule",
+   "aliases": [
+    "周天三百六十五度四分度之一，分配十二宫"
+   ]
+  },
+  {
+   "id": "张果星宗",
+   "node_type": "concept",
+   "aliases": [
+    "果老星宗",
+    "七政四余",
+    "星命"
+   ]
+  },
+  {
+   "id": "弱宫",
+   "node_type": "rule",
+   "aliases": [
+    "弱宫谓兄弟、奴仆、疾厄、相貌、迁移，临弱宫者衰"
+   ]
+  },
+  {
+   "id": "强宫",
+   "node_type": "rule",
+   "aliases": [
+    "强宫谓命宫、官禄、田宅、妻妾、男女、福德、财帛，居强宫者旺"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "id": 1,
+   "from_id": "七政四余",
+   "to_id": "张果星宗",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhangguo-xingzong/全文"
+  },
+  {
+   "id": 2,
+   "from_id": "周天度数",
+   "to_id": "张果星宗",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhangguo-xingzong/全文"
+  },
+  {
+   "id": 3,
+   "from_id": "强宫",
+   "to_id": "张果星宗",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhangguo-xingzong/全文"
+  },
+  {
+   "id": 4,
+   "from_id": "弱宫",
+   "to_id": "张果星宗",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.9,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhangguo-xingzong/全文"
+  },
+  {
+   "id": 5,
+   "from_id": "变曜配宫",
+   "to_id": "张果星宗",
+   "relation_type": "is_a",
+   "polarity": 1,
+   "confidence": 0.85,
+   "condition_text": "",
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhangguo-xingzong/全文"
+  }
+ ],
+ "evidence": [
+  {
+   "edge_id": 1,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhangguo-xingzong/全文",
+   "snippet": "排下七政四余原，掌身命、官福、田财、妻嗣及文魁、经纬、三元、四元等星。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 2,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhangguo-xingzong/全文",
+   "snippet": "度数过宫，周天三百六十五度四分，度之一分配十二宫，其过宫，分秒具于图中。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 3,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhangguo-xingzong/全文",
+   "snippet": "强宫者，谓命宫、官禄、田宅、妻妾、男女、福德、财帛，又云：财帛次弱，与其命宫相违故耳。居强宫者旺。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 4,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhangguo-xingzong/全文",
+   "snippet": "弱宫者，谓兄弟、奴仆、疾厄、相貌、迁移，又云：迁移近强，与其命宫相向故也。临弱宫者衰。",
+   "supports": true,
+   "weight": 1.0
+  },
+  {
+   "edge_id": 5,
+   "source_type": "corpus_extracted",
+   "source_ref": "zhouyi-v2/gushu/zhangguo-xingzong/全文",
+   "snippet": "凡当年星变为天禄者，即其星管官禄也。变为暗者属相貌，变为福者属财帛、福德迁移，变为耗者属兄弟，变为荫者属妻妾。",
+   "supports": true,
+   "weight": 1.0
+  }
+ ]
+}
