@@ -77,7 +77,11 @@ func FetchYihaiguanyao(ctx context.Context, book Book, dir string, force bool) (
 		sb.WriteString(cleanYhgyPage(page))
 		time.Sleep(250 * time.Millisecond)
 	}
-	full := squeezeBlankLines(sb.String())
+	fullText, err := SimplifyChinese(squeezeBlankLines(sb.String()))
+	if err != nil {
+		return nil, err
+	}
+	full := fullText
 
 	bookDir := filepath.Join(dir, book.ID)
 	if err := os.MkdirAll(bookDir, 0o755); err != nil {

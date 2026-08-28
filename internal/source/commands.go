@@ -188,7 +188,10 @@ func runClean(argv []string) {
 			if err != nil {
 				continue
 			}
-			out := CleanWikitext(string(raw))
+			out, err := SimplifyChinese(CleanWikitext(string(raw)))
+			if err != nil {
+				fail(1, map[string]any{"error": err.Error()})
+			}
 			if strings.TrimSpace(out) != strings.TrimSpace(string(raw)) {
 				if err := os.WriteFile(p, []byte(out+"\n"), 0o644); err != nil {
 					fail(1, map[string]any{"error": err.Error()})

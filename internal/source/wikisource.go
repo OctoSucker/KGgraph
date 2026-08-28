@@ -139,7 +139,10 @@ func FetchWikisource(ctx context.Context, book Book, dir string, force bool) (*B
 	sort.Strings(titles)
 	var entries []ChapterEntry
 	for _, t := range titles {
-		text := CleanWikitext(pages[t])
+		text, err := SimplifyChinese(CleanWikitext(pages[t]))
+		if err != nil {
+			return nil, fmt.Errorf("simplify %s: %w", t, err)
+		}
 		if strings.TrimSpace(text) == "" {
 			continue
 		}

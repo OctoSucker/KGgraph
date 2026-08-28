@@ -99,7 +99,12 @@ func fetchCtextChapter(ctx context.Context, chapterID string) (string, error) {
 			parts = append(parts, text)
 		}
 	}
-	return squeezeBlankLines(strings.Join(parts, "\n\n")), nil
+	text := squeezeBlankLines(strings.Join(parts, "\n\n"))
+	sim, err := SimplifyChinese(text)
+	if err != nil {
+		return "", err
+	}
+	return sim, nil
 }
 
 func stripTags(s string) string {
