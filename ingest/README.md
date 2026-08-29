@@ -6,23 +6,34 @@
 
 ## 设计原则
 
-1. **程序化、确定性**：基础层由 `kggraph seed-foundation` 生成，零 LLM；
-   数据表在代码里，循环、校验都由程序完成，不依赖 agent 自驱动。
-2. **逐字可回溯**：`corpus_extracted` 片段在生成时即与语料校验
+1. **程序只做机制，知识进图**：基础层由 `kggraph seed-foundation` 生成，
+   零 LLM。代码里只有解析/校验机制（说卦解析、大象传上下卦、8×8 组合
+   完整性、逐字断言），**不含领域事实表**。
+2. **知识来源**：
+   - 语料直接推导：八卦取象/卦德/家庭/身体/动物/后天方位来自《说卦》；
+     六十四卦卦序来自各卦文件标题行（“周易　第X卦”），上下卦来自
+     各卦《大象传》（如“云雷，屯”→上坎下震）；
+   - 语料未直述的约定知识（五行配卦/先天数/洛书数/先天方位/正象/口诀）
+     放在 `ingest/foundation-axioms.json`，每条带出处，供人工评审。
+3. **逐字可回溯**：`corpus_extracted` 片段在生成时即与**对应来源文件**
    （去空白后必须逐字命中）；概括性常识标 `corpus_summary` 并附现代汉语译文。
-3. **v2 结构化**：
+4. **v2 结构化**：
    - 节点带 `domain`（子学科轴：周易 / 易学基础…）
    - 边带 `edge_kind`（structural / matrix / attribution…）与
      `condition_json`（结构化条件，如 先天/后天、上卦/下卦）
    - 证据带 `translation`（文言→现代汉语），`snippet` 保留原文
-4. **跨体系重名加前缀**：如 `八卦·乾`（三爻经卦）与 `卦·乾为天`（六爻别卦）
+5. **跨体系重名加前缀**：如 `八卦·乾`（三爻经卦）与 `卦·乾为天`（六爻别卦）
    是不同节点；后续 `子平·七杀` / `紫微·七杀` 同理。
+
+生成器内置强校验：六十四卦的上下卦必须覆盖 8×8 全部组合且互不重复、
+卦序必须 1..64 无缺无重、全部原文片段逐字命中语料——任一不满足即报错退出。
 
 ## 命令
 
 ```bash
 # 生成基础批次（确定性，含原文校验）
-kggraph seed-foundation --corpus gushu/zhouyi --out ingest/zhouyi-foundation.json
+kggraph seed-foundation --corpus gushu/zhouyi \
+  --axioms ingest/foundation-axioms.json --out ingest/zhouyi-foundation.json
 
 # 导入（不需要 embedding 时关掉，避免配额干扰）
 kggraph import-graph --db data/kggraph.sqlite --file ingest/zhouyi-foundation.json \
@@ -33,6 +44,6 @@ kggraph import-graph --db data/kggraph.sqlite --file ingest/zhouyi-foundation.js
 
 | 批次 | 内容 | 节点/边/证据 | 状态 |
 | --- | --- | --- | --- |
-| 01 | 八卦周易基础（阴阳/五行生克/八卦全属性/六十四卦构成与卦序） | 204 / 434 / 154 | 已入库 |
+| 01 | 八卦周易基础（阴阳/五行生克/八卦全属性/六十四卦构成与卦序） | 204 / 434 / 282 | 已入库 |
 
-当前合计：204 节点 / 434 边 / 154 证据（56 逐字原文 + 98 概括标注）。
+当前合计：204 节点 / 434 边 / 282 证据（238 逐字原文 + 44 概括标注）。

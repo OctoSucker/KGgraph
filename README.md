@@ -4,9 +4,10 @@ KGgraph 是一个 Go 实现的知识图谱与规则推理引擎，定位是 AI A
 
 ## 文档导航
 
-- [基础架构设计](docs/01-architecture.md)：设计目的、思路、改进过程与值得记录的决策
-- [产品实践：周易八卦算术](docs/02-product-zhouyi-bagua.md)：古籍语料 → 知识图谱 → 前端与 Agent 的产品规划
+- [基础架构设计](docs/01-architecture.md)：设计目标、功能点与设计取舍、LLM 数据工程能力底座
+- [产品实践：周易八卦算术](docs/02-product-zhouyi-bagua.md)：训练数据工程案例（语料 → 图谱 → SFT / 偏好 / Agent 数据产线）
 - [Vibe Coding 哲学](docs/03-vibe-coding-philosophy.md)：基建先行、小步验证、流程固化的开发记录
+- [职业能力地图](docs/04-career-direction.md)：项目与 LLM 后训练 / 数据工程岗位要求的对应
 
 ## 特性
 
